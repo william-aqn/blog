@@ -226,6 +226,7 @@ plugin options - tls;host=<домен>;path=/bdsm
 proxy port - локальный порт куда будем направлять браузер (по дефолту 1080, можно не трогать)
 ```
 
-## Настраиваем клиент под android
+## Клиент под android
 
-В гуглплэй находим 
+В гуглплэй устанавливаем <https://play.google.com/store/apps/details?id=com.github.shadowsocks>
+И плагин v2ray <https://play.google.com/store/apps/details?id=com.github.shadowsocks.plugin.v2ray>
