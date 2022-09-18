@@ -105,8 +105,8 @@ server {
 Вбиваем в адресную строку браузера наш сайт и проверяем, что всё работает
 
 
-9. Устанавливаем shadowsocks (Если у вас x64):
-    * Если у вас arm64 см пункт 11:
+10. Устанавливаем shadowsocks (Если у вас x64):
+    * Если у вас arm64 см пункт 12:
 
 Создаем папку под бинарники сс:
 `mkdir /etc/ss-go`
@@ -126,7 +126,7 @@ server {
 Повышаем права сс и позволяем ему занимать привилегированные порты:
 `setcap "cap_net_bind_service=+eip" /etc/ss-go/ss-go`
 
-10.  Устанавливаем v2ray плагин 
+11.  Устанавливаем v2ray плагин 
 Cкачиваем плагин (тут вместо “v1.3.1/v2ray-plugin-linux-amd64-v1.3.1.tar.gz” может быть что-то другое, последняя версия лежит тут https://github.com/shadowsocks/v2ray-plugin/releases/latest)
 
 `wget https://github.com/shadowsocks/v2ray-plugin/releases/download/v1.3.1/v2ray-plugin-linux-amd64-v1.3.1.tar.gz`
@@ -163,7 +163,7 @@ WantedBy=multi-user.target
 Включаем сервис:
 `systemctl enable ss-v2ray.service`
 
-11. Устанавливаем shadowsocks (Если у вас arm64):
+12. Устанавливаем shadowsocks (Если у вас arm64):
 Качаем rust версию
 `wget https://github.com/shadowsocks/shadowsocks-rust/releases/download/v1.14.3/shadowsocks-v1.14.3.aarch64-unknown-linux-gnu.tar.xz`
 Берём оттуда ssserver
@@ -203,7 +203,7 @@ WantedBy=multi-user.target
 
 `ExecStart=/etc/ss-go/ss-go -c /etc/ss-go/shadowsocks-rust.json`
 
-12. Настраиваем клиент под windows.
+13. Настраиваем клиент под windows.
 
 Качаем последнюю версию клиента shadowsocks с гитхаба – https://github.com/shadowsocks/shadowsocks-windows/releases и устанавливаем.
 
