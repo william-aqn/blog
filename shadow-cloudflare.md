@@ -175,7 +175,9 @@ WantedBy=multi-user.target
 Делаем конфиг
 `nano /etc/ss-go/shadowsocks-rust.json`
 
-```{
+
+```
+{
 "server": "127.0.0.1",
 "server_port": 8008,
 "password": "пароль",
@@ -190,7 +192,8 @@ WantedBy=multi-user.target
 "mode": "tcp_and_udp",
 "plugin": "/etc/ss-go/v2ray-plugin",
 "plugin_opts": "server;loglevel=none;path=/bdsm"
-}```
+}
+```
 
 Меняем в 
 `nano /etc/systemd/system/ss-v2ray.service`
