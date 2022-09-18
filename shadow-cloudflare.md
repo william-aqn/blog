@@ -1,5 +1,6 @@
 # Дабл впн или шифруемся грамотно
 *За основу брал мануал https://bernd32.blogspot.com/2022/03/shadowsocksv2ray-tls.html*
+## Точка входа Cloudflare, точка выхода - ваша vps
 
 1. Покупаем любой домен, или используем свой (если уже есть)
     * Чтобы получить домен бесплатно, регаем .tk здесь – https://www.freenom.com/ru/index.html
@@ -38,6 +39,7 @@
 
 7. Забираем SSL сертификат и приватный ключ у Cloudflare для нашего домена (**SSL/TLS**->**Origin Server**) и сохраняем в `/nginx/ssl/<домен>/public.key и /nginx/ssl/<домен>/private.key`
     * Внимание! **Он валидный ТОЛЬКО с Cloudflare**. Нужен что бы nginx хорошо себя вёл.
+    * Генерируем на нашем сервере `openssl dhparam -out /etc/nginx/ssl/dhparam.pem 4096`
 
 8. В настройках своего домена на Cloudflare, в разделе **SSL/TLS** ставим **Full(strict)**.
 
@@ -47,15 +49,14 @@
 Вставляем (и не забываем вставить свой домен вместо <домен>):
 ```
 server {
+    server_name <домен>;
 
-       server_name <домен>;
+    root /var/www/<домен>;
+    index index.html;
 
-       root /var/www/<домен>;
-       index index.html;
-
-       location / {
-               try_files $uri $uri/ =404;
-       }
+    location / {
+            try_files $uri $uri/ =404;
+    }
 
     location /bdsm {
         proxy_redirect off;
@@ -76,9 +77,11 @@ server {
 
     ssl_protocols TLSv1.2 TLSv1.3;
     ssl_prefer_server_ciphers off;
+    ssl_dhparam /etc/nginx/ssl/dhparam.pem;
 
     ssl_ciphers "ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384";
 }
+
 server {
     if ($host = <домен>) {
         return 301 https://$host$request_uri;
