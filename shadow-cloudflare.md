@@ -1,4 +1,4 @@
-# Дабл впн или шифруемся грамотно
+# Дабл впн или шифруемся грамотно (никаких докеров и certbotoв)
 *За основу брал мануал https://bernd32.blogspot.com/2022/03/shadowsocksv2ray-tls.html*
 ## Точка входа Cloudflare, точка выхода - ваша vps
 
@@ -220,3 +220,7 @@ plugin program - v2ray-plugin_windows_amd64.exe
 plugin options - tls;host=<домен>;path=/bdsm
 proxy port - локальный порт куда будем направлять браузер (по дефолту 1080, можно не трогать)
 ```
+
+## Настраиваем клиент под android.
+
+В гуглплэй находим 
