@@ -95,7 +95,8 @@ server {
 }
 
 ```
-    * Включаем сайт:
+
+11. Включаем сайт:
 `ln -s /etc/nginx/sites-available/<домен> /etc/nginx/sites-enabled/`
 
     * Рестартим nginx:
@@ -103,8 +104,8 @@ server {
 
     * Вбиваем в адресную строку браузера наш сайт и проверяем, что всё работает
 
-10. Устанавливаем shadowsocks (Если у вас x64):
-*Если у вас arm64 см пункт 12*
+12. Устанавливаем shadowsocks (Если у вас x64):
+*Если у вас arm64 см пункт 14*
 
     * Создаем папку под бинарники сс:
 `mkdir /etc/ss-go`
@@ -124,7 +125,7 @@ server {
     * Повышаем права сс и позволяем ему занимать привилегированные порты:
 `setcap "cap_net_bind_service=+eip" /etc/ss-go/ss-go`
 
-11.  Устанавливаем v2ray плагин
+13.  Устанавливаем v2ray плагин
     * Cкачиваем плагин
 *(тут вместо v1.3.1/v2ray-plugin-linux-amd64-v1.3.1.tar.gz может быть что-то другое, последняя версия лежит тут https://github.com/shadowsocks/v2ray-plugin/releases/latest)*
 
@@ -162,7 +163,7 @@ WantedBy=multi-user.target
     * Включаем сервис:
 `systemctl enable ss-v2ray.service`
 
-12. Устанавливаем shadowsocks (Если у вас arm64):
+14. Устанавливаем shadowsocks (Если у вас arm64):
     * Качаем rust версию
 `wget https://github.com/shadowsocks/shadowsocks-rust/releases/download/v1.14.3/shadowsocks-v1.14.3.aarch64-unknown-linux-gnu.tar.xz`
     * Берём оттуда ssserver
