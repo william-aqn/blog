@@ -178,7 +178,6 @@ WantedBy=multi-user.target
 Делаем конфиг
 `nano /etc/ss-go/shadowsocks-rust.json`
 
-
 ```
 {
 "server": "127.0.0.1",
@@ -203,7 +202,7 @@ WantedBy=multi-user.target
 
 `ExecStart=/etc/ss-go/ss-go -c /etc/ss-go/shadowsocks-rust.json`
 
-13. Настраиваем клиент под windows.
+## Настраиваем клиент под windows.
 
 Качаем последнюю версию клиента shadowsocks с гитхаба – https://github.com/shadowsocks/shadowsocks-windows/releases и устанавливаем.
 
