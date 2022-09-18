@@ -106,41 +106,42 @@ server {
 
 
 10. Устанавливаем shadowsocks (Если у вас x64):
-    * Если у вас arm64 см пункт 12:
+*Если у вас arm64 см пункт 12*
 
-Создаем папку под бинарники сс:
+    * Создаем папку под бинарники сс:
 `mkdir /etc/ss-go`
 
-Качаем бинарник сс с гитхаба:
+    * Качаем бинарник сс с гитхаба:
 `wget https://github.com/shadowsocks/go-shadowsocks2/releases/download/v0.1.5/shadowsocks2-linux.gz`
 
-Распакуем архив сс-го:
+    * Распакуем архив сс-го:
 `gzip -d shadowsocks2-linux.gz`
 
-Переносим и переименуем бинарник:
+    * Переносим и переименуем бинарник:
 `mv shadowsocks2-linux /etc/ss-go/ss-go`
 
-Делаем бинарник исполняемым:
+    * Делаем бинарник исполняемым:
 `chmod +x /etc/ss-go/ss-go`
 
-Повышаем права сс и позволяем ему занимать привилегированные порты:
+    * Повышаем права сс и позволяем ему занимать привилегированные порты:
 `setcap "cap_net_bind_service=+eip" /etc/ss-go/ss-go`
 
 11.  Устанавливаем v2ray плагин
-*Cкачиваем плагин (тут вместо v1.3.1/v2ray-plugin-linux-amd64-v1.3.1.tar.gz может быть что-то другое, последняя версия лежит тут https://github.com/shadowsocks/v2ray-plugin/releases/latest)*
+    * Cкачиваем плагин
+*(тут вместо v1.3.1/v2ray-plugin-linux-amd64-v1.3.1.tar.gz может быть что-то другое, последняя версия лежит тут https://github.com/shadowsocks/v2ray-plugin/releases/latest)*
 
 `wget https://github.com/shadowsocks/v2ray-plugin/releases/download/v1.3.1/v2ray-plugin-linux-amd64-v1.3.1.tar.gz`
 
-Разархивируем сам плагин, тут опять же может быть другой файл в зависимости от скачиваемой версии:
+    * Разархивируем сам плагин, тут опять же может быть другой файл в зависимости от скачиваемой версии:
 `tar -xf v2ray-plugin-linux-amd64-v1.3.1.tar.gz`
 
-Переносим и переименуем плагин:
+    * Переносим и переименуем плагин:
 `mv v2ray-plugin_linux_amd64 /etc/ss-go/v2ray-plugin`
 
-Даем возможность v2ray-плагину занимать привилегированные порты:
+    * Даем возможность v2ray-плагину занимать привилегированные порты:
 `setcap "cap_net_bind_service=+eip" /etc/ss-go/v2ray-plugin`
 
-Вставляем следующее (вместо <пароль> нужно придумать пароль):
+    * Вставляем следующее (вместо <пароль> нужно придумать пароль):
 `nano /etc/systemd/system/ss-v2ray.service`
 
 ```
@@ -158,24 +159,24 @@ ExecStart=/etc/ss-go/ss-go -s localhost:8008 -password <пароль> -cipher AE
 [Install]
 WantedBy=multi-user.target
 ```
-Сохраняем ctrl + o, закрываем ctrl + x
+    * Сохраняем ctrl + o, закрываем ctrl + x
 
-Включаем сервис:
+    * Включаем сервис:
 `systemctl enable ss-v2ray.service`
 
 12. Устанавливаем shadowsocks (Если у вас arm64):
-Качаем rust версию
+    * Качаем rust версию
 `wget https://github.com/shadowsocks/shadowsocks-rust/releases/download/v1.14.3/shadowsocks-v1.14.3.aarch64-unknown-linux-gnu.tar.xz`
-Берём оттуда ssserver
+    * Берём оттуда ssserver
 `mv ssserver /etc/ss-go/ss-go`
 
-Делаем бинарник исполняемым:
+    * Делаем бинарник исполняемым:
 `chmod +x /etc/ss-go/ss-go`
 
-Повышаем права сс и позволяем ему занимать привилегированные порты:
+    * Повышаем права сс и позволяем ему занимать привилегированные порты:
 `setcap "cap_net_bind_service=+eip" /etc/ss-go/ss-go`
 
-Делаем конфиг
+    * Делаем конфиг
 `nano /etc/ss-go/shadowsocks-rust.json`
 
 ```
@@ -197,20 +198,20 @@ WantedBy=multi-user.target
 }
 ```
 
-Меняем в 
+    * Меняем в 
 `nano /etc/systemd/system/ss-v2ray.service`
 
 `ExecStart=/etc/ss-go/ss-go -c /etc/ss-go/shadowsocks-rust.json`
 
 ## Настраиваем клиент под windows.
 
-Качаем последнюю версию клиента shadowsocks с гитхаба – https://github.com/shadowsocks/shadowsocks-windows/releases и устанавливаем.
+* Качаем последнюю версию клиента shadowsocks с гитхаба – https://github.com/shadowsocks/shadowsocks-windows/releases и устанавливаем.
 
-Качаем последнюю версию плагина v2ray: https://github.com/shadowsocks/v2ray-plugin/releases
+* Качаем последнюю версию плагина v2ray: https://github.com/shadowsocks/v2ray-plugin/releases
 
-Файлик v2ray-plugin_windows_amd64.exe кидаем в одну с папку с исполняемым файлом ss-клиента Shadowsocks.exe
+* Файлик v2ray-plugin_windows_amd64.exe кидаем в одну с папку с исполняемым файлом ss-клиента Shadowsocks.exe
 
-Далее в конфиге клиента прописываем:
+* В конфиге клиента прописываем:
 ```
 server addr - <домен>
 server port - 443
