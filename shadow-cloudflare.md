@@ -158,8 +158,8 @@ ExecStart=/etc/ss-go/ss-go -s localhost:8008 -password <пароль> -cipher AE
 [Install]
 WantedBy=multi-user.target
 ```
-
 Сохраняем ctrl + o, закрываем ctrl + x
+
 Включаем сервис:
 `systemctl enable ss-v2ray.service`
 
