@@ -1,4 +1,6 @@
 # Дабл впн или шифруемся грамотно
+*За основу брал мануал https://bernd32.blogspot.com/2022/03/shadowsocksv2ray-tls.html*
+
 1. Покупаем любой домен, или используем свой (если уже есть)
     * Чтобы получить домен бесплатно, регаем .tk здесь – https://www.freenom.com/ru/index.html
 
@@ -34,10 +36,10 @@
 </html>
 ```
 
-7. Забираем SSL сертификат и приватный ключ у Cloudflare для нашего домена (SSL/TLS->Origin Server) и сохраняем в `/nginx/ssl/<домен>/public.key и /nginx/ssl/<домен>/private.key`
+7. Забираем SSL сертификат и приватный ключ у Cloudflare для нашего домена (**SSL/TLS**->**Origin Server**) и сохраняем в `/nginx/ssl/<домен>/public.key и /nginx/ssl/<домен>/private.key`
     * Внимание! Он валидный ТОЛЬКО с Cloudflare. Нужен что бы nginx хорошо себя вёл.
 
-8. В настройках своего домена на Cloudflare, в разделе SSL/TLS ставим Full(strict).
+8. В настройках своего домена на Cloudflare, в разделе **SSL/TLS** ставим **Full(strict)**.
 
 9. Создаем конфиг для нашего сайта:
 `nano /etc/nginx/sites-available/<домен>`
@@ -210,16 +212,6 @@ server port - 443
 password - <пароль>
 encryption - chacha20-ietf-poly1305
 plugin program - v2ray-plugin_windows_amd64.exe
-plugin options - tls;host=<домен>;path=/anime
+plugin options - tls;host=<домен>;path=/bdsm
 proxy port - локальный порт куда будем направлять браузер (по дефолту 1080, можно не трогать)
 ```
-
-+ Хлеб
-+ Молочные продукты
-  1. Кефир
-  2. Ряженка
-
-1. Молоко
-2. Хлебобулочные изделия
-    + Бублик
-    + Ватрушка
