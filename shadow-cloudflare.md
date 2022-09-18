@@ -228,5 +228,5 @@ proxy port - локальный порт куда будем направлят�
 
 ## Клиент под android
 
-В гуглплэй устанавливаем <https://play.google.com/store/apps/details?id=com.github.shadowsocks>
-И плагин v2ray <https://play.google.com/store/apps/details?id=com.github.shadowsocks.plugin.v2ray>
+1. Устанавливаем <https://play.google.com/store/apps/details?id=com.github.shadowsocks>
+2. +плагин v2ray <https://play.google.com/store/apps/details?id=com.github.shadowsocks.plugin.v2ray>
