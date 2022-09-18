@@ -182,7 +182,7 @@
     * Делаем конфиг
 `nano /etc/ss-go/shadowsocks-rust.json`
 
-    ```
+    ```json
     {
     "server": "127.0.0.1",
     "server_port": 8008,
@@ -208,9 +208,9 @@
 
 ## Настраиваем клиент под windows
 
-* Качаем последнюю версию клиента shadowsocks с гитхаба – https://github.com/shadowsocks/shadowsocks-windows/releases и устанавливаем.
+* Качаем последнюю версию клиента shadowsocks с гитхаба – <https://github.com/shadowsocks/shadowsocks-windows/releases> и устанавливаем.
 
-* Качаем последнюю версию плагина v2ray: https://github.com/shadowsocks/v2ray-plugin/releases
+* Качаем последнюю версию плагина v2ray: <https://github.com/shadowsocks/v2ray-plugin/releases>
 
 * Файлик v2ray-plugin_windows_amd64.exe кидаем в одну с папку с исполняемым файлом ss-клиента Shadowsocks.exe
 
