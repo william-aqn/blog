@@ -95,7 +95,6 @@ server {
 }
 
 ```
-
     * Включаем сайт:
 `ln -s /etc/nginx/sites-available/<домен> /etc/nginx/sites-enabled/`
 
@@ -103,7 +102,6 @@ server {
 `systemctl restart nginx`
 
     * Вбиваем в адресную строку браузера наш сайт и проверяем, что всё работает
-
 
 10. Устанавливаем shadowsocks (Если у вас x64):
 *Если у вас arm64 см пункт 12*
