@@ -127,7 +127,7 @@ server {
 
 13.  Устанавливаем v2ray плагин
     * Cкачиваем плагин
-*(тут вместо v1.3.1/v2ray-plugin-linux-amd64-v1.3.1.tar.gz может быть что-то другое, последняя версия лежит тут https://github.com/shadowsocks/v2ray-plugin/releases/latest)*
+Вместо v1.3.1/v2ray-plugin-linux-amd64-v1.3.1.tar.gz может быть что-то другое, последняя версия лежит тут https://github.com/shadowsocks/v2ray-plugin/releases/latest
 
 `wget https://github.com/shadowsocks/v2ray-plugin/releases/download/v1.3.1/v2ray-plugin-linux-amd64-v1.3.1.tar.gz`
 
