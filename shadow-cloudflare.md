@@ -3,7 +3,8 @@
     * Чтобы получить домен бесплатно, регаем .tk здесь – https://www.freenom.com/ru/index.html
 
 2. Регистрируемся в Cloudflare и привязываем туда созданный домен
-    * Ждём несколько часов, пока DNS-записи обновятся. А пока зайдём в **Firewall** клаудфлэра и изменим **security level** на **essentially off**
+    * Ждём несколько часов, пока DNS-записи обновятся. 
+    * Зайдём в **Firewall** Cloudflare и изменим **security level** на **essentially off**
 
 3. Разворачиваем на нашей VPS-ке shadowsocks
     * Все команды выполняются под рутом. `sudo su -` наше всё
