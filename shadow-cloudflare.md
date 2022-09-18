@@ -125,11 +125,11 @@ server {
     * Повышаем права сс и позволяем ему занимать привилегированные порты:
 `setcap "cap_net_bind_service=+eip" /etc/ss-go/ss-go`
 
-13. Устанавливаем v2ray плагин
+13. Устанавливаем v2ray плагин:
 
-    * Cкачиваем плагин
+    * Cкачиваем плагин (вместо v1.3.1/v2ray-plugin-linux-amd64-v1.3.1.tar.gz может быть что-то другое, последняя версия лежит тут https://github.com/shadowsocks/v2ray-plugin/releases/latest)
+
 `wget https://github.com/shadowsocks/v2ray-plugin/releases/download/v1.3.1/v2ray-plugin-linux-amd64-v1.3.1.tar.gz`
-
     * Разархивируем сам плагин, тут опять же может быть другой файл в зависимости от скачиваемой версии:
 `tar -xf v2ray-plugin-linux-amd64-v1.3.1.tar.gz`
 
