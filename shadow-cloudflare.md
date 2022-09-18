@@ -16,7 +16,7 @@
     * Удаляем дефолтный конфиг: `rm /etc/nginx/sites-available/default && sudo rm /etc/nginx/sites-enabled/default`
 
 6. Cоздаем root-директорию, в которой будут находиться файлы нашего сайта `sudo mkdir /var/www/<домен>`
-Создаем там файл **index.html**
+    * Создаем там файл **index.html**
 `nano /var/www/<домен>/index.html`
 и записываем туда что угодно, например
 ```
