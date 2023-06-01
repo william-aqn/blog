@@ -69,5 +69,5 @@ docker run -itd \
     * Настройка профиля
     ![Настройка nekobox](assets/shadow-reality/win-nekobox.png)
 * Android https://github.com/MatsuriDayo/NekoBoxForAndroid/releases
-  * https://4pda.to/forum/index.php?showtopic=1065786 
+  * https://4pda.to/forum/index.php?showtopic=1065786
 * IOS https://apps.apple.com/us/app/shadowrocket/id932747118
