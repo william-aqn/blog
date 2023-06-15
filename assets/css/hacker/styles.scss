@@ -7,3 +7,6 @@ $main-color: #E4C49F;
 header h1, h1 {
     color: $main-color;
 }
+header {
+    border-bottom:1px dashed $main-color;
+}
