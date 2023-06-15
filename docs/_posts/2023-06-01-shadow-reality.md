@@ -1,10 +1,11 @@
 ---
 layout: post
+title: "Великий Китайский Файрвол"
 tags: vpn
 ---
 # Великий Китайский Файрвол
 *За основу брал мануал <https://habr.com/ru/articles/735536/>*
-<!--more-->
+
 Панель на сервере https://github.com/alireza0/x-ui
 * Устанаваливаем
 ```bash

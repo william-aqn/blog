@@ -1,9 +1,10 @@
 ---
 layout: post
+title: "Подключаем детектор углекислого газа Даджет к Home Assistant (ZyAura ZGm053U CO2 & Temperature Monitor) через ESPHome"
 tags: homeassistant esphome diy
 ---
 # Подключаем детектор углекислого газа Даджет к Home Assistant (ZyAura ZGm053U CO2 & Temperature Monitor) через ESPHome
-<!--more-->
+
 https://esphome.io/components/sensor/zyaura.html
 
 В наличии был esp01 который идеально подходит к пинам на плате

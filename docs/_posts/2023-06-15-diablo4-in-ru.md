@@ -1,5 +1,6 @@
 ---
 layout: post
+title: "Как запустить Diablo 4 в России"
 tags: game
 ---
 # Как запустить Diablo 4 в России
