@@ -7,9 +7,12 @@ layout: null
     <loc>{{ "/" | prepend: site.baseurl | prepend: site.url }}</loc>
     <lastmod>{{ site.time | date_to_rfc822 }}</lastmod>
     <priority>1.0</priority>
-  </url> {% for post in site.posts %} <url>
+  </url> 
+  {% for post in site.posts %}
+  <url>
     <loc>{{ post.url | prepend: site.baseurl | prepend: site.url }}</loc>
     <lastmod>{{ post.date | date_to_rfc822 }}</lastmod>
     <priority>0.4</priority>
   </url>
+  {% endfor %}
 </urlset>
