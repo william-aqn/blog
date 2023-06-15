@@ -1,20 +1,8 @@
 ---
 layout: hacker
 ---
-<header>
-  <div class="brand">
-    <p class="brand_name"><a href="/">Кримсон</a></p>
-    <p class="brand_slogan">{{ page.title }}</p>
-  </div>
-</header>
-<main>
-  <section class="well-1 border-top">
-    <div class="container">
-      <small>{{ page.date | date: "%-d %B %Y" }}</small>
-      {{content}}
-      {% if page.tags %}
-      <small>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small>
-      {% endif %}
-    </div>
-  </section>
-</main>
+<small>{{ page.date | date: "%-d %B %Y" }}</small>
+{{content}}
+{% if page.tags %}
+<small>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small>
+{% endif %}
