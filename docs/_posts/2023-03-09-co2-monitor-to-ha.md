@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "Подключаем детектор углекислого газа Даджет к Home Assistant"
 ---
 Подключаем детектор углекислого газа Даджет к Home Assistant 
 (ZyAura ZGm053U CO2 & Temperature Monitor) через ESPHome
