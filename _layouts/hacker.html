@@ -9,19 +9,16 @@
   </head>
 
   <body>
-    <header>
-      <div class="container">
-        <a id="a-title" href="{{ '/' | relative_url }}#blog">
-          <h1>{{ site.title | default: site.github.repository_name }}</h1>
-        </a>
-        <h2>{{ site.description | default: site.github.project_tagline }}</h2>
-
-        <section id="downloads">
-          <a href="{{ site.github.repository_url }}" class="btn btn-github"><span class="icon"></span>Crimson.GitHub</a>
-        </section>
-      </div>
-    </header>
-
+    <noindex>
+        <header>
+        <div class="container">
+            <a id="a-title" href="{{ '/' | relative_url }}#blog">
+            <h1>{{ site.title | default: site.github.repository_name }}</h1>
+            </a>
+            <h2>{{ site.description | default: site.github.project_tagline }}</h2>
+        </div>
+        </header>
+    </noindex>
     <div class="container">
       <section id="main_content">
         {{ content }}
