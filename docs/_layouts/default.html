@@ -1,31 +1,109 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "ru-RU" }}">
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    {% seo %}
-  </head>
+<html lang="{{ site.lang | default: " ru-RU" }}">
 
-  <body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <meta name="language" content="russian" />
+  <meta http-equiv="content-type" content="text/html" />
+  <meta name="author" content="Dark Crimson" />
+  <meta name="designer" content="Dark Crimson" />
+  <meta name="publisher" content="Dark Crimson" />  
+  <meta name=”robots” content=”index,follow” />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png" />
+  <link rel="manifest" href="/assets/images/favicons/site.webmanifest" />
+  <link rel="mask-icon" href="/assets/images/favicons/safari-pinned-tab.svg" color="#a79c74" />
+  <link rel="shortcut icon" href="/assets/images/favicons/favicon.ico" />
+  
+  <meta name="msapplication-TileColor" content="#a79c74" />
+  <meta name="msapplication-config" content="/assets/images/favicons/browserconfig.xml" />
+  <meta name="theme-color" content="#a79c74" />
+
+  <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}" />
+  {% seo %}
+  <!--link rel="stylesheet" type="text/css" href="/assets/css/grid.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/css/animate.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/css/styles.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/css/mailform.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/css/google-map.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/css/terminal.css" /-->
+
+  <script src="/assets/js/swiffy.js"></script>
+  <script src="/assets/js/shape-1.js"></script>
+  <script src="/assets/js/shape-2.js"></script>
+  <script src="/assets/js/shape-3.js"></script>
+  <script src="/assets/js/shape-4.js"></script>
+  <script src="/assets/js/jquery.js"></script>
+  <script src="/assets/js/jquery-migrate-1.2.1.js"></script>
+  <!--[if lt IE 9]>
+        <html class="lt-ie9">
+          <div style="clear: both; text-align:center; position: relative;"><a href="http://windows.microsoft.com/en-US/internet-explorer/.."><img src="/assets/images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."/></a></div>
+        </html>
+        <script src="/assets/js/html5shiv.js"></script>
+  <![endif]-->
+  <script src="/assets/js/device.min.js"></script>
+  <script src="/assets/js/termly-prompt.min.js"></script>
+</head>
+
+<body>
+  <div class="page">
     <header>
-      <div class="container">
-        <a id="a-title" href="{{ '/' | relative_url }}">
-          <h1>{{ site.title | default: site.github.repository_name }}</h1>
-        </a>
-        <h2>{{ site.description | default: site.github.project_tagline }}</h2>
-
-        <section id="downloads">
-          <a href="{{ site.github.repository_url }}" class="btn btn-github"><span class="icon"></span>Crimson.GitHub</a>
-        </section>
+      <div class="brand">
+        <h1 class="brand_name"><a href="./">Кримсон</a></h1>
+        <p class="brand_slogan">Лаборатория</p>
+      </div>
+      <div id="stuck_container" class="stuck_container">
+        <nav class="nav">
+          <ul data-type="navbar" class="sf-menu">
+            <li><a href="#about"><span class="menu-item"><span>00.</span>Обо мне<br><small>Созидаю,
+                    проектирую</small></span>
+                <div class="hover">
+                  <div id="shape-1" style="width:100%; height:100%"></div>
+                </div>
+              </a></li>
+            <li><a href="#services"><span class="menu-item"><span>01.</span>Услуги<br><small>Сайты, парсеры,
+                    скрипты</small></span>
+                <div class="hover">
+                  <div id="shape-2" style="width:100%; height:100%"></div>
+                </div>
+              </a></li>
+            <li><a href="#blog"><span class="menu-item"><span>02.</span>Блог<br><small>Опыт сотен
+                    проектов</small></span>
+                <div class="hover">
+                  <div id="shape-3" style="width:100%; height:100%"></div>
+                </div>
+              </a></li>
+            <li><a href="https://t.me/dcrimson" target="_blank"><span
+                  class="menu-item"><span>03.</span>Контакты<br><small>t.me/dcrimson</small></span>
+                <div class="hover">
+                  <div id="shape-4" style="width:100%; height:100%"></div>
+                </div>
+              </a></li>
+          </ul>
+        </nav>
       </div>
     </header>
-
-    <div class="container">
-      <section id="main_content">
-        {{ content }}
+    <!--
+      ========================================================
+                                                        CONTENT
+      ========================================================
+      -->
+    {{ content }}
+    <footer>
+      <section class="well-1">
+        <div class="container">
+          <div class="copyright">DCRM © 2005 - <span id="copyright-year"></span> All Rights Reserved | <a
+              href="{{ site.github.repository_url }}" class="btn btn-github"><span
+                class="icon"></span>Crimson.GitHub</a></div>
+        </div>
       </section>
-    </div>
-  </body>
+    </footer>
+  </div>
+  <script src="/assets/js/script.js"></script>
+
 </html>
