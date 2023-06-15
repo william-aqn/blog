@@ -14,3 +14,13 @@ hr {
     border-bottom:1px dashed $main-color;
     color: $main-color
 }
+
+#blog_posts > ul > li > a:first-of-type {
+    font-size: 30px;
+    color: $main-color;
+}
+#blog_posts > ul > li h1:first-of-type {
+    display: none;
+}
+
+  
