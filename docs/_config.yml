@@ -7,3 +7,11 @@ plugins:
 title: Crimson.Lab
 description: Лаборатория Кримсона
 excerpt_separator: <!--more-->
+
+assets:
+  sources:
+    - assets/blog
+    - assets/css
+    - assets/fonts
+    - assets/images
+    - assets/js
