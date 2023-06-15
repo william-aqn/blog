@@ -4,6 +4,6 @@
 @import "{{ site.theme }}";
 
 $main-color: #E4C49F;
-h1 {
+header h1, h1 {
     color: $main-color;
 }
