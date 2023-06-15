@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Настраиваем zerotier в lxc контейнере proxmox"
+description: "2 строчки в конфиг"
 tags: proxmox zerotier
 ---
 For LXC to work : Enabling tun by default when starting a CT image to get zerotier working :

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Как запустить Diablo 4 в России"
+description: "И не попасть в бан"
 tags: game
 ---
 # Как запустить Diablo 4 в России

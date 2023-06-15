@@ -95,7 +95,8 @@ layout: default
                 {% for post in site.posts %}
                 <div class="col-md-4">
                     <a href="{{ post.url }}">
-                        <div>{{ post.title }}</div>
+                        <h3>{{ post.title }}</h3>
+                        <div>{{ post.description }}</div>
                     </a>
                 </div>
                 {% endfor %}

@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "Дабл впн или шифруемся грамотно (никаких докеров и certbotoв)"
+title: "Double VPN или шифруемся грамотно"
+description: никаких докеров и certbotoв
 tags: vpn
 ---
 # Дабл впн или шифруемся грамотно (никаких докеров и certbotoв)
