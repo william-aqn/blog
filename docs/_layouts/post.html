@@ -1,10 +1,14 @@
 ---
 layout: default
 ---
-<small>{{ page.date | date: "%-d %B %Y" }}</small>
-
-{{content}}
-
-{% if page.tags %}
-  <small>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small>
-{% endif %}
+<main>
+  <section class="well-1 border-top">
+    <div class="container">
+      <small>{{ page.date | date: "%-d %B %Y" }}</small>
+      {{content}}
+      {% if page.tags %}
+      <small>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small>
+      {% endif %}
+    </div>
+  </section>
+</main>
