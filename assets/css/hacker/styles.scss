@@ -10,3 +10,7 @@ header h1, h1, h2, h3, h4, h5, h6 {
 header {
     border-bottom:1px dashed $main-color;
 }
+hr {
+    border-bottom:1px dashed $main-color;
+    color: $main-color
+}
