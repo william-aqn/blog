@@ -1,4 +1,9 @@
-# [Как запустить D4](https://www.noob-club.ru/index.php?topic=84943.0)
+---
+layout: post
+tags: game
+---
+# Как запустить Diablo 4 в России
+0. [Оригинальный мануал](https://www.noob-club.ru/index.php?topic=84943.0)
 1. Купить через подарок где нибудь
 2. Скачать [BNetInstaller.exe](https://github.com/barncastle/Battle.Net-Installer/releases/)
 3. Запустить и ввести данные ниже

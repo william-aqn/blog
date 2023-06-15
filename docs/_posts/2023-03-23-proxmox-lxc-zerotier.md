@@ -1,3 +1,7 @@
+---
+layout: post
+tags: proxmox zerotier
+---
 For LXC to work : Enabling tun by default when starting a CT image to get zerotier working :
 
 on proxmox host Edit this file "/etc/pve/lxc/ctxxx.conf" with these 2 lines which enabled me to get zerotier working on the container, and connect to my zerotier network. After adding the lines, I simply rebooted the ct.
