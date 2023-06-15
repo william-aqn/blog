@@ -13,7 +13,7 @@ include('/assets/js/shape-2.js');
 include('/assets/js/shape-3.js');
 include('/assets/js/shape-4.js');
 include('/assets/js/device.min.js');
-include('/assets/js/termly-prompt.min.js');
+
 
 /* cookie.JS
  ========================================================*/
@@ -159,10 +159,11 @@ document.write('<meta name="viewport" content="width=device-width,initial-scale=
         stage_4.start();
 
     }
-
-    var shell = new TermlyPrompt('#terminal-container', { /* options object */ });
-    shell.run('help');
-  
+    if ($('#terminal-container').length) {
+        include('/assets/js/termly-prompt.min.js');
+        var shell = new TermlyPrompt('#terminal-container', { /* options object */ });
+        shell.run('help');
+    }
 });
 
 /* Parallax 
