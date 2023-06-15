@@ -15,5 +15,3 @@ assets:
     - assets/fonts
     - assets/images
     - assets/js
-gems:
-  - liquid-md5

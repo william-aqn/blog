@@ -5,7 +5,7 @@ layout: hacker
     <ul>
         {% for post in site.posts %}
         <li>
-            <a id="{{ page.title | md5 }}" href="{{ post.url }}">{{ post.title }}</a>
+            <a id="{{ page.id }}" href="{{ post.url }}">{{ post.title }}</a>
             <noindex>{{ post.excerpt }}</noindex>
             <hr/>
         </li>
