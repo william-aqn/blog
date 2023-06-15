@@ -1,2 +1,2 @@
 # blog
-Материалы тут https://blog.x-crm.info/
+Материалы тут [https://x-crm.info/](/_posts/)
