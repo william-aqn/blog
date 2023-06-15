@@ -7,6 +7,16 @@ function isIE() {
     return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
 };
 
+include('/assets/js/swiffy.js');
+include('/assets/js/shape-1.js');
+include('/assets/js/shape-2.js');
+include('/assets/js/shape-3.js');
+include('/assets/js/shape-4.js');
+include('/assets/js/jquery.js');
+include('/assets/js/jquery-migrate-1.2.1.js');
+include('/assets/js/device.min.js');
+include('/assets/js/termly-prompt.min.js');
+
 /* cookie.JS
  ========================================================*/
 include('/assets/js/jquery.cookie.js');
