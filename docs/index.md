@@ -1,12 +1,12 @@
-# test
+# Интересное
 <ul>
     {% for post in site.posts %}
-        <li>
-            <a href="{{ post.url }}">{{ post.title }}</a>
-        </li>
+      <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        {{ post.excerpt }}
+      </li>
     {% endfor %}
-</ul>
-
+  </ul>
 <hr>
 
 {% for tag in site.tags %}
@@ -17,14 +17,3 @@
     {% endfor %}
   </ul>
 {% endfor %}
-
-<hr>
-
-<ul>
-    {% for post in site.posts %}
-      <li>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-        {{ post.excerpt }}
-      </li>
-    {% endfor %}
-  </ul>
