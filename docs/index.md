@@ -4,6 +4,7 @@
       <li>
         <a href="{{ post.url }}">{{ post.title }}</a>
         {{ post.excerpt }}
+        <hr>
       </li>
     {% endfor %}
   </ul>
