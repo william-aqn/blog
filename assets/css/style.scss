@@ -1,8 +1,2 @@
-@import "{{ site.theme }}";
-@import "./grid.css";
-@import "./animate.css";
-@import "./styles.css";
-@import "./font-awesome.min.css";
-@import "./mailform.css";
-@import "./google-map.css";
-@import "./terminal.css";
+@import "_default_colors.scss";
+@import "rouge-base16-dark.scss";
