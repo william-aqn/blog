@@ -5,7 +5,7 @@ layout: hacker
     <ul>
         {% for post in site.posts %}
         <li>
-            <a id="{{ post.id }}" href="{{ post.url }}">{{ post.title }}</a>
+            <a id="{{ post.name }}" href="{{ post.url }}">{{ post.title }}</a>
             <noindex>{{ post.excerpt }}</noindex>
             <hr/>
         </li>
