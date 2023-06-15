@@ -45,14 +45,17 @@ function onScroll(event) {
 
     $('.sf-menu').find('a').each(function () {
         var currLink = $(this);
-        var refElement = $(currLink.attr("href"));
+        try {
+            var refElement = $(currLink.attr("href"));
 
-        if (refElement.length > 0) {
-            if ((refElement.position().top - 20) <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-                currLink.parent().parent().find('li').removeClass("active");
-                currLink.parent().addClass("active");
+            if (refElement.length > 0) {
+                if ((refElement.position().top - 20) <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                    currLink.parent().parent().find('li').removeClass("active");
+                    currLink.parent().addClass("active");
+                }
             }
-        }
+        } catch (ex){}
+        
     });
 }
 
