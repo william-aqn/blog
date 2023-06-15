@@ -9,18 +9,18 @@ function isIE() {
 
 /* cookie.JS
  ========================================================*/
-include('js/jquery.cookie.js');
+include('/assets/js/jquery.cookie.js');
 
 /* Easing library
  ========================================================*/
-include('js/jquery.easing.1.3.js');
+include('/assets/js/jquery.easing.1.3.js');
 
 /* PointerEvents
  ========================================================*/
 ;
 (function ($) {
     if(isIE() && isIE() < 11){
-        include('js/pointer-events.js');
+        include('/assets/js/pointer-events.js');
         $('html').addClass('lt-ie11');
         $(document).ready(function(){
             PointerEventsPolyfill.initialize({});
@@ -34,7 +34,7 @@ include('js/jquery.easing.1.3.js');
 (function ($) {
     var o = $('[data-equal-group]');
     if (o.length > 0) {
-        include('js/jquery.equalheights.js');
+        include('/assets/js/jquery.equalheights.js');
     }
 })(jQuery); 
 
@@ -57,7 +57,7 @@ include('js/jquery.easing.1.3.js');
 
     if ((navigator.userAgent.toLowerCase().indexOf('msie') == -1 ) || (isIE() && isIE() > 9)) {
         if (o.hasClass('desktop') && o.hasClass('wow-animation')) {
-            include('js/wow.js');
+            include('/assets/js/wow.js');
 
             $(document).ready(function () {
                 new WOW().init();
@@ -119,7 +119,7 @@ document.write('<meta name="viewport" content="width=device-width,initial-scale=
 /* Scroll To
  =============================================*/
 ;(function ($) {
-    include('js/scrollTo.js');
+    include('/assets/js/scrollTo.js');
 })(jQuery);
 
 /* Shapes
@@ -160,7 +160,7 @@ document.write('<meta name="viewport" content="width=device-width,initial-scale=
 /* Parallax 
 =============================================*/ 
 ;(function ($) { 
-    include('js/jquery.rd-parallax.js'); 
+    include('/assets/js/jquery.rd-parallax.js'); 
 })(jQuery);
 
 
