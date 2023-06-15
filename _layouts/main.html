@@ -1,6 +1,42 @@
 ---
 layout: default
 ---
+<header>
+    <div class="brand">
+        <h1 class="brand_name"><a href="./">Кримсон</a></h1>
+        <p class="brand_slogan">Лаборатория</p>
+    </div>
+    <div id="stuck_container" class="stuck_container">
+        <nav class="nav">
+            <ul data-type="navbar" class="sf-menu">
+                <li><a href="#about"><span class="menu-item"><span>00.</span>Обо мне<br><small>Созидаю,
+                                проектирую</small></span>
+                        <div class="hover">
+                            <div id="shape-1" style="width:100%; height:100%"></div>
+                        </div>
+                    </a></li>
+                <li><a href="#services"><span class="menu-item"><span>01.</span>Услуги<br><small>Сайты, парсеры,
+                                скрипты</small></span>
+                        <div class="hover">
+                            <div id="shape-2" style="width:100%; height:100%"></div>
+                        </div>
+                    </a></li>
+                <li><a href="#blog"><span class="menu-item"><span>02.</span>Блог<br><small>Опыт сотен
+                                проектов</small></span>
+                        <div class="hover">
+                            <div id="shape-3" style="width:100%; height:100%"></div>
+                        </div>
+                    </a></li>
+                <li><a href="https://t.me/dcrimson" target="_blank"><span
+                            class="menu-item"><span>03.</span>Контакты<br><small>t.me/dcrimson</small></span>
+                        <div class="hover">
+                            <div id="shape-4" style="width:100%; height:100%"></div>
+                        </div>
+                    </a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 <main>
     <section id="about" class="bg-image">
         <section class="well-1">
@@ -58,7 +94,9 @@ layout: default
             <div class="row">
                 {% for post in site.posts %}
                 <div class="col-md-12">
-                    <a href="{{ post.url }}"><h3>{{ post.title }}</h3></a>
+                    <a href="{{ post.url }}">
+                        <h3>{{ post.title }}</h3>
+                    </a>
                     <noindex>{{ post.excerpt }}</noindex>
                 </div>
                 {% endfor %}
