@@ -55,10 +55,8 @@
             <div class="row">
                 {% for post in site.posts %}
                 <div class="col-md-12">
-                    <a href="{{ post.url }}">
-                        <h3>{{ post.title }}</h3>
-                        <noindex>{{ post.excerpt }}</noindex>
-                    </a>
+                    <a href="{{ post.url }}"><h3>{{ post.title }}</h3></a>
+                    <noindex>{{ post.excerpt }}</noindex>
                 </div>
                 {% endfor %}
             </div>
