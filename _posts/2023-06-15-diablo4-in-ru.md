@@ -20,7 +20,7 @@ Repair Install (Y/N): N
 TACT Product: fenrisb
 Agent UID: fenris_beta
 ```
-Или воспользоваться бинарниками из [beta_binary.rar](https://github.com/william-aqn/diablo4/blob/main/beta_binary.rar), пароль c7148a33d7dea696012adac714b6d4f0
+Или воспользоваться бинарниками из [beta_binary.rar](https://anonfiles.com/NeYaP1waz4/beta_binary_rar), пароль c7148a33d7dea696012adac714b6d4f0
 
 4. Создаём ярлык с ключём "Diablo IV.exe" -launch
 5. Закидываем из бэты Diablo IV.exe и .build.info в релиз игры, предварительно сохранив оргинальные.
@@ -29,7 +29,7 @@ Agent UID: fenris_beta
 8. Запускаем через ярлык релиз.
 
 
-Ещё есть [unlocker.rar](https://github.com/william-aqn/diablo4/blob/main/unlocker.rar), разблокирует запуск через оригинальный battle.net клиент, пароль d84fbe00a685f25c3e3f52db43d63b06
+Ещё есть [unlocker.rar](https://anonfiles.com/QaY8Pew6z8/unlocker_rar), разблокирует запуск через оригинальный battle.net клиент, пароль d84fbe00a685f25c3e3f52db43d63b06
 **Можно поймать бан за анлокер.**
 
 
