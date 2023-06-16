@@ -5,8 +5,8 @@ description: "Через Measurement Protocol"
 tags: coding
 ---
 # Пробрасываем сессию пользователя в Google Tag Manager через Measurement Protocol
-0. За основу берём https://trackingchef.com/google-analytics/how-to-add-session-id-to-ga4-measurement-protocol-events/
-1. Собираем данные с фронта в base64 строку, что бы cloudflare не блокировал этот набор данных.
+0. За основу берём [эту статью](https://trackingchef.com/google-analytics/how-to-add-session-id-to-ga4-measurement-protocol-events/)
+1. Собираем данные с фронта в **base64** строку, что бы **cloudflare** не блокировал этот набор данных.
 
 ```js
 function getCookieByPrefix(prefix) {
@@ -71,9 +71,9 @@ try {
 ```
 
 1. На бэке сохраняем эти данные в доп.поле к заказу
-2. Для отправки используем библиотеку https://github.com/aawnu/php-ga4
+2. Для отправки используем библиотеку [php-ga4](https://github.com/aawnu/php-ga4)
 3. В итоге должен получиться вот такой набор данных, который отправляется на endpoint `# https://www.google-analytics.com/mp/collect?measurement_id=G-0*********&api_secret=*********************`
-   * session_id должен быть числом (т.е. без кавычек в json)
+   * **session_id** должен быть числом (т.е. без кавычек в json)
 
 ```json
 {
