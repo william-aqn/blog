@@ -68,7 +68,8 @@ try {
 
 ```
 2. На бэке сохраняем эти данные в доп.поле к заказу
-3. Отправляем в гугл вот такой набор данных на endpoint `# https://www.google-analytics.com/mp/collect?measurement_id=G-0*********&api_secret=*********************`
+3. Для отправки используем библиотеку https://github.com/aawnu/php-ga4
+4. В итоге должен получиться вот такой набор данных, который отправляется на endpoint `# https://www.google-analytics.com/mp/collect?measurement_id=G-0*********&api_secret=*********************`
    * session_id должен быть числом (т.е. без кавычек в json)
 ```json
 {
