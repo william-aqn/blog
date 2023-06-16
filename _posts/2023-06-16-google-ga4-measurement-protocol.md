@@ -4,6 +4,7 @@ title: "Пробрасываем сессию пользователя в Google
 description: "Через Measurement Protocol"
 tags: coding
 ---
+# Пробрасываем сессию пользователя в Google Tag Manager через Measurement Protocol
 0. За основу берём https://trackingchef.com/google-analytics/how-to-add-session-id-to-ga4-measurement-protocol-events/
 1. Собираем данные с фронта в base64 строку, что бы cloudflare не блокировал этот набор данных.
 ```js
