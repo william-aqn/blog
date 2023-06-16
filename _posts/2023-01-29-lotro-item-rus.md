@@ -15,3 +15,6 @@ tags: game
 *Изменения для новой версии оригинального плагина можно сделать самостоятельно, в репозитории написано что и где менять. Или update.cmd сделает это сам.*
 
 Можно скачать на [translate.lotros.ru](http://translate.lotros.ru/mathoms/32-item-treasury.html) или из [репозитория](https://github.com/william-aqn/item-treasury)
+
+![How to use](https://github.com/william-aqn/item-treasury/raw/main/screen.png)
+![How to use](https://github.com/william-aqn/item-treasury/raw/main/screen-window-ru-en-all.gif)
