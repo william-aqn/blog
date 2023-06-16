@@ -5,18 +5,18 @@ layout: null
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>{{ "/" | prepend: site.baseurl | prepend: site.url }}</loc>
-    <lastmod>{{ site.time | date_to_rfc822 }}</lastmod>
+    <lastmod>{{ site.time | date_to_xmlschema  }}</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>{{ "/blog" | prepend: site.baseurl | prepend: site.url }}</loc>
-    <lastmod>{{ site.time | date_to_rfc822 }}</lastmod>
+    <lastmod>{{ site.time | date_to_xmlschema  }}</lastmod>
     <priority>0.9</priority>
   </url>
   {% for post in site.posts %}
   <url>
     <loc>{{ post.url | prepend: site.baseurl | prepend: site.url }}</loc>
-    <lastmod>{{ post.date | date_to_rfc822 }}</lastmod>
+    <lastmod>{{ post.date | date_to_xmlschema  }}</lastmod>
     <priority>0.4</priority>
   </url>
   {% endfor %}
