@@ -36,7 +36,7 @@ function onScroll(event) {
     var scrollPos = $(document).scrollTop();
 
     if(((scrollPos + $(window).height()) > ($(document).height() - 100)) &&
-        $($('.sf-menu > li:last-child > a').attr('href')).length > 0
+        $($('.sf-menu > li:last-child > a[href^="#"]').attr('href')).length > 0
     ){
         $('.sf-menu li').removeClass("active");
         $('.sf-menu li:last-child').addClass("active");
