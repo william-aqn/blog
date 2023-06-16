@@ -72,7 +72,7 @@ try {
 
 1. На бэке сохраняем эти данные в доп.поле к заказу
 2. Для отправки используем библиотеку [php-ga4](https://github.com/aawnu/php-ga4)
-3. В итоге должен получиться вот такой набор данных, который отправляется на endpoint `# https://www.google-analytics.com/mp/collect?measurement_id=G-0*********&api_secret=*********************`
+3. В итоге должен получиться вот такой набор данных, который отправляется на endpoint `https://www.google-analytics.com/mp/collect?measurement_id=G-0*********&api_secret=*********************`
    * **session_id** должен быть числом (т.е. без кавычек в json)
 
 ```json
