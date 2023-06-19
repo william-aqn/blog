@@ -91,9 +91,9 @@ layout: default
     <section id="blog" class="well-5 bg-primary border-top parallax" data-url="/assets/images/header-bg-v1.jpg">
         <div class="container">
             <h2 class="border-left border-left-inv"><a href="/blog.html">Блог</a> <br>Кримсона</h2>
-            <div class="row">
+            <div class="columns">
                 {% for post in site.posts %}
-                <div class="col-md-4">
+                <div class="columns-item">
                     <a href="{{ post.url }}">
                         <h3>{{ post.title }}</h3>
                         <div>{{ post.description }}</div>

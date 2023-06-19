@@ -653,3 +653,14 @@ input[type='number'] {
     margin-left: 100%;
   }
 }
+
+.columns {
+    column-count: 3;
+    column-gap: 30px;
+}
+
+.columns-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 30px;
+}
