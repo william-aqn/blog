@@ -655,12 +655,25 @@ input[type='number'] {
 }
 
 .columns {
-    column-count: 3;
+    column-count: 1;
     column-gap: 30px;
+    padding-top: 30px;
 }
 
 .columns-item {
     break-inside: avoid;
     page-break-inside: avoid;
     margin-bottom: 30px;
+}
+
+@media (min-width: 768px) {
+    .columns {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 992px) {
+    .columns {
+        column-count: 3;
+    }
 }
