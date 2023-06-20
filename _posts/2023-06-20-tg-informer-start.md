@@ -15,7 +15,7 @@ tags: coding nodejs bot
 
 ## Немного технических подробностей
 
-Нашёл [способ обходить проверку cloudflare](https://www.zenrows.com/blog/bypass-cloudflare-nodejs#how-to-bypass-cloudflare-in-nodejs-using-puppeteer-stealth), но хром жрёт как не в себя оперативку. Отключаем скрипты слежения и всю медиа что есть на страницах. Авторизуемся где нибудь и парсим контент.
+Нашёл [способ обходить проверку cloudflare](https://www.zenrows.com/blog/bypass-cloudflare-nodejs#how-to-bypass-cloudflare-in-nodejs-using-puppeteer-stealth), но хром жрёт как не в себя оперативку. Отключаем скрипты слежения и всю медиа что есть на страницах. Авторизуемся где нибудь и парсим контент. Ещё плагины можно найти [puppeteer-extra](https://github.com/berstend/puppeteer-extra/tree/master/packages/puppeteer-extra#plugins) например обход рекапчи.
 
 Не забываем установить **chrome**
 ```sh
