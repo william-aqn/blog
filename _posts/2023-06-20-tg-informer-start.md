@@ -13,8 +13,8 @@ tags: coding nodejs bot
 * /who - Информация о id чата и id пользователя
 * /nod - Ключи для nod32 (если найдутся, *запрос в гугле - ключи для nod32 и смотрим выдачу*)
 
-## Немного технических подробностей
 
+## Немного технических подробностей
 Нашёл [способ обходить проверку cloudflare](https://www.zenrows.com/blog/bypass-cloudflare-nodejs#how-to-bypass-cloudflare-in-nodejs-using-puppeteer-stealth), но хром жрёт как не в себя оперативку. Отключаем скрипты слежения и всю медиа что есть на страницах. Авторизуемся где нибудь и парсим контент. Ещё плагины можно найти [puppeteer-extra](https://github.com/berstend/puppeteer-extra/tree/master/packages/puppeteer-extra#plugins) например обход рекапчи.
 
 Не забываем установить **chrome**
