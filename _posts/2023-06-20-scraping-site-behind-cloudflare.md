@@ -66,3 +66,5 @@ class Nod {
     } 
 export default Nod;
 ```
+
+Это небольшой пример кода моего [бота](/2023/06/20/tg-informer-start.html)
