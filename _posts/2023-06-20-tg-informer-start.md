@@ -28,6 +28,7 @@ import puppeteer from 'puppeteer-extra'
 import StealthPlugin from 'puppeteer-extra-plugin-stealth'
 import AdblockerPlugin from 'puppeteer-extra-plugin-adblocker'
 import ResBlockPlugin from 'puppeteer-extra-plugin-block-resources'
+
 class Nod {
     constructor() {
         puppeteer.use(StealthPlugin())
@@ -74,4 +75,4 @@ class Nod {
         return keys;
     } 
 export default Nod;
-``
+```
