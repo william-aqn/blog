@@ -45,7 +45,7 @@ class Nod {
             await page.$eval('input[name=vb_login_username]', (el, login) => { el.value = login }, 'Логин какой нибудь');
             await page.$eval('input[name=vb_login_password]', (el, pwd) => { el.value = pwd }, 'Пароль какой нибудь');
             await page.click('input.button[type=submit]');
-            await page.waitForNavigation();
+            await page.waitForNavigation({ waitUntil: 'load' });
 
             // Находим посты
             let messages = await page.$x("//*[contains(@id,'post_message_')]");
