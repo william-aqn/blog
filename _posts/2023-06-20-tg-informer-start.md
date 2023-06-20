@@ -2,7 +2,7 @@
 layout: post
 title: "Запущен бот в Telegram"
 description: "Может найти ключи для nod32"
-tags: coding
+tags: coding nodejs
 ---
 # Запущен бот в Telegram
 
