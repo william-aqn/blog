@@ -5,6 +5,8 @@ description: "Может найти ключи для nod32"
 tags: coding
 ---
 # Запущен бот в Telegram
+
+## [@xcrminfo_bot](https://t.me/xcrminfo_bot)
 Оживил старый функционал по сбору ключей для **nod32**, теперь уже на **nodejs** с использованием **headless** браузера chrome
 
 ## Основные команды
