@@ -2,3 +2,4 @@
 User-agent: *
 Disallow:
 Host: https://x-crm.info/
+Sitemap: https://x-crm.info/sitemap.xml
