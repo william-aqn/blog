@@ -23,6 +23,7 @@ service restart_wireless
 ```sh
 nvram set jffs2_exec=/jffs/scripts/init-start
 nvram set jffs2_scripts=1
+nvram commit
 reboot
 ```
 
