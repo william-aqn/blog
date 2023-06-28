@@ -15,4 +15,6 @@ tags: coding nodejs
 Please translate the user message from #from# to #to#. Make the translation sound as natural as possible.
 ```
 
+![screen](https://github.com/william-aqn/node-clipboard-translate/blob/gui/assets/screen.png?raw=true)
+
 Скачать можно тут [node-clipboard-translate](https://github.com/william-aqn/node-clipboard-translate)
