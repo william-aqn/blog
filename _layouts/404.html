@@ -1,0 +1,13 @@
+---
+layout: hacker
+---
+<div id="blog_post_list">
+    <p>Страница не существует, возможно переименована</p>
+    <ul>
+        {% for post in site.posts %}
+        <li>
+            <a id="{{ post.id }}" href="{{ post.url }}">{{ post.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
