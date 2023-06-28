@@ -9,7 +9,7 @@ description: "Лаборатория Кримсона - 404"
         {% for post in site.posts %}
         <li>
             <a id="{{ post.id }}" href="{{ post.url }}">{{ post.title }}</a>
-            <p>{{ post.description }}</p>
+            {{ post.description }}
         </li>
         {% endfor %}
     </ul>
