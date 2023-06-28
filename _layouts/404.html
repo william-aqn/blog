@@ -10,8 +10,8 @@ description: "Лаборатория Кримсона - 404"
         <li>
             <a id="{{ post.id }}" href="{{ post.url }}">{{ post.title }}</a>
             {{ post.description }}
-            {% if page.tags %}
-            <small>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small>
+            {% if post.tags %}
+            <small>tags: <em>{{ post.tags | join: "</em> - <em>" }}</em></small>
             {% endif %}
         </li>
         {% endfor %}
