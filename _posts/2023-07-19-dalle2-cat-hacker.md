@@ -6,7 +6,7 @@ tags: dalle2 hacker cats
 ---
 # Генерируем hacker котиков
 
-Нашёл интересный промт от midjourney, но прекрасно переваривается dalle
+Нашёл интересный промт для midjourney, но он прекрасно переваривается dalle
 ```
 cat hacker, computer
 (foggy background, epic realistic, rutkowski, hdr, intricate details, hyperdetailed, cinematic, rim light, muted colors:1.2)
