@@ -95,7 +95,8 @@ signing {
     sign publishing.publications.mavenJava
 }
 ```
-8. Проверяем локальную публикацию, [тут расшифрованы коды ошибок](https://central.sonatype.org/faq/400-error/#question)
+8. Если что то пошло не так - [тут расшифрованы коды ошибок](https://central.sonatype.org/faq/400-error/#question)
+9. Проверяем [публикацию](https://s01.oss.sonatype.org/)
 
 ## Автопубликация библиотеки из репозитория при коммитах
 1. Для [Github есть экшен](https://docs.github.com/ru/actions/publishing-packages/publishing-java-packages-with-gradle), заполняем секреты `sonatypeUsername / sonatypePassword / signingKeyId / signingKey / signingPassword`
