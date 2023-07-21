@@ -17,7 +17,7 @@ tags: java gradle github bitbucket
 3. Ждём пока робот скажет что делать. Можно сразу [создать TXT запись для домена](https://central.sonatype.org/faq/how-to-set-txt-record/) с номером тикета **OSSRH-XXYYZZ**
 4. Скачиваем [gpg4win](https://www.gpg4win.org/download.html) и создаём там приватный ключ, публикуем.
 5. Экспортируем ключ в формате ascii-armored (*.asc)
-6. Создаём файл **c:\Users\user\.gradle\gradle.properties** https://github.com/gradle/gradle/issues/15718#issuecomment-886246583
+6. Создаём файл **c:\Users\user\.gradle\gradle.properties** [важный момент](https://github.com/gradle/gradle/issues/15718#issuecomment-886246583)
 
 ```ini
 sonatypeUsername=Логин от issues.sonatype.org
