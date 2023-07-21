@@ -27,7 +27,7 @@ signingPassword=Пароль от закрытого ключа
 signingKey=-----BEGIN PGP PRIVATE KEY BLOCK-----\n\nСодержимое ключа в одну строку, где все символы новой строки явно обозначены\n-----END PGP PRIVATE KEY BLOCK-----\n
 ```
 
-1. Основные секции файла **build.gradle** для java приложения. Если в версию добавить слово **SNAPSHOT** - будет публикация в тестовом maven репозитории.
+7. Основные секции файла **build.gradle** для java приложения. Если в версию добавить слово **SNAPSHOT** - будет публикация в тестовом maven репозитории.
 
 ```gradle
 plugins {
@@ -98,8 +98,8 @@ signing {
 }
 ```
 
-1. Если что то пошло не так - [тут расшифрованы коды ошибок](https://central.sonatype.org/faq/400-error/#question)
-2. Проверяем [публикацию](https://s01.oss.sonatype.org/)
+8. Если что то пошло не так - [тут расшифрованы коды ошибок](https://central.sonatype.org/faq/400-error/#question)
+9. Проверяем [публикацию](https://s01.oss.sonatype.org/)
 
 ## Автопубликация библиотеки из репозитория при коммитах
 1. Для [Github есть экшен](https://docs.github.com/ru/actions/publishing-packages/publishing-java-packages-with-gradle), заполняем секреты `sonatypeUsername / sonatypePassword / signingKeyId / signingKey / signingPassword`
