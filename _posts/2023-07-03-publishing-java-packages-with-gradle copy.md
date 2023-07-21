@@ -121,7 +121,7 @@ pipelines:
             - gradle publish
 ```
 
- ## Рекомендации для библиотеки
+## Рекомендации для библиотеки
 * Писать только на чистой java 
 * Использовать [JDK 11](https://cfdownload.adobe.com/pub/adobe/coldfusion/java/java11/java11019/jdk-11.0.19_windows-x64_bin.zip) для лучшей совместимости с проектами
 * [Сделать standalone версию библиотеки](/2023/07/03/java-standalone-package-with-gradle.html)
