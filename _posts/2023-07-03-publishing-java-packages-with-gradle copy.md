@@ -18,16 +18,16 @@ tags: java gradle github bitbucket
 4. Скачиваем [gpg4win](https://www.gpg4win.org/download.html) и создаём там приватный ключ, публикуем.
 5. Экспортируем ключ в формате ascii-armored (*.asc)
 6. Создаём файл **c:\Users\user\.gradle\gradle.properties** https://github.com/gradle/gradle/issues/15718#issuecomment-886246583
+
 ```ini
+sonatypeUsername=Логин от issues.sonatype.org
+sonatypePassword=Пароль от issues.sonatype.org
 signingKeyId=Последние 8 цифр идентификатора ключа (short формат)
 signingPassword=Пароль от закрытого ключа
 signingKey=-----BEGIN PGP PRIVATE KEY BLOCK-----\n\nСодержимое ключа в одну строку, где все символы новой строки явно обозначены\n-----END PGP PRIVATE KEY BLOCK-----\n
-
-sonatypeUsername=Логин от issues.sonatype.org
-sonatypePassword=Пароль от issues.sonatype.org
 ```
 
-7. Основные секции файла **build.gradle** для java приложения. Если в версию добавить слово **SNAPSHOT** - будет публикация в тестовом maven репозитории.
+1. Основные секции файла **build.gradle** для java приложения. Если в версию добавить слово **SNAPSHOT** - будет публикация в тестовом maven репозитории.
 
 ```gradle
 plugins {
