@@ -17,7 +17,7 @@ Idle Always Free compute instances may be reclaimed by Oracle. Oracle will deem 
     Memory utilization is less than 20% (applies to A1 shapes only)
 ```
 
-Хотят нагрузку на cpu - делаем: [cpu.js](/assets/blog/oracle/cpu.js)
+Хотят нагрузку на cpu - делаем: [cpu.js](https://github.com/william-aqn/blog/assets/blog/oracle/cpu.js)
 ```js
 import Cpu from "./cpu.js";
 new Cpu(20);
