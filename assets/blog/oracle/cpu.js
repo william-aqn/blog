@@ -17,7 +17,6 @@ class Cpu {
     busyWork(duration) {
         const end = Date.now() + duration;
         while (Date.now() < end) {
-            // 
             Math.sqrt(Math.random());
         }
     }
