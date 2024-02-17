@@ -18,7 +18,7 @@ tags: nfc t5577 ntag216 mifare1k proxmark3 flipperzero
 2. 51243648
 
 Выкидываем инструкцию, берём proxmark3/flipperzero и начинаем эксперименты!
-На Флиппере актуальная на текущий момент прошивка [unleashed-070e](https://lab.flipper.net/?url=https://unleashedflip.com/fw_extra_apps/flipper-z-f7-update-unlshd-070e.tgz&channel=release-cfw&version=unlshd-070e)
+У Флиппера актуальная на текущий момент прошивка [unleashed-070e](https://lab.flipper.net/?url=https://unleashedflip.com/fw_extra_apps/flipper-z-f7-update-unlshd-070e.tgz&channel=release-cfw&version=unlshd-070e)
 
 Заходим в раздел **125kHz->Saved->Write and set pass**, вводим один из паролей *(5469616e или 51243648)*, пробуем записать метку.
 
