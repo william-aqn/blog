@@ -17,5 +17,6 @@ tags: amazon vps
 7. **Внимание!** После перезагрузки инстанса будет присвоен новый IP адрес!
    1. Получаем бесплатный поддомен на [freedns.afraid.org](https://freedns.afraid.org/)
    2. Устанавливаем [dyndns-client](https://github.com/ddclient/ddclient) клиент `sudo apt install ddclient`
-   3. Вводим логин/api ключ от freedns.afraid.org и домен который там получили.
-   4. Перезагружаем инстанс, убеждаем что новый ip привязался к поддомену.
+   3. Вводим после установки логин/api ключ от freedns.afraid.org и домен который там получили.
+   4. Проверяем настройки **ddclient** `sudo nano /etc/ddclient.conf`
+   5. Перезагружаем инстанс, убеждаем что новый ip привязался к поддомену.
