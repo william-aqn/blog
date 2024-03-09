@@ -2,7 +2,7 @@
 layout: post
 title: "Регистриуем аккаунт на Amazon AWS"
 description: "И создаём бесплатный vps на 1 год"
-tags: java idea
+tags: amazon vps
 ---
 # Регистриуем аккаунт на Amazon AWS
 1. Первым делом находим сервис для приёма смс - [@sms_activ_3bot](https://t.me/sms_activ_3bot?start=4065333), (можно пополнить баланс через СБП), выбираем сервис **USA amazon**
