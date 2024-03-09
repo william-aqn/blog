@@ -6,7 +6,7 @@ tags: amazon vps
 ---
 # Регистриуем аккаунт на Amazon AWS
 1. Первым делом находим сервис для приёма смс - [@sms_activ_3bot](https://t.me/sms_activ_3bot?start=4065333), (можно пополнить баланс через СБП), выбираем сервис **USA amazon**
-2. Потом находим предоплаченную виртуальную карту на [2$](https://aws.amazon.com/ru/) (можно на plati.market) или [@WantToPayBot](https://t.me/WantToPayBot?start=w18011294--TMPVS)
+2. Потом находим предоплаченную виртуальную карту на **2$** (можно на plati.market) или [@WantToPayBot](https://t.me/WantToPayBot?start=w18011294--TMPVS)
 3. Регистриуемся на [aws.amazon.com](https://aws.amazon.com/ru/)
 4. Ждём некоторое время пока завершится модерация
 5. Теперь создаём [инстанс EC2](https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#Instances:) с образом **Ubuntu** в регионе **us-east** с обязательной пометкой **Free Tier**
