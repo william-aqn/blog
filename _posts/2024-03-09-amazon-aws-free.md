@@ -4,7 +4,7 @@ title: "Регистриуем аккаунт на Amazon AWS"
 description: "И создаём бесплатный vps на 1 год"
 tags: amazon vps
 ---
-# Регистриуем аккаунт на Amazon AWS
+# Регистриуем аккаунт на Amazon AWS и создаём бесплатный vps на 1 год
 1. Первым делом находим сервис для приёма смс - [@sms_activ_3bot](https://t.me/sms_activ_3bot?start=4065333), (можно пополнить баланс через СБП), вводим название сервиса **amazon**, регион **USA** (~8 рублей за приём смс)
 2. Потом находим предоплаченную виртуальную карту на **2$** (можно на plati.market) или [@WantToPayBot](https://t.me/WantToPayBot?start=w18011294--TMPVS)
 3. Регистриуемся на [aws.amazon.com](https://aws.amazon.com/ru/)
