@@ -208,3 +208,7 @@ S-NEO_PENG#890808-g4tibemn0jen#37bb9
 
 // v14
 S-J14-NEO_PENG#890808-1jqjtz91lywcp9#23624
+
+
+CH340 NodeMcu V3 Lua WIFI
+Failed to execute 'open' on 'SerialPort': Failed to open serial port.
