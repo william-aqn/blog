@@ -212,3 +212,53 @@ S-J14-NEO_PENG#890808-1jqjtz91lywcp9#23624
 
 CH340 NodeMcu V3 Lua WIFI
 Failed to execute 'open' on 'SerialPort': Failed to open serial port.
+
+
+
+%tuta.io,%narod.ru,%inbox.lv,%mail.de,%tutanota%,%163.com,%icloud.com,%qq.com,%mail.com,%yandex.%,%proton.me,%pm.me,%protonmail.%,%outlook.%,%hotmail.%,%live.%,%msn.com,%ymail.com,%rocketmail.com,%yahoomail.com,%yahoo-inc.com,%bigmir.net,%ukr.net,%kimo.com,%5ballov.ru,%aeterna.ru,%aim.com,%algxmail.com,%ameritech.net,%aol.com,%att.net,%autorambler.ru,%bigmir.net,%bk.ru,%charter.net,%clear.net.nz,%cox.net,%email.it,%fastmail.com.au,%fastmail.fm,%flash.net,%fmgirl.com,%fotoplenka.ru,%free.fr,%fromru.com,%front.ru,%games.com,%gmail.%,%gmx.de,%gmx.net,%googlemail.com,%hotbox.ru,%hotpop.com,%imapmail.org,%inbox.ru,%interia.pl,%km.ru,%krovatka.su,%land.ru,%lenta.ru,%libero.it,%list.ru,%love.com,%mail.ru,%mail15.com,%mail333.com,%megabox.ru,%memori.ru,%meta.ua,%msn.com,%myrambler.ru,%myrealbox.com,%naui.net,%newmail.ru,%nfmail.com,%nightmail.ru,%nl.rogers.com,%nm.ru,%nvbell.net,%nxt.ru,%o2.pl,%olympus.ru,%operamail.com,%orange.net,%pacbell.net,%photofile.ru,%pisem.net,%pochta.com,%pochta.ru,%pochtamt.ru,%pop3.ru,%post.ru,%pplmail.com,%premoweb.com,%prodigy.net,%qip.ru,%qwerty,%rambler.%,%rbcmail.ru,%rikt.ru,%ro.ru,%rocketmail.com,%rogers.com,%sbcglobal.net,%seznam.cz,%sibnet.ru,%sky.com,%sky.ru,%skynet.be,%smtp.ru,%snet.net,%softhome.net,%startfree.com,%su29.ru,%swbell.net,%talktalk.net,%telenet.be,%telus.net,%tlen.pl,%ua.fm,%ukr.net,%unliminet.de,%verizon.net,%wans.net,%web.de,%wow.com,%wp.pl,%xtra.co.nz,%ya.ru,%yahoo.%,%yahoomail.com,%ymail.com,%zebra.lt,%ziza.ru,%mail.co.uk,%mailforspam.com,%privaterelay.appleid.com
+
+
+
+
+root@vmh:~# dpkg --list|grep pve-kernel
+ii  pve-firmware                         3.6-5                          all          Binary firmware code for the pve-kernel
+ii  pve-kernel-5.15                      7.4-4                          all          Latest Proxmox VE Kernel Image
+ii  pve-kernel-5.15.107-2-pve            5.15.107-2                     amd64        Proxmox Kernel Image
+ii  pve-kernel-5.15.108-1-pve            5.15.108-1                     amd64        Proxmox Kernel Image
+ii  pve-kernel-6.0.19-edge               6.0.19-1                       amd64        The Proxmox PVE Kernel Image
+rc  pve-kernel-helper                    7.3-8                          all          Function for various kernel maintenance tasks.
+root@vmh:~#
+
+
+Code:
+
+root@vmh:~# proxmox-boot-tool kernel list
+Manually selected kernels:
+None.
+
+Automatically selected kernels:
+5.15.107-2-pve
+5.15.108-1-pve
+6.0.19-edge
+
+ 
+
+apt remove pve-kernel-6.0*edge pve-headers-6.0*edge
+
+
+then
+Code:
+
+dpkg --list|grep pve-kernel
+
+
+I could still see it in kernels list, so ran:
+Code:
+
+apt-get --purge remove pve-kernel-6.0.19-edge
+
+
+All back to Proxmox kernel, ready for PVE 7 to 8 upgrade tonight.
+
+Thanks
+ 
