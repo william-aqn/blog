@@ -6,7 +6,7 @@ tags: nodejs cpu
 ---
 # Создаём активность на серверах Oracle free tier
 
-Надо как то защитить сервер на Oracle, что бы не инстанс не отключали из за новой политики 
+Надо как то защитить сервер на Oracle, что бы инстанс не отключали из за новой политики 
 [Oracle Reclamation of Idle Compute Instances](https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm)
 
 ```
