@@ -32,19 +32,12 @@ binary_sensor:
 ```
 ## Номера каналов на клавиатуре
 
-| C1 | C2 | C3 | C4 |
+| Col1 | Col2 | Col3 | Col4 |
 |:---|:---|:---|:---|
 | 7  | 3  | 15 | 11 |
 | 6  | 2  | 14 | 10 |
 | 5  | 1  | 13 | 9  |
 | 4  | 0  | 12 | 8  |
-
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
 
 ### Купить можно на Aliexpress [Matrix keyboard module V3.0](https://aliexpress.ru/item/1005003658190273.html?spm=a2g2w.chat.0.0.277e4aa6mYCxM2&sku_id=12000026683379344)
 ![Matrix keyboard module V3.0](/assets/blog/nodemcu/ttp229_lsf_4_4.png)
