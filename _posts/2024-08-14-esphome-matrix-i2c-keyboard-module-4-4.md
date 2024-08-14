@@ -18,7 +18,7 @@ tags: esphome nodemcu
 [E][ttp229_lsf:023]: Communication with TTP229 failed! 
 [E][component:082]:     Component ttp229_lsf is marked FAILED
 ```
-Устанавлиаем принудительно адрес **0x65**
+Устанавливаем принудительно адрес **0x65**
 ```yaml
 i2c:
   - scan: true
