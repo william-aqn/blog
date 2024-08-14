@@ -39,5 +39,5 @@ binary_sensor:
 | 5  | 1  | 13 | 9  |
 | 4  | 0  | 12 | 8  |
 
-### Купить можно на Aliexpress [Matrix keyboard module V3.0](https://aliexpress.ru/item/1005003658190273.html?spm=a2g2w.chat.0.0.277e4aa6mYCxM2&sku_id=12000026683379344)
+### Купить можно на Aliexpress [Matrix keyboard module V3.0](https://aliexpress.ru/item/1005003658190273.html?spm=a2g2w.chat.0.0.277e4aa6mYCxM2&sku_id=12000026683379344) *~250 руб.*
 ![Matrix keyboard module V3.0](/assets/blog/nodemcu/ttp229_lsf_4_4.png)
