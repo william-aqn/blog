@@ -28,11 +28,6 @@ wifi:
 
 captive_portal:
 
-i2c:
-  - scan: False
-ttp229_lsf:
-  - address: 0x57
-
 #  D1 ( GPIO5 )
 #  D2 ( GPIO4 )
 #  D5 ( GPIO14 )
@@ -136,10 +131,6 @@ sensor:
             }
 
 binary_sensor:
-  - platform: ttp229_lsf
-    name: TTP229 Channel 0
-    channel: 0
-
   - platform: template
     name: "Button R1 Max"
     id: button_r1_max
