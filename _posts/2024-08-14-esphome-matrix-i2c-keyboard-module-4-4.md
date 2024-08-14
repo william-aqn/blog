@@ -30,5 +30,15 @@ binary_sensor:
     name: Button_0
     channel: 0
 ```
+## Номера каналов на клавиатуре
+
+|   |   |   |   |
+| - | - | - | - |
+| 7 | 3 | 12 | 11 |
+| 6 | 2 | 13 | 10 |
+| 5 | 1 | 14 | 9 |
+| 4 | 0 | 15 | 8 |
+
+
 ### Купить можно на Aliexpress [Matrix keyboard module V3.0](https://aliexpress.ru/item/1005003658190273.html?spm=a2g2w.chat.0.0.277e4aa6mYCxM2&sku_id=12000026683379344)
 ![Matrix keyboard module V3.0](/assets/blog/nodemcu/ttp229_lsf_4_4.png)
