@@ -18,3 +18,5 @@ cat hacker, computer
 ![hacker-cat-4](/assets/blog/dalle2-hacker-cat/hacker_cat4.jpg)
 ![hacker-cat-5](/assets/blog/dalle2-hacker-cat/hacker_cat5.jpg)
 ![hacker-cat-6](/assets/blog/dalle2-hacker-cat/hacker_cat6.jpg)
+
+Следующие генерации - [Генерируем нейро-котиков (Часть 2)](/2024/09/10/dalle2-cat-hacker.html)
