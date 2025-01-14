@@ -261,4 +261,7 @@ apt-get --purge remove pve-kernel-6.0.19-edge
 All back to Proxmox kernel, ready for PVE 7 to 8 upgrade tonight.
 
 Thanks
- 
+
+merlin
+nano /jffs/configs/hosts.add
+192.168.0.123 mqtt.cloud.rusklimat.ru
