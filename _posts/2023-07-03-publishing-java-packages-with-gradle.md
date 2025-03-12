@@ -61,7 +61,7 @@ publishing {
             pom {
                 name = 'Название проекта'
                 description = 'Описание проекта'
-                url = 'https://x-crm.info/'
+                url = 'https://x-crm.in/'
                 licenses {
                     license {
                         name.set("The Apache License, Version 2.0")
