@@ -15,7 +15,7 @@
     grabStop = true,
     nudge = false,
     kuroNeko = false,
-    variant = "classic";
+    variant = "crimson";
 
   function parseLocalStorage(key, fallback) {
     try {
@@ -30,6 +30,7 @@
   const nekoSpeed = 10,
     variants = [
       ["classic", "Classic"],
+      ["crimson", "Crimson"],
       ["dog", "Dog"],
       ["tora", "Tora"],
       ["maia", "Maia (maia.crimew.gay)"],
@@ -156,11 +157,11 @@
   }
 
   function create() {
-    variant = parseLocalStorage("variant", "classic");
+    variant = parseLocalStorage("variant", "crimson");
     kuroNeko = parseLocalStorage("kuroneko", false);
 
     if (!variants.some((v) => v[0] === variant)) {
-      variant = "classic";
+      variant = "crimson";
     }
 
     nekoEl.id = "oneko";
