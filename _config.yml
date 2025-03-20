@@ -7,7 +7,7 @@ plugins:
 title: Crimson.Lab
 description: Лаборатория Кримсона
 excerpt_separator: <!--more-->
-url: "https://x-crm.info"
+url: "https://x-crm.in"
 assets:
   sources:
     - assets/blog

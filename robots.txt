@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
-Host: https://x-crm.info/
-Sitemap: https://x-crm.info/sitemap.xml
+Host: https://x-crm.in/
+Sitemap: https://x-crm.in/sitemap.xml
