@@ -27,7 +27,7 @@
     }
   }
 
-  const nekoSpeed = 10,
+  const nekoSpeed = 50,
     variants = [
       ["classic", "Classic"],
       ["crimson", "Crimson"],
