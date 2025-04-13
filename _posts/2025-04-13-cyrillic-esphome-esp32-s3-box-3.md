@@ -13,7 +13,7 @@ tags: esphome s3box voice
 
 Найдём какой нибудь шрифт **с поддержкой киррилицы**, например [Roboto](https://fonts.google.com/specimen/Roboto)
 
-В итоге получится вот так
+В итоге получится вот так:
 ```yaml
 substitutions:
   name: esp32-s3-box-3-123456
