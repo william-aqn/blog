@@ -7,7 +7,7 @@ tags: esphome s3box voice
 
 # Русификация Espressif ESP32-S3-BOX-3
 
-При установке обычной прошивки для [ESP32-S3-BOX-3](https://aliexpress.com/wholesale?SearchText=Espressif+ESP32-S3-BOX-3&g=y&page=1) - покажет нам квадратики вместо букв. Чтобы исправить этот момент - смотрим - [прошивку](https://github.com/esphome/wake-word-voice-assistants/blob/main/esp32-s3-box-3/esp32-s3-box-3.yaml#L679), находим места **font_request** и **font_response**. 
+При установке обычной прошивки для [ESP32-S3-BOX-3](https://aliexpress.com/wholesale?SearchText=Espressif+ESP32-S3-BOX-3&g=y&page=1) - покажет нам квадратики вместо букв. Чтобы исправить этот момент - смотрим - [прошивку](https://github.com/search?q=repo%3Aesphome%2Fwake-word-voice-assistants%20font_request&type=code), находим места **font_request** и **font_response**. 
 
 Там "*по умолчанию*" установлен шрифт [Figtree](https://fonts.google.com/specimen/Figtree), а в нём **нет** кириллицы.
 
