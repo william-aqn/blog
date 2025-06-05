@@ -2,7 +2,7 @@
 layout: post
 title: "Как получить client_id, session_id и gclid для GA4"
 description: "Google Tag Manager - gtag.js"
-tags: google js tgm
+tags: google js gtm ga4
 ---
 
 # Как получить client_id, session_id и gclid для GA4
