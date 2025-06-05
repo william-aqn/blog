@@ -19,9 +19,9 @@ tags: google js tgm
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', gTagId);
-	gtag('get', gTagId, 'client_id', function(e) { console.log("GTM client_id", e); });
-	gtag('get', gTagId, 'session_id', function(e) { console.log("GTM session_id", e); });
-	gtag('get', gTagId, 'gclid', function(e) { console.log("GTM gclid", e); });
+  gtag('get', gTagId, 'client_id', function(e) { console.log("GTM client_id", e); });
+  gtag('get', gTagId, 'session_id', function(e) { console.log("GTM session_id", e); });
+  gtag('get', gTagId, 'gclid', function(e) { console.log("GTM gclid", e); });
 </script>
 ```
 
