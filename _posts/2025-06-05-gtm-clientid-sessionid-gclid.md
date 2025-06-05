@@ -28,20 +28,9 @@ tags: google js tgm
 2. Использовать шаблон внутри Google Tag Manager - [GTAG GET API](https://www.simoahava.com/custom-templates/gtag-get-api/)
 
 3. Парсить куки
-```
-<script>
+```js
 /**
  * Разбирает cookie вида _ga или _ga_G-XXXX и возвращает именованный объект
- * @param {string} cookieValue – строковое содержимое cookie
- * @returns {{
- *   cookie_content: string,
- *   session_id?: string,
- *   session_number?: string,
- *   session_engaged?: string,
- *   user_id_hash?: string,
- *   timestamp?: string,
- *   duration?: number
- * }}
  */
 function parseGaCookie(cookieValue = "") {
   const res = { cookie_content: String(cookieValue) };
@@ -50,7 +39,7 @@ function parseGaCookie(cookieValue = "") {
   const nowSec = Math.round(Date.now() / 1000);
 
   if (cookieValue.startsWith("GS2.1")) {
-    // формат GA4 (GS2.1.*)
+    // формат GA4
     const info = (cookieValue.split(".")[2] || "");
     const parts = info.split("$");
 
@@ -81,5 +70,4 @@ function parseGaCookie(cookieValue = "") {
 
   return res;
 }
-<script>
 ```
