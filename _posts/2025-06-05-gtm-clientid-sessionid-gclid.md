@@ -29,10 +29,7 @@ tags: google js tgm
 
 3. Парсить куки
 ```js
-/**
- * Разбирает cookie вида _ga или _ga_G-XXXX и возвращает именованный объект
- * @param {string} cookieValue – строковое содержимое cookie
- */
+// Разбирает cookie вида _ga или _ga_G-XXXX и возвращает именованный объект
 function parseGaCookie(cookieValue = "") {
   const res = { cookie_content: String(cookieValue) };
 
