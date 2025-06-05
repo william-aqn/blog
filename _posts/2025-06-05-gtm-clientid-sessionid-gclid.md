@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Получить из Google Tag Manager - client_id, session_id, gclid"
-description: "gtag.js"
+title: "Как получить client_id, session_id и gclid из GTM"
+description: "Google Tag Manager gtag.js"
 tags: google js tgm
 ---
 
-# Получить из Google Tag Manager (GTM) - client_id, session_id, gclid
+# Как получить client_id, session_id и gclid из Google Tag Manager (GTM)
 
 Есть несколько способов как это сделать:
 
