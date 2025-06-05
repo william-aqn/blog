@@ -1,5 +1,6 @@
 /**
  * Разбирает cookie вида _ga или _ga_G-XXXX и возвращает именованный объект
+ * Нейросетевое, адаптированное из https://tagmanager.google.com/gallery/#/owners/mbaersch/templates/ga4-session-info
  * @param {string} cookieValue – строковое содержимое cookie
  * @returns {{
 *   cookie_content: string,
