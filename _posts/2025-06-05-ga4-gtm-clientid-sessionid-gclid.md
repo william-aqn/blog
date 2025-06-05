@@ -25,6 +25,6 @@ tags: google js gtm ga4
 </script>
 ```
 
-1. Использовать шаблон внутри **Google Tag Manager (GTM)** - [GTAG GET API](https://www.simoahava.com/custom-templates/gtag-get-api/)
+2. Использовать шаблон внутри **Google Tag Manager (GTM)** - [GTAG GET API](https://www.simoahava.com/custom-templates/gtag-get-api/)
 
-2. Парсить куки [Функция разбирает cookie вида _ga или _ga_G-XXXX и возвращает именованный объект](/assets/blog/gtm/parseGaCookie.js)
+3. Парсить куки [Функция разбирает cookie вида _ga или _ga_G-XXXX и возвращает именованный объект](/assets/blog/gtm/parseGaCookie.js)
