@@ -1,11 +1,11 @@
 ---
 layout: post
 title: "Как получить client_id, session_id и gclid из GTM"
-description: "Google Tag Manager gtag.js"
+description: "Google Tag Manager - gtag.js"
 tags: google js tgm
 ---
 
-# Как получить client_id, session_id и gclid из Google Tag Manager (GTM)
+# Как получить client_id, session_id и gclid из GTM
 
 Есть несколько способов как это сделать:
 
@@ -25,6 +25,6 @@ tags: google js tgm
 </script>
 ```
 
-2. Использовать шаблон внутри Google Tag Manager - [GTAG GET API](https://www.simoahava.com/custom-templates/gtag-get-api/)
+1. Использовать шаблон внутри Google Tag Manager - [GTAG GET API](https://www.simoahava.com/custom-templates/gtag-get-api/)
 
-3. Парсить куки [Функция разбирает cookie вида _ga или _ga_G-XXXX и возвращает именованный объект](/assets/blog/gtm/parseGaCookie.js)
+2. Парсить куки [Функция разбирает cookie вида _ga или _ga_G-XXXX и возвращает именованный объект](/assets/blog/gtm/parseGaCookie.js)
