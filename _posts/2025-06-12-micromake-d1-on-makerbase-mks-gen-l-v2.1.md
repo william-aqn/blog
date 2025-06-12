@@ -7,7 +7,6 @@ tags: micromake 3d firmware
 
 # Micromake D1 → MKS Gen L V2.1
 ## Marlin 2.1.2.5 configuration & wiring guide
-==========================================
 
 * **Board**: [Makerbase MKS Gen L V2.1](https://github.com/makerbase-mks/MKS-GEN_L/wiki/MKS_GEN_L_V2)  
 * **Firmware tag**: [`2.1.2.5`](https://github.com/MarlinFirmware/Marlin/releases/tag/2.1.2.5)
