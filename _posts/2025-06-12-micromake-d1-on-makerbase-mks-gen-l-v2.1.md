@@ -17,6 +17,7 @@ tags: micromake 3d firmware
 * **Aliexpress**: [Makerbase original MKS GEN L V2.1 3D printer control card 8bit motherboard tmc2209](https://aliexpress.ru/item/32971035497.html?sku_id=10000014398959319&spm=a2g2w.productlist.search_results.2.2793456fORRHET)
 ---
 
+
 ## 1 · What’s in this files
 * [Configuration.h](/assets/blog/micromake_d1/Configuration.h) & [Configuration_adv.h](/assets/blog/micromake_d1/Configuration_adv.h) already tuned for Micromake D1 geometry.  
 * English 20×4 LCD presets.  
@@ -26,6 +27,7 @@ tags: micromake 3d firmware
 * EEPROM, SD‑card, auto‑delta‑calibration G33 ready.
 
 ---
+
 
 ## 2 · Key changes by block
 ### ⚙️ Board & Drivers
@@ -96,6 +98,7 @@ tags: micromake 3d firmware
 
 ---
 
+
 ## 3 · Pin correspondence (old board → new)
 
 | Function           | [Makeboard Mini 2.1.2](/assets/blog/micromake_d1/makeboard_mini_2.1.2.webp) | [MKS Gen L V2.1](/assets/blog/micromake_d1/mks_gen_l_v2.1.webp)           |
@@ -116,6 +119,7 @@ tags: micromake 3d firmware
 | VIN                | XT‑30                | 2‑pin 12–24 V in         |
 
 ---
+
 
 ## 4 · After flashing:
 ```gcode
