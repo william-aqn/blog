@@ -13,7 +13,7 @@ tags: micromake 3d firmware
 * **Display**: RepRapDiscount Smart Controller (LCD 2004, 20 × 4)
 * **Drivers**: TMC2209 @ 1⁄16 µ‑step (UART mode)
 * **Features**: heated bed & hot‑end, fixed Z‑probe button, dual fans
-* **Aliexpress**: [Makerbase original MKS GEN L V2.1 3D printer control card 8bit motherboard tmc2209](https://aliexpress.ru/item/32971035497.html?sku_id=10000014398959319&spm=a2g2w.productlist.search_results.2.2793456fORRHET)
+* **Aliexpress**: [Makerbase original MKS GEN L V2.1 3D printer control card 8bit motherboard tmc2209](https://aliexpress.com/item/32971035497.html?sku_id=10000014398959319&spm=a2g2w.productlist.search_results.2.2793456fORRHET)
 ---
 
 
