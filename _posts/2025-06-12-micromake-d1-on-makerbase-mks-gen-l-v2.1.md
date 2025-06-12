@@ -97,6 +97,7 @@ tags: micromake 3d firmware
 ---
 
 ## 3 · Pin correspondence (old board → new)
+
 | Function           | Makeboard Mini 2.1.2 | MKS Gen L V2.1           |
 |:-------------------|:---------------------|:-------------------------|
 | X‑STEP / DIR / EN  | 54 / 55 / 38         | X.STEP / X.DIR / X.EN    |
