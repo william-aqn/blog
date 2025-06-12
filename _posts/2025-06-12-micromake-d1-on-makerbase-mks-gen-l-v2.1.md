@@ -98,21 +98,21 @@ tags: micromake 3d firmware
 
 ## 3 · Pin correspondence (old board → new)
 | Function | Makeboard Mini 2.1.2 | MKS Gen L V2.1 |
-|:---|:---|:---|
-| X‑STEP / DIR / EN  | 54 / 55 / 38         | X.STEP / X.DIR / X.EN    |
-| Y‑STEP / DIR / EN  | 60 / 61 / 56         | Y.STEP / Y.DIR / Y.EN    |
-| Z‑STEP / DIR / EN  | 46 / 48 / 62         | Z.STEP / Z.DIR / Z.EN    |
-| E0‑STEP / DIR / EN | 26 / 28 / 24         | E0.STEP / E0.DIR / E0.EN |
-| X‑MAX              | pin 2 (E4)           | X+ JST                   |
-| Y‑MAX              | pin 15 (J0)          | Y+ JST                   |
-| Z‑MAX              | pin 19 (D2)          | Z+ JST                   |
-| Z‑MIN / Probe      | pin 18 (D3)          | Z‑ JST                   |
-| Heater‑0           | D10                  | HE0 screw                |
-| Bed Heater         | D8                   | BED screw                |
-| Thermistor‑0 / Bed | A13 / A14            | TH0 / THB                |
-| Fan 0 (model)      | D9                   | FAN screw                |
-| Fan 1 (hot‑end)    | D7                   | MOSFET D                 |
-| VIN                | XT‑30                | 2‑pin 12–24 V in         |
+|:-------------------|:-------------|:-------------------------|
+| X‑STEP / DIR / EN  | 54 / 55 / 38 | X.STEP / X.DIR / X.EN    |
+| Y‑STEP / DIR / EN  | 60 / 61 / 56 | Y.STEP / Y.DIR / Y.EN    |
+| Z‑STEP / DIR / EN  | 46 / 48 / 62 | Z.STEP / Z.DIR / Z.EN    |
+| E0‑STEP / DIR / EN | 26 / 28 / 24 | E0.STEP / E0.DIR / E0.EN |
+| X‑MAX              | pin 2 (E4)   | X+ JST                   |
+| Y‑MAX              | pin 15 (J0)  | Y+ JST                   |
+| Z‑MAX              | pin 19 (D2)  | Z+ JST                   |
+| Z‑MIN / Probe      | pin 18 (D3)  | Z‑ JST                   |
+| Heater‑0           | D10          | HE0 screw                |
+| Bed Heater         | D8           | BED screw                |
+| Thermistor‑0 / Bed | A13 / A14    | TH0 / THB                |
+| Fan 0 (model)      | D9           | FAN screw                |
+| Fan 1 (hot‑end)    | D7           | MOSFET D                 |
+| VIN                | XT‑30        | 2‑pin 12–24 V in         |
 
 ---
 
