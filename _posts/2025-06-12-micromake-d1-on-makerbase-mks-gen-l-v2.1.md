@@ -97,8 +97,8 @@ tags: micromake 3d firmware
 ---
 
 ## 3 · Pin correspondence (old board → new)
-| Function           | Makeboard Mini 2.1.2 | MKS Gen L V2.1           |
-|--------------------|----------------------|--------------------------|
+| Function | Makeboard Mini 2.1.2 | MKS Gen L V2.1 |
+|:---|:---|:---|
 | X‑STEP / DIR / EN  | 54 / 55 / 38         | X.STEP / X.DIR / X.EN    |
 | Y‑STEP / DIR / EN  | 60 / 61 / 56         | Y.STEP / Y.DIR / Y.EN    |
 | Z‑STEP / DIR / EN  | 46 / 48 / 62         | Z.STEP / Z.DIR / Z.EN    |
@@ -125,4 +125,10 @@ G33   ; auto‑calibrate
 ```
 ![Micromake D1 with MKS Gen L V2.1](/assets/blog/micromake_d1/d1-upgrade.jpg)
 
-p.s The BEEEPER is very loud >_< 
+p.s The BEEEPER is very loud >_<
+
+### Original Micromake D1 - Makeboard Mini 2.1.2 pins
+![Makeboard Mini 2.1.2](/assets/blog/micromake_d1/makeboard_mini_2.1.2.webp)
+
+### MKS Gen L V2.1 pins
+![MKS Gen L V2.1](/assets/blog/micromake_d1/mks_gen_l_v2.1.webp)
