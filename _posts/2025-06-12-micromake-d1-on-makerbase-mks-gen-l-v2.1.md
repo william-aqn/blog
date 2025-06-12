@@ -123,5 +123,6 @@ M500  ; save
 G28   ; home
 G33   ; auto‑calibrate
 ```
+![Micromake D1 with MKS Gen L V2.1](/assets/blog/micromake_d1/d1-upgrade.jpg)
 
-Happy printing!  
+p.s The BEEEPER is very loud >_< 
