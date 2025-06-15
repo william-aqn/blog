@@ -25,78 +25,9 @@ tags: micromake 3d firmware
 * Updated motion limits for faster homing (100 mm/s).  
 * EEPROM, SD‑card, auto‑delta‑calibration G33 ready.
 
----
 
-
-## 2 · Key changes by block
-### ⚙️ Board & Drivers
-```cpp
-#define MOTHERBOARD BOARD_MKS_GEN_L_V21
-#define BAUDRATE    115200
-#define X_DRIVER_TYPE  Y_DRIVER_TYPE  Z_DRIVER_TYPE  E0_DRIVER_TYPE  TMC2209
-```
-
-### 🔥 Thermals
-```cpp
-#define HEATER_0_MAXTEMP 270
-#define BED_MAXTEMP     120
-```
-
-### 🔺 Delta kinematics
-```cpp
-#define DELTA
-  #define DELTA_HOME_TO_SAFE_ZONE
-  #define DELTA_AUTO_CALIBRATION
-  #define DELTA_PRINTABLE_RADIUS  90.0
-  #define DELTA_MAX_RADIUS        96.0
-  #define DELTA_DIAGONAL_ROD     217.0
-  #define DELTA_HEIGHT          300.00
-```
-
-### 🏁 Endstops
-```cpp
-#define USE_XMAX_PLUG
-#define USE_YMAX_PLUG
-#define USE_ZMAX_PLUG
-#define USE_ZMIN_PLUG
-#define Z_MIN_ENDSTOP_INVERTING        true
-#define Z_MIN_PROBE_ENDSTOP_INVERTING  true
-```
-
-### 🚀 Motion
-```cpp
-#define DEFAULT_AXIS_STEPS_PER_UNIT { 80, 80, 80, 500 }
-#define DEFAULT_MAX_FEEDRATE        { 300, 300, 300, 25 }
-#define DEFAULT_MAX_ACCELERATION    { 1000, 1000, 1000, 3000 }
-#define DEFAULT_JERK               10.0
-```
-
-### 🌡️ Probe
-```cpp
-#define FIX_MOUNTED_PROBE
-#define NOZZLE_TO_PROBE_OFFSET { 0, 0, 23 }
-```
-
-### 💾 LCD / SD / EEPROM
-```cpp
-#define REPRAP_DISCOUNT_SMART_CONTROLLER
-#define DISPLAY_CHARSET_HD44780 WESTERN
-#define SDSUPPORT
-#define EEPROM_SETTINGS
-```
-
-### 🌬️ Fans
-```cpp
-#define FAN_SOFT_PWM
-#define FAN_MIN_PWM 50
-#define FAN_MAX_PWM 255
-#define FAN1_PIN 7                 // MOSFET D
-#define E0_AUTO_FAN_PIN FAN1_PIN   // on > 50 °C
-#define NUM_M106_FANS 2
-```
-
----
-
+## 2 · Very similar to the model Anycubic Kossel
+MarlinFirmware [Configurations](https://github.com/MarlinFirmware/Configurations/tree/import-2.1.x/config/examples/delta/Anycubic/Kossel)
 
 ## 3 · Pin correspondence (old board → new)
 
