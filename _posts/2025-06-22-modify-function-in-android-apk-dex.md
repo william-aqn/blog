@@ -7,9 +7,11 @@ tags: android apk dex hack
 
 # Как изменить функцию в Android apk файле
 
-Для начала изучить содержимое apk файла, поможет в этом [jadx](https://github.com/skylot/jadx)
+Для начала нужно достать установленный apk с помощью [APK Extractor](https://4pda.to/forum/index.php?showtopic=645313)
 
-Потом распаковываем apk файл (это zip архив) и находим **classes.dex**
+Потом изучаем содержимое apk файла, поможет в этом [jadx](https://github.com/skylot/jadx)
+
+Далее распаковываем apk файл (это zip архив) и находим **classes.dex**
 
 Это уже не просто скомпилированные классы **.class**, а **Dalvik Executable**, который содержит байт-код, скомпилированный из исходного кода Java или Kotlin приложения.
 
@@ -49,3 +51,5 @@ java -jar smali.jar a smali_out -o classes.dex
 ```bash
 java -jar uber-apk-signer.jar --apks patched.apk
 ```
+
+Осталось переустановить приложение на Android, скорее всего придётся удалить оргинальное приложение, т.к. новая подпись.
