@@ -1,13 +1,15 @@
 ---
 layout: post
-title: "Изменить функцию в apk файле"
+title: "Изменить функцию в Android apk файле"
 description: "return true;"
-tags: apk dex hack
+tags: android apk dex hack
 ---
 
-# Как изменить функцию в apk файле
+# Как изменить функцию в Android apk файле
 
-Для начала распаковываем apk файл (это zip архив) и находим **classes.dex**
+Для начала изучить содержимое apk файла, поможет в этом [jadx](https://github.com/skylot/jadx)
+
+Потом распаковываем apk файл (это zip архив) и находим **classes.dex**
 
 Это уже не просто скомпилированные классы **.class**, а **Dalvik Executable**, который содержит байт-код, скомпилированный из исходного кода Java или Kotlin приложения.
 
