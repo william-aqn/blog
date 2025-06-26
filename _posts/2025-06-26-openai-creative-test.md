@@ -26,3 +26,4 @@ tags: openai gpt
 ```
 
 Сингулярность становится всё ближе и ближе...
+![singularity_coming](/assets/blog/singularity/singularity0.webp)
