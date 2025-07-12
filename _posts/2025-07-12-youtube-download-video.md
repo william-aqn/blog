@@ -40,3 +40,5 @@ echo Press any key to close.
 pause
 
 ```
+
+Или обёрткой над ytdlp с помощью [VDL - Video Downloader](https://github.com/engatec/vdl)
