@@ -19,10 +19,9 @@ tags: micromake 3d firmware
 
 
 ## 1 · What’s in this files
-* [Configuration.h](/assets/blog/micromake_d1/Configuration.h) & [Configuration_adv.h](/assets/blog/micromake_d1/Configuration_adv.h) already tuned for Micromake D1 geometry.  
-* English 20×4 LCD presets.  
-* Smart auto‑fan on MOSFET D.  
-* Updated motion limits for faster homing (100 mm/s).  
+* [Configuration.h](/assets/blog/micromake_d1/Configuration.h) & [Configuration_adv.h](/assets/blog/micromake_d1/Configuration_adv.h) already tuned for Micromake D1 geometry.
+* English 20×4 LCD presets.
+* Smart auto‑fan on MOSFET D.
 * EEPROM, SD‑card, auto‑delta‑calibration G33 ready.
 
 ## 2 · Pin correspondence (old board → new)
