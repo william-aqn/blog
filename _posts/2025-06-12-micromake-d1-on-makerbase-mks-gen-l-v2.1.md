@@ -2,7 +2,7 @@
 layout: post
 title: "Обновляем 3D принтер Micromake D1"
 description: "MKS Gen L V2.1"
-tags: micromake 3d firmware
+tags: micromake 3d firmware marlin2
 ---
 
 # Обновляем 3D принтер Micromake D1
