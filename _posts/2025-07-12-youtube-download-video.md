@@ -41,4 +41,4 @@ pause
 
 ```
 
-Или обёрткой над **ytdlp** с помощью [VDL - Video Downloader](https://github.com/engatec/vdl)
+Или обёрткой над **ytdlp** с помощью [VDL - Video Downloader](https://github.com/engatec/vdl) или [ytdlp-interface](https://github.com/ErrorFlynn/ytdlp-interface)
