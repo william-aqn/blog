@@ -5,11 +5,12 @@ description: "MKS Gen L V2.1"
 tags: micromake 3d firmware
 ---
 
-# Micromake D1 → MKS Gen L V2.1
-## Marlin 2.1.2.5 configuration & wiring guide
+# Обновляем 3D принтер Micromake D1
+## Micromake D1 → MKS Gen L V2.1
+## Marlin 2.1.3-b3 configuration & wiring guide
 
 * **Board**: [Makerbase MKS Gen L V2.1](https://github.com/makerbase-mks/MKS-GEN_L/wiki/MKS_GEN_L_V2)  
-* **Firmware tag**: [`2.1.2.5`](https://github.com/MarlinFirmware/Marlin/releases/tag/2.1.2.5)
+* **Firmware tag**: [`2.1.3-b3`](https://github.com/MarlinFirmware/Marlin/releases/tag/2.1.3-b3)
 * **Display**: RepRapDiscount Smart Controller (LCD 2004, 20 × 4)
 * **Drivers**: TMC2209 @ 1⁄16 µ‑step (UART mode)
 * **Features**: heated bed & hot‑end, fixed Z‑probe button, dual fans
@@ -20,16 +21,11 @@ tags: micromake 3d firmware
 ## 1 · What’s in this files
 * [Configuration.h](/assets/blog/micromake_d1/Configuration.h) & [Configuration_adv.h](/assets/blog/micromake_d1/Configuration_adv.h) already tuned for Micromake D1 geometry.  
 * English 20×4 LCD presets.  
-* Safe temperature limits (270 °C hot‑end / 120 °C bed).  
 * Smart auto‑fan on MOSFET D.  
 * Updated motion limits for faster homing (100 mm/s).  
 * EEPROM, SD‑card, auto‑delta‑calibration G33 ready.
 
-
-## 2 · Very similar to the model Anycubic Kossel
-MarlinFirmware [Configurations](https://github.com/MarlinFirmware/Configurations/tree/import-2.1.x/config/examples/delta/Anycubic/Kossel)
-
-## 3 · Pin correspondence (old board → new)
+## 2 · Pin correspondence (old board → new)
 
 | Function           | [Makeboard Mini 2.1.2](/assets/blog/micromake_d1/makeboard_mini_2.1.2.webp) | [MKS Gen L V2.1](/assets/blog/micromake_d1/mks_gen_l_v2.1.webp)           |
 |:-------------------|:---------------------|:-------------------------|
@@ -50,13 +46,13 @@ MarlinFirmware [Configurations](https://github.com/MarlinFirmware/Configurations
 
 ---
 
-
-## 4 · After flashing:
+## 3 · After flashing:
 ```gcode
 M502  ; load defaults
 M500  ; save
 G28   ; home
 G33   ; auto‑calibrate
+M303 E0 S200 C8 ; PID calibration
 ```
 ![Micromake D1 with MKS Gen L V2.1](/assets/blog/micromake_d1/d1-upgrade.jpg)
 
