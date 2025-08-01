@@ -16,7 +16,6 @@ tags: proxmox rclone
    Если явно не указать хранилище **local-lvm**, машина будет восстановлена в хранилище **local**
 
 4. Восстановить **LXC** контейнеры через команду
-
 ```sh
 pct restore 102 /var/lib/vz/dump/vzdump-lxc-102-2025_08_01-17_46_12.zst -storage local-lvm
 ```
