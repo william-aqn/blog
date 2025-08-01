@@ -21,7 +21,6 @@ pct restore 102 /var/lib/vz/dump/vzdump-lxc-102-2025_08_01-17_46_12.zst -storage
 ```
 
 5. Восстановить **QEMU** виртуальные машины через команду
-
 ```sh
 qmrestore /var/lib/vz/dump/vzdump-qemu-100-2025_08_01-18_07_50.vma.zst 100 -storage local-lvm
 ```
@@ -29,7 +28,6 @@ qmrestore /var/lib/vz/dump/vzdump-qemu-100-2025_08_01-18_07_50.vma.zst 100 -stor
 6. Не забыть настроить создание бэкапов и выгрузку их в облако, например в [b2](https://www.backblaze.com/cloud-storage)
 
 7. Создать конфиг для rclone:b2
-
 ```sh
 mkdir -p /root/.config/rclone
 nano /root/.config/rclone/rclone.conf
@@ -42,7 +40,6 @@ hard_delete = true
 ```
 
 8. Создать скрипт для выгрузки в b2 бэкапов
-
 ```sh
 nano backup.sh
 chmod +x backup.sh
@@ -52,7 +49,6 @@ rclone sync /var/lib/vz/dump/ b2:proxmoxbk
 ```
 
 9. Добавить в крон запуск скрипта
-
 ```sh
 crontab -e
 0 23 * * * /bin/bash /root/backup.sh >/dev/null 2>&1
