@@ -9,6 +9,6 @@ tags: poe2 special symbols game
 
 * `๏` (U+0E4F) Thai Fongman
 
-![poe2](/assets/blog/poe2/poe2-nickname-special-chars.webp)
+
 
 p.s *Запасной вариант *U+11BE* Hangul Jungseong Araea*
