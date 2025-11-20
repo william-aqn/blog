@@ -32,6 +32,7 @@ api:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
+  min_auth_mode: WPA2
 
 font:
   - id: !extend font_request
