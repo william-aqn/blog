@@ -19,7 +19,7 @@ substitutions:
   name: esp32-s3-box-3-123456
   friendly_name: s3voice
 packages:
-  esphome.voice-assistant: github://esphome/firmware/wake-word-voice-assistant/esp32-s3-box-3.yaml@main
+  esphome_voice_assistant: github://esphome/wake-word-voice-assistants/esp32-s3-box-3/esp32-s3-box-3.yaml@main
 esphome:
   name: ${name}
   name_add_mac_suffix: false
