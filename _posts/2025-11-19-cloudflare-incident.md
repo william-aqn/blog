@@ -2,7 +2,7 @@
 layout: post
 title: "Что случилось с cloudflare"
 description: "Технические подробности"
-tags: cloudflare fail
+tags: cloudflare incident
 ---
 
 # Что случилось с cloudflare
