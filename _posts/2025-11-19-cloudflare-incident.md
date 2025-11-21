@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Что случилось с cloudflare"
+title: "Что случилось с Cloudflare 18.11.2025"
 description: "Технические подробности"
 tags: cloudflare incident
 ---
 
-# Что случилось с cloudflare
+# Что случилось с Cloudflare 18.11.2025
 > Все началось с рутинного обновления прав доступа в кластере ClickHouse.
 
 ![tanos_cloudflare](/assets/blog/cloudflare/cloudflare-downtime-tanos.webp)
