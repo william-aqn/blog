@@ -21,4 +21,5 @@ tags: cloudflare incident
 ![code_error_cloudflare](/assets/blog/cloudflare/code.webp)
 
 ## Проблема #3
+Чинили это дело в лучших традициях... вручную остановили раскатку обновления, подсунули старый (рабочий) файл конфигурации и начали перезагружать всю глобальную инфраструктуру. Полностью разгрести завалы и очереди сообщений удалось только к вечеру.
 ![error_cloudflare](/assets/blog/cloudflare/cloudflare-broke-mcdonalds.webp)
