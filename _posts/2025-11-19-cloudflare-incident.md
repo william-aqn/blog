@@ -22,7 +22,7 @@ tags: cloudflare incident
 
 Вместо корректной обработки превышения и использования старой версии файла с уведомлением мониторинга, обработчик аварийно завершал работу из-за использования в Rust метода [unwrap()](https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap) для Result в состоянии [Ok](https://doc.rust-lang.org/std/result/enum.Result.html#variant.Ok). При ошибке unwrap() вызывает [panic!](https://doc.rust-lang.org/std/macro.panic.html), что допустимо в отладке, но [недопустимо](https://levelup.gitconnected.com/rust-never-use-unwrap-in-production-c123b311f620) в продакшене.
 
-![code_error_cloudflare](/assets/blog/cloudflare/code.webp)
+![code_error_cloudflare](/assets/blog/cloudflare/cloudflare-code.webp)
 
 ## Проблема #3
 Чинили это дело в лучших традициях... вручную остановили раскатку обновления, подсунули старый (рабочий) файл конфигурации и начали перезагружать всю глобальную инфраструктуру. Полностью разгрести завалы и очереди сообщений удалось только к вечеру.
