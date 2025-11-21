@@ -28,3 +28,5 @@ tags: cloudflare incident
 Чинили это дело в лучших традициях... вручную остановили раскатку обновления, подсунули старый (рабочий) файл конфигурации и начали перезагружать всю глобальную инфраструктуру. Полностью разгрести завалы и очереди сообщений удалось только к вечеру.
 
 ![error_cloudflare](/assets/blog/cloudflare/cloudflare-broke-mcdonalds.webp)
+
+*Длинная и скучная* [официальная версия в блоге cloudflare](https://blog.cloudflare.com/ru-ru/18-november-2025-outage/)
