@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Генерируем нейро-котиков в сентябре"
-description: "hacker котиков"
+description: "hacker котики от dalle в сентябре 2024"
 tags: dalle2 hacker cats
 ---
 # Генерируем нейро-котиков в сентябре
@@ -17,4 +17,4 @@ cat hacker, computer
 ![hacker-cat-8](/assets/blog/dalle2-hacker-cat/hacker_cat8.jpg)
 ![hacker-cat-9](/assets/blog/dalle2-hacker-cat/hacker_cat9.jpg)
 
-Предыдущие генерации - [Генерируем нейро-котиков](/2023/07/19/dalle2-cat-hacker.html)
+Предыдущие генерации - [Генерируем нейро-котиков в 2023](/2023/07/19/dalle2-cat-hacker.html)
