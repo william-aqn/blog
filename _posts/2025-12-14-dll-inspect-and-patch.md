@@ -19,6 +19,7 @@ tags: hach hex patch
 ![dn-spy-inspect](/assets/blog/patch/dn-spy-inspect.webp)
 
 Идём по найденному hex адресу **0x0003DB65**
+
 ![dn-spy-goto](/assets/blog/patch/dn-spy-goto.webp)
 
 Смотрим что там скрывается - это функция регистрации, что логично.
