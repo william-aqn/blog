@@ -41,7 +41,7 @@ tags: micromake 3d firmware marlin2
 
 Выложил наработки в репозиторий Марлина [pull/1146](https://github.com/MarlinFirmware/Configurations/pull/1146) и там основной мейнтейнер подсказал корректировки геометрии!
 
-С новыми вводными, довёл прошивку до ума, и теперь в основном репозитории Марлина есть прошивка для **Micromake-D1** [examples/delta/Micromake-D1/MKS-Gen-L-V2.1](https://github.com/MarlinFirmware/Configurations/tree/import-2.1.x/config/examples/delta/Micromake-D1)
+С новыми вводными, довёл прошивку до ума, и теперь в основном репозитории Марлина есть прошивка для **Micromake-D1** [examples/delta/Micromake-D1/MKS-Gen-L-V2.1](https://github.com/MarlinFirmware/Configurations/tree/import-2.1.x/config/examples/delta/Micromake-D1/MKS-Gen-L-V2.1)
 
 ---
 
