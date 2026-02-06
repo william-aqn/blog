@@ -33,7 +33,7 @@ tags: micromake 3d firmware marlin2
 | Fan 1 (hot‑end)    | D7                   | MOSFET D                 |
 | VIN                | XT‑30                | 2‑pin 12–24 V in         |
 
-По сути у меня была новая плата [Makerbase MKS Gen L V2.1](https://github.com/makerbase-mks/MKS-GEN_L/wiki/MKS_GEN_L_V2), и просто направляющие с движками, экструдер с двумя обдувами и стол с подогревом.
+По сути у меня была голая плата [Makerbase MKS Gen L V2.1](https://github.com/makerbase-mks/MKS-GEN_L/wiki/MKS_GEN_L_V2), и просто направляющие с движками, экструдер с двумя обдувами и стол с подогревом.
 
 ![Micromake D1 with MKS Gen L V2.1](/assets/blog/micromake_d1/d1-upgrade.jpg)
 
