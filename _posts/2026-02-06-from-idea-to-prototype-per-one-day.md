@@ -16,6 +16,6 @@ tags: hach hex patch
 
 [Socks5 Video Tunnel](https://github.com/william-aqn/socks5-video-tunnel)
 
-{% youtube 1rk5jzWqHzI %}
+{% include youtube.html id="1rk5jzWqHzI" %}
 
 Этот протокол для некоторого будущего, где, напрмер, в бликах на волосах, или на каком то элементе одежды - будет задекорированный источник данных, причём двунаправленный.
