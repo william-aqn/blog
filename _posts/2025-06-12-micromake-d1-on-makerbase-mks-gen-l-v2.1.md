@@ -7,24 +7,14 @@ tags: micromake 3d firmware marlin2
 
 # Обновляем 3D принтер Micromake D1
 ## Micromake D1 → MKS Gen L V2.1
-## Marlin 2.1.3-b3 configuration & wiring guide
 
-* **Board**: [Makerbase MKS Gen L V2.1](https://github.com/makerbase-mks/MKS-GEN_L/wiki/MKS_GEN_L_V2)  
-* **Firmware tag**: [`2.1.3-b3`](https://github.com/MarlinFirmware/Marlin/releases/tag/2.1.3-b3)
-* **Display**: RepRapDiscount Smart Controller (LCD 2004, 20 × 4)
-* **Drivers**: TMC2209 @ 1⁄16 µ‑step (UART mode)
-* **Features**: heated bed & hot‑end, fixed Z‑probe button, dual fans
-* **Aliexpress**: [Makerbase original MKS GEN L V2.1 3D printer control card 8bit motherboard tmc2209](https://aliexpress.com/item/32971035497.html?sku_id=10000014398959319&spm=a2g2w.productlist.search_results.2.2793456fORRHET)
----
+В какой то момент вышел из строя БП и потянул за собой основную плату принтера [Makeboard Mini 2.1.2](/assets/blog/micromake_d1/makeboard_mini_2.1.2.webp)
 
+Нашёл что то похожее:
 
-## 1 · What’s in this files
-* [Configuration.h](/assets/blog/micromake_d1/Configuration.h) & [Configuration_adv.h](/assets/blog/micromake_d1/Configuration_adv.h) already tuned for Micromake D1 geometry.
-* English 20×4 LCD presets.
-* Smart auto‑fan on MOSFET D.
-* EEPROM, SD‑card, auto‑delta‑calibration G33 ready.
+![MKS Gen L V2.1](/assets/blog/micromake_d1/mks_gen_l_v2.1.webp)
 
-## 2 · Pin correspondence (old board → new)
+## Подобрал распиновку
 
 | Function           | [Makeboard Mini 2.1.2](/assets/blog/micromake_d1/makeboard_mini_2.1.2.webp) | [MKS Gen L V2.1](/assets/blog/micromake_d1/mks_gen_l_v2.1.webp)           |
 |:-------------------|:---------------------|:-------------------------|
@@ -43,9 +33,19 @@ tags: micromake 3d firmware marlin2
 | Fan 1 (hot‑end)    | D7                   | MOSFET D                 |
 | VIN                | XT‑30                | 2‑pin 12–24 V in         |
 
+По сути у меня была новая плата [Makerbase MKS Gen L V2.1](https://github.com/makerbase-mks/MKS-GEN_L/wiki/MKS_GEN_L_V2), и просто направляющие с движками, экструдер с двумя обдувами и стол с подогревом.
+
+![Micromake D1 with MKS Gen L V2.1](/assets/blog/micromake_d1/d1-upgrade.jpg)
+
+Нужно как то оживлять. За основу взял конфиг от случайной дельты и начал экспериментировать. Отладил кучу моментов, теперь принтер печатал, парковался, измерял Z ось и практически соблюдал масштаб деталей.
+
+Выложил наработки в репозиторий Марлина [pull/1146](https://github.com/MarlinFirmware/Configurations/pull/1146) и там основной мэинтейнер подсказал корректировки геометрии!
+
+С новыми вводными, довёл прошивку до ума, и теперь в основном репозитории Марлина есть прошивка для **Micromake-D1** [examples/delta/Micromake-D1/MKS-Gen-L-V2.1](https://github.com/MarlinFirmware/Configurations/tree/import-2.1.x/config/examples/delta/Micromake-D1)
+
 ---
 
-## 3 · After flashing:
+## Первый запуск:
 ```gcode
 M502  ; load defaults
 M500  ; save
@@ -53,6 +53,4 @@ G28   ; home
 G33   ; auto‑calibrate
 M303 E0 S200 C8 ; PID calibration
 ```
-![Micromake D1 with MKS Gen L V2.1](/assets/blog/micromake_d1/d1-upgrade.jpg)
-
-p.s The BEEEPER is very loud >_<
+**Работает!**
