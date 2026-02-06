@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Обновляем 3D принтер Micromake D1"
+title: "Оживляем 3D принтер Micromake D1"
 description: "MKS Gen L V2.1"
 tags: micromake 3d firmware marlin2
 ---
 
-# Обновляем 3D принтер Micromake D1
+# Оживляем 3D принтер Micromake D1
 ## Micromake D1 → MKS Gen L V2.1
 
 В какой то момент вышел из строя БП и потянул за собой основную плату принтера [Makeboard Mini 2.1.2](/assets/blog/micromake_d1/makeboard_mini_2.1.2.webp)
