@@ -9,9 +9,9 @@ tags: ai agent
 
 Чтобы задать правильное направление для работы агента, нужно создать файл в корне проекта 
  * Для Агента **Junie в IntelliJ IDEA** - 
-[**/.junie/guidelines.md**](https://github.com/william-aqn/blog/.junie/guidelines.md)
+[**/.junie/guidelines.md**](https://github.com/william-aqn/blog/blob/main/.junie/guidelines.md)
 
- * Для Агента **Claude Code** - [**/CLAUDE.md**](https://github.com/william-aqn/blog/CLAUDE.md)
+ * Для Агента **Claude Code** - [**/CLAUDE.md**](https://github.com/william-aqn/blog/blob/main/CLAUDE.md)
  
  С подобным содержимым:
 
