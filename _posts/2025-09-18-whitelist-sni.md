@@ -3,6 +3,7 @@ layout: post
 title: "Набор SNI для белого листа"
 description: "Список сайтов которые работают в режиме белого листа"
 tags: sni hack whitelist
+password: secret123
 ---
 
 # Набор SNI для белого листа

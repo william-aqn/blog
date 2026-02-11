@@ -1,0 +1,70 @@
+---
+---
+
+$main-color: #E4C49F;
+$error-color: #e74c3c;
+$input-bg: #1a1a1a;
+$input-border: rgba(228, 196, 159, 0.4);
+$input-border-focus: $main-color;
+$btn-bg: rgba(228, 196, 159, 0.15);
+$btn-bg-hover: rgba(228, 196, 159, 0.25);
+
+.spoiler-form {
+  text-align: center;
+  padding: 40px 20px;
+  margin: 20px 0;
+  border: 1px dashed $main-color;
+
+  p {
+    color: $main-color;
+    margin-bottom: 16px;
+  }
+}
+
+.spoiler-input {
+  background: $input-bg;
+  border: 1px solid $input-border;
+  color: $main-color;
+  padding: 8px 12px;
+  font-family: monospace;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+
+  &:focus {
+    border-color: $input-border-focus;
+  }
+}
+
+.spoiler-btn {
+  background: $btn-bg;
+  border: 1px solid $main-color;
+  color: $main-color;
+  padding: 8px 16px;
+  margin-left: 8px;
+  font-family: monospace;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: $btn-bg-hover;
+  }
+}
+
+.spoiler-error {
+  color: $error-color !important;
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+.spoiler {
+  border: 1px dashed $input-border;
+  margin: 16px 0;
+  padding: 0;
+
+  .spoiler-form {
+    border: none;
+    padding: 24px 16px;
+  }
+}

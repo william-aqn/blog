@@ -1,12 +1,21 @@
 ---
 layout: hacker
 ---
+<link rel="stylesheet" href="{{ '/assets/css/hacker/spoiler.css?v=' | append: site.github.build_revision | relative_url }}" />
 <small>{{ page.date | date: "%-d %B %Y" }}</small>
-{{content}}
+{% if page.password %}
+<div id="spoiler-wall" data-password="{{ page.password }}"></div>
+<div id="spoiler-content" hidden>
+{{ content }}
+</div>
+{% else %}
+{{ content }}
+{% endif %}
 {% if page.tags %}
 <small>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small>
 {% endif %}
 <script>document.getElementById('a-title').href = "/blog#" + "{{ page.id }}";</script>
+<script src="{{ '/assets/js/spoiler.js?v=' | append: site.github.build_revision | relative_url }}"></script>
 <script src="https://utteranc.es/client.js"
         repo="william-aqn/blog"
         issue-term="pathname"
