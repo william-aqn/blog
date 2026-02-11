@@ -107,14 +107,15 @@
 
     items.forEach(function (el) {
       var password = el.getAttribute('data-password');
-      var href = el.getAttribute('data-href');
-      if (!password || !href) return;
+      var content = el.querySelector('[hidden]');
+      if (!password || !content) return;
 
       var parts = createForm();
       el.appendChild(parts.form);
 
       bindCheck(parts.input, parts.btn, parts.error, password, function () {
-        window.location.href = href;
+        parts.form.hidden = true;
+        content.hidden = false;
       });
     });
   }

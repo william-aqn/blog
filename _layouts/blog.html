@@ -8,7 +8,9 @@ layout: hacker
         <li>
             <a id="{{ post.id }}" href="{{ post.url }}">{{ post.title }}</a>
             {% if post.password %}
-            <div class="spoiler-list" data-password="{{ post.password }}" data-href="{{ post.url }}"></div>
+            <div class="spoiler-list" data-password="{{ post.password }}">
+                <noindex hidden>{{ post.excerpt }}</noindex>
+            </div>
             {% else %}
             <noindex>{{ post.excerpt }}</noindex>
             {% endif %}
