@@ -1,13 +1,20 @@
 ---
 layout: post
-title: "Инструкции для Агента Junie в IntelliJ IDEA"
+title: "Инструкции для агентов ИИ"
 description: "Пишем код правильно"
 tags: ai agent
 ---
 
-# Инструкции для Агента Junie в IntelliJ IDEA
+# Инструкции для агентов ИИ
 
-Чтобы задать правильное направление для работы агента, нужно создать файл в корне проекта [**.junie/guidelines.md**](https://github.com/william-aqn/blog/.junie/guidelines.md) с подобным содержимым:
+Чтобы задать правильное направление для работы агента, нужно создать файл в корне проекта 
+ * Для Агента **Junie в IntelliJ IDEA** - 
+[**/.junie/guidelines.md**](https://github.com/william-aqn/blog/.junie/guidelines.md)
+
+ * Для Агента **Claude Code** - [**/CLAUDE.md**](https://github.com/william-aqn/blog/CLAUDE.md)
+ 
+ С подобным содержимым:
+
 ```txt
 Создавай отдельные файлы со стилями для каждого компонента или страницы.
 Не используй магические числа и строки, а используй константы или перечисления.
