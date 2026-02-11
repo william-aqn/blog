@@ -1,14 +1,20 @@
 ---
 layout: hacker
 ---
+<link rel="stylesheet" href="{{ '/assets/css/hacker/spoiler.css?v=' | append: site.github.build_revision | relative_url }}" />
 <div id="blog_posts">
     <ul>
         {% for post in site.posts %}
         <li>
             <a id="{{ post.id }}" href="{{ post.url }}">{{ post.title }}</a>
+            {% if post.password %}
+            <div class="spoiler-list" data-password="{{ post.password }}" data-href="{{ post.url }}"></div>
+            {% else %}
             <noindex>{{ post.excerpt }}</noindex>
+            {% endif %}
             <hr/>
         </li>
         {% endfor %}
     </ul>
 </div>
+<script src="{{ '/assets/js/spoiler.js?v=' | append: site.github.build_revision | relative_url }}"></script>

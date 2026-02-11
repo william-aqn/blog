@@ -100,6 +100,26 @@
     });
   }
 
+  // --- Часть 3: форма пароля в списке постов ---
+  function initList() {
+    var LIST_SELECTOR = '.spoiler-list[data-password]';
+    var items = Array.prototype.slice.call(document.querySelectorAll(LIST_SELECTOR));
+
+    items.forEach(function (el) {
+      var password = el.getAttribute('data-password');
+      var href = el.getAttribute('data-href');
+      if (!password || !href) return;
+
+      var parts = createForm();
+      el.appendChild(parts.form);
+
+      bindCheck(parts.input, parts.btn, parts.error, password, function () {
+        window.location.href = href;
+      });
+    });
+  }
+
   initWall();
   initInline();
+  initList();
 })();
