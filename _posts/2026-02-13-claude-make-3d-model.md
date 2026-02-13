@@ -22,3 +22,6 @@ tags: 3d scad stl
 **Claude 4.6** создал модель [stl](/assets/blog/3d-vent-grille/vent_grille.stl)+[scad](/assets/blog/3d-vent-grille/vent_grille.scad) с помощью **Python** - **trimesh + manifold3d**
 
 *И 3D просмотрщик stl файлов для этого поста, так же был создан Claude 4.6*
+
+## Отправляем на печать
+{% include youtube.html id="1rk5jzWqHzI" %}
