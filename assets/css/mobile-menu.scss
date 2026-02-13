@@ -2,16 +2,16 @@
 ---
 
 $main-color: #E4C49F;
-$bg-dark: #0d1117;
-$bg-panel: #161b22;
-$border-color: #30363d;
+$bg-menu: #5E4841;
+$text-color: #f2f2f2;
 $text-muted: #a29b97;
 
-/* Mobile panel — top bar */
+/* Mobile panel — hide bar, keep burger floating */
 .rd-mobilepanel {
-  background: $bg-panel;
-  box-shadow: 0 1px 0 0 $border-color;
-  height: 48px;
+  background: none;
+  box-shadow: none;
+  height: 0;
+  pointer-events: none;
 }
 
 .rd-mobilepanel_title {
@@ -19,8 +19,9 @@ $text-muted: #a29b97;
 }
 
 .rd-mobilepanel_toggle {
-  top: 0;
-  left: 4px;
+  pointer-events: auto;
+  top: 8px;
+  left: 8px;
   width: 48px;
   height: 48px;
 }
@@ -37,11 +38,11 @@ $text-muted: #a29b97;
   bottom: 0;
   width: 220px;
   padding: 64px 0 24px;
-  background: $bg-dark;
-  color: $main-color;
-  border-right: 1px solid $border-color;
+  background: $bg-menu;
+  color: $text-color;
+  border-right: none;
   box-shadow: none;
-  font-family: "Exo 2", sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   font-size: 16px;
   line-height: 1.4;
   transform: translateX(-220px);
@@ -49,16 +50,16 @@ $text-muted: #a29b97;
 
 .rd-mobilemenu_ul a {
   display: block;
-  padding: 12px 20px;
+  padding: 14px 20px;
   text-align: left;
-  color: $text-muted;
-  border-bottom: 1px solid $border-color;
+  color: $text-color;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   transition: color 0.2s, background 0.2s;
 }
 
 .rd-mobilemenu_ul a:hover,
 .rd-mobilemenu_ul a.active {
-  background: $bg-panel;
+  background: rgba(0, 0, 0, 0.15);
   color: $main-color;
 }
 
@@ -69,7 +70,6 @@ $text-muted: #a29b97;
   line-height: 1.4;
 }
 
-/* Show small subtitle under menu item */
 .rd-mobilemenu_ul .menu-item span {
   display: none;
 }
@@ -77,7 +77,7 @@ $text-muted: #a29b97;
 .rd-mobilemenu_ul .menu-item small {
   display: block;
   font-size: 12px;
-  color: darken($text-muted, 15%);
+  color: $text-muted;
   margin-top: 2px;
 }
 
