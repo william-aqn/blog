@@ -2,6 +2,7 @@
 ---
 
 $main-color: #E4C49F;
+$accent-color: #E47C56;
 $bg-menu: #5E4841;
 $text-color: #f2f2f2;
 $text-muted: #a29b97;
@@ -52,7 +53,9 @@ $text-muted: #a29b97;
 
 .rd-mobilemenu_ul a {
   display: block;
-  padding: 12px 20px;
+  position: relative;
+  overflow: hidden;
+  padding: 14px 20px;
   text-align: left;
   color: $text-color;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
@@ -70,6 +73,8 @@ $text-muted: #a29b97;
 }
 
 .rd-mobilemenu_ul .menu-item {
+  position: relative;
+  z-index: 1;
   font-size: 16px;
   font-weight: 400;
   text-transform: none;
@@ -81,10 +86,6 @@ $text-muted: #a29b97;
   display: none;
 }
 
-.rd-mobilemenu_ul .hover {
-  display: none;
-}
-
 .rd-mobilemenu_ul:after {
   display: none;
 }
@@ -92,4 +93,189 @@ $text-muted: #a29b97;
 /* No backdrop — don't block the page */
 .rd-mobilemenu.active {
   background: none;
+}
+
+/* =============================================
+   CSS animations — replacing swiffy in mobile
+   ============================================= */
+
+.rd-mobilemenu_ul .hover {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: auto;
+  width: 60px;
+  opacity: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* Hide swiffy canvas leftovers */
+.rd-mobilemenu_ul .hover canvas {
+  display: none;
+}
+
+/* Show animations when menu is open */
+.rd-mobilemenu.active .hover {
+  opacity: 0.45;
+}
+
+/* Shared pseudo-element base */
+.rd-mobilemenu_ul .hover div::before,
+.rd-mobilemenu_ul .hover div::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+/* ---- Shape 1: Bubbles (Обо мне) ---- */
+.rd-mobilemenu_ul #shape-1 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.rd-mobilemenu_ul #shape-1::before {
+  width: 28px;
+  height: 28px;
+  margin: -14px 0 0 -14px;
+  border-radius: 50%;
+  background: $accent-color;
+  animation: bubbles-pulse 2.4s ease-in-out infinite;
+}
+
+.rd-mobilemenu_ul #shape-1::after {
+  width: 12px;
+  height: 12px;
+  margin: -10px 0 0 6px;
+  border-radius: 50%;
+  background: $main-color;
+  animation: bubbles-orbit 3s linear infinite;
+}
+
+@keyframes bubbles-pulse {
+  0%, 100% { transform: scale(0.7); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+@keyframes bubbles-orbit {
+  0% { transform: rotate(0deg) translateX(12px); opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { transform: rotate(360deg) translateX(12px); opacity: 0.6; }
+}
+
+/* ---- Shape 2: Diamond (Услуги) ---- */
+.rd-mobilemenu_ul #shape-2 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.rd-mobilemenu_ul #shape-2::before {
+  width: 22px;
+  height: 22px;
+  margin: -11px 0 0 -11px;
+  border: 2px solid $accent-color;
+  transform: rotate(45deg);
+  animation: diamond-spin 3.5s ease-in-out infinite;
+}
+
+.rd-mobilemenu_ul #shape-2::after {
+  width: 30px;
+  height: 2px;
+  margin: -1px 0 0 -15px;
+  background: $main-color;
+  animation: diamond-slash 3.5s ease-in-out infinite;
+}
+
+@keyframes diamond-spin {
+  0%, 100% { transform: rotate(45deg) scale(0.8); opacity: 0.5; }
+  50% { transform: rotate(225deg) scale(1.1); opacity: 1; }
+}
+
+@keyframes diamond-slash {
+  0%, 100% { transform: rotate(-30deg) scaleX(0.5); opacity: 0.3; }
+  25% { transform: rotate(30deg) scaleX(1.2); opacity: 0.9; }
+  50% { transform: rotate(-30deg) scaleX(0.8); opacity: 0.6; }
+  75% { transform: rotate(30deg) scaleX(1); opacity: 0.8; }
+}
+
+/* ---- Shape 3: Organic blob (Блог) ---- */
+.rd-mobilemenu_ul #shape-3 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.rd-mobilemenu_ul #shape-3::before {
+  width: 30px;
+  height: 30px;
+  margin: -15px 0 0 -15px;
+  background: $accent-color;
+  border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+  animation: blob-morph 4s ease-in-out infinite;
+}
+
+.rd-mobilemenu_ul #shape-3::after {
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 2px;
+  border: 2px solid $main-color;
+  border-radius: 40% 60% 50% 50% / 55% 45% 55% 45%;
+  animation: blob-morph 4s ease-in-out infinite reverse;
+}
+
+@keyframes blob-morph {
+  0%, 100% {
+    border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+    transform: rotate(0deg) scale(0.85);
+    opacity: 0.6;
+  }
+  33% {
+    border-radius: 45% 55% 40% 60% / 60% 40% 55% 45%;
+    transform: rotate(120deg) scale(1);
+    opacity: 1;
+  }
+  66% {
+    border-radius: 50% 50% 60% 40% / 45% 55% 50% 50%;
+    transform: rotate(240deg) scale(0.9);
+    opacity: 0.7;
+  }
+}
+
+/* ---- Shape 4: Hexagons (Контакты) ---- */
+.rd-mobilemenu_ul #shape-4 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.rd-mobilemenu_ul #shape-4::before {
+  width: 24px;
+  height: 24px;
+  margin: -12px 0 0 -12px;
+  background: rgba(228, 124, 86, 0.3);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  animation: hex-rotate 4s linear infinite;
+}
+
+.rd-mobilemenu_ul #shape-4::after {
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  background: $main-color;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  animation: hex-rotate 4s linear infinite reverse;
+  opacity: 0.5;
+}
+
+@keyframes hex-rotate {
+  0% { transform: rotate(0deg) scale(0.9); opacity: 0.5; }
+  50% { transform: rotate(180deg) scale(1.1); opacity: 1; }
+  100% { transform: rotate(360deg) scale(0.9); opacity: 0.5; }
 }
