@@ -7,7 +7,7 @@ var LOADING_CLASS = 'stl-viewer-loading';
 var HINT_CLASS = 'stl-viewer-hint';
 
 var MODEL_COLOR = 0xE4C49F;
-var BACKGROUND_COLOR = 0x1a1a2e;
+var BACKGROUND_COLOR = 0x151515;
 var AMBIENT_INTENSITY = 0.6;
 var DIRECTIONAL_INTENSITY = 0.8;
 var CAMERA_FOV = 50;
