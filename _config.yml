@@ -4,6 +4,8 @@ plugins:
  - jekyll-github-metadata
  - jekyll-readme-index
  - jekyll-remote-theme
+ - jekyll-seo-tag
+ - jekyll-redirect-from
 title: Crimson.Lab
 description: Лаборатория Кримсона
 excerpt_separator: <!--more-->
