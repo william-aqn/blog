@@ -99,48 +99,52 @@ $text-muted: #a29b97;
    CSS animations — replacing swiffy in mobile
    ============================================= */
 
+/* Hidden by default */
 .rd-mobilemenu_ul .hover {
-  display: block;
+  display: none;
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: auto;
   width: 60px;
-  opacity: 0;
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
-  transition: opacity 0.4s ease;
 }
 
-/* Hide swiffy canvas leftovers */
 .rd-mobilemenu_ul .hover canvas {
   display: none;
 }
 
-/* Show animations when menu is open */
-.rd-mobilemenu.active .hover {
+/* Appear only on hover */
+.rd-mobilemenu_ul a:hover .hover,
+.rd-mobilemenu_ul a:active .hover {
+  display: block;
   opacity: 0.45;
 }
 
-/* Shared pseudo-element base */
-.rd-mobilemenu_ul .hover div::before,
-.rd-mobilemenu_ul .hover div::after {
+/* Shape containers */
+.rd-mobilemenu_ul [id^="shape-"] {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Pseudo-elements only on hover */
+.rd-mobilemenu_ul a:hover [id^="shape-"]::before,
+.rd-mobilemenu_ul a:hover [id^="shape-"]::after,
+.rd-mobilemenu_ul a:active [id^="shape-"]::before,
+.rd-mobilemenu_ul a:active [id^="shape-"]::after {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
 }
 
-/* ---- Shape 1: Bubbles (Обо мне) ---- */
-.rd-mobilemenu_ul #shape-1 {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.rd-mobilemenu_ul #shape-1::before {
+/* ---- Shape 1: Bubbles ---- */
+.rd-mobilemenu_ul a:hover #shape-1::before,
+.rd-mobilemenu_ul a:active #shape-1::before {
   width: 28px;
   height: 28px;
   margin: -14px 0 0 -14px;
@@ -149,7 +153,8 @@ $text-muted: #a29b97;
   animation: bubbles-pulse 2.4s ease-in-out infinite;
 }
 
-.rd-mobilemenu_ul #shape-1::after {
+.rd-mobilemenu_ul a:hover #shape-1::after,
+.rd-mobilemenu_ul a:active #shape-1::after {
   width: 12px;
   height: 12px;
   margin: -10px 0 0 6px;
@@ -169,23 +174,18 @@ $text-muted: #a29b97;
   100% { transform: rotate(360deg) translateX(12px); opacity: 0.6; }
 }
 
-/* ---- Shape 2: Diamond (Услуги) ---- */
-.rd-mobilemenu_ul #shape-2 {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.rd-mobilemenu_ul #shape-2::before {
+/* ---- Shape 2: Diamond ---- */
+.rd-mobilemenu_ul a:hover #shape-2::before,
+.rd-mobilemenu_ul a:active #shape-2::before {
   width: 22px;
   height: 22px;
   margin: -11px 0 0 -11px;
   border: 2px solid $accent-color;
-  transform: rotate(45deg);
   animation: diamond-spin 3.5s ease-in-out infinite;
 }
 
-.rd-mobilemenu_ul #shape-2::after {
+.rd-mobilemenu_ul a:hover #shape-2::after,
+.rd-mobilemenu_ul a:active #shape-2::after {
   width: 30px;
   height: 2px;
   margin: -1px 0 0 -15px;
@@ -205,14 +205,9 @@ $text-muted: #a29b97;
   75% { transform: rotate(30deg) scaleX(1); opacity: 0.8; }
 }
 
-/* ---- Shape 3: Organic blob (Блог) ---- */
-.rd-mobilemenu_ul #shape-3 {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.rd-mobilemenu_ul #shape-3::before {
+/* ---- Shape 3: Organic blob ---- */
+.rd-mobilemenu_ul a:hover #shape-3::before,
+.rd-mobilemenu_ul a:active #shape-3::before {
   width: 30px;
   height: 30px;
   margin: -15px 0 0 -15px;
@@ -221,7 +216,8 @@ $text-muted: #a29b97;
   animation: blob-morph 4s ease-in-out infinite;
 }
 
-.rd-mobilemenu_ul #shape-3::after {
+.rd-mobilemenu_ul a:hover #shape-3::after,
+.rd-mobilemenu_ul a:active #shape-3::after {
   width: 16px;
   height: 16px;
   margin: -8px 0 0 2px;
@@ -248,14 +244,9 @@ $text-muted: #a29b97;
   }
 }
 
-/* ---- Shape 4: Hexagons (Контакты) ---- */
-.rd-mobilemenu_ul #shape-4 {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.rd-mobilemenu_ul #shape-4::before {
+/* ---- Shape 4: Hexagons ---- */
+.rd-mobilemenu_ul a:hover #shape-4::before,
+.rd-mobilemenu_ul a:active #shape-4::before {
   width: 24px;
   height: 24px;
   margin: -12px 0 0 -12px;
@@ -264,7 +255,8 @@ $text-muted: #a29b97;
   animation: hex-rotate 4s linear infinite;
 }
 
-.rd-mobilemenu_ul #shape-4::after {
+.rd-mobilemenu_ul a:hover #shape-4::after,
+.rd-mobilemenu_ul a:active #shape-4::after {
   width: 16px;
   height: 16px;
   margin: -8px 0 0 -8px;
