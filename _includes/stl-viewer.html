@@ -1,0 +1,11 @@
+<link rel="stylesheet" href="{{ '/assets/css/hacker/stl-viewer.css?v=' | append: site.github.build_revision | relative_url }}" />
+<div class="stl-viewer-container" data-stl="{{ include.model }}"></div>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module" src="{{ '/assets/js/stl-viewer.js?v=' | append: site.github.build_revision | relative_url }}"></script>

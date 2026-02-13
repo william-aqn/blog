@@ -1,0 +1,55 @@
+---
+---
+
+$main-color: #E4C49F;
+$viewer-bg: #1a1a2e;
+$viewer-border: rgba(228, 196, 159, 0.3);
+$viewer-border-hover: rgba(228, 196, 159, 0.5);
+
+.stl-viewer-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  max-height: 500px;
+  margin: 20px 0;
+  border: 1px dashed $viewer-border;
+  border-radius: 2px;
+  overflow: hidden;
+  background: $viewer-bg;
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: $viewer-border-hover;
+  }
+
+  canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+.stl-viewer-hint {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-size: 11px;
+  color: rgba(228, 196, 159, 0.4);
+  pointer-events: none;
+  font-family: monospace;
+  transition: opacity 0.3s ease;
+
+  .stl-viewer-container:hover & {
+    opacity: 0;
+  }
+}
+
+.stl-viewer-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: $main-color;
+  font-family: monospace;
+  font-size: 14px;
+}
