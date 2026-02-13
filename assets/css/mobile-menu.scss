@@ -1,0 +1,95 @@
+---
+---
+
+$main-color: #E4C49F;
+$bg-dark: #0d1117;
+$bg-panel: #161b22;
+$border-color: #30363d;
+$text-muted: #a29b97;
+
+/* Mobile panel — top bar */
+.rd-mobilepanel {
+  background: $bg-panel;
+  box-shadow: 0 1px 0 0 $border-color;
+  height: 48px;
+}
+
+.rd-mobilepanel_title {
+  display: none;
+}
+
+.rd-mobilepanel_toggle {
+  top: 0;
+  left: 4px;
+  width: 48px;
+  height: 48px;
+}
+
+.rd-mobilepanel_toggle span,
+.rd-mobilepanel_toggle span:before,
+.rd-mobilepanel_toggle span:after {
+  background-color: $main-color;
+}
+
+/* Slide-out menu */
+.rd-mobilemenu_ul {
+  top: 0;
+  bottom: 0;
+  width: 220px;
+  padding: 64px 0 24px;
+  background: $bg-dark;
+  color: $main-color;
+  border-right: 1px solid $border-color;
+  box-shadow: none;
+  font-family: "Exo 2", sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  transform: translateX(-220px);
+}
+
+.rd-mobilemenu_ul a {
+  display: block;
+  padding: 12px 20px;
+  text-align: left;
+  color: $text-muted;
+  border-bottom: 1px solid $border-color;
+  transition: color 0.2s, background 0.2s;
+}
+
+.rd-mobilemenu_ul a:hover,
+.rd-mobilemenu_ul a.active {
+  background: $bg-panel;
+  color: $main-color;
+}
+
+.rd-mobilemenu_ul .menu-item {
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: none;
+  line-height: 1.4;
+}
+
+/* Show small subtitle under menu item */
+.rd-mobilemenu_ul .menu-item span {
+  display: none;
+}
+
+.rd-mobilemenu_ul .menu-item small {
+  display: block;
+  font-size: 12px;
+  color: darken($text-muted, 15%);
+  margin-top: 2px;
+}
+
+.rd-mobilemenu_ul .hover {
+  display: none;
+}
+
+.rd-mobilemenu_ul:after {
+  display: none;
+}
+
+/* Backdrop when menu is open */
+.rd-mobilemenu.active {
+  background: rgba(0, 0, 0, 0.5);
+}
