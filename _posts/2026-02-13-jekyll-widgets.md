@@ -15,10 +15,11 @@ tags: jekyll widget github-pages
  * [assets/css/hacker/youtube.scss](https://github.com/william-aqn/blog/blob/master/assets/css/hacker/youtube.scss)
 
 **Использование в посте:**
-
+{% raw %}
 ```
 {% include youtube.html id="VIDEO_ID" %}
 ```
+{% endraw %}
 
 ## STL 3D Viewer — интерактивная 3D модель
 
@@ -32,10 +33,11 @@ tags: jekyll widget github-pages
  * [assets/css/hacker/stl-viewer.scss](https://github.com/william-aqn/blog/blob/master/assets/css/hacker/stl-viewer.scss)
 
 **Использование в посте:**
-
+{% raw %}
 ```
 {% include stl-viewer.html model="/assets/blog/3d-vent-grille/vent_grille.stl" %}
 ```
+{% endraw %}
 
 ## Как подключить к себе
 
