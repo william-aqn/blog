@@ -16,12 +16,16 @@ tags: jekyll widget stl 3d
  * [assets/js/stl-viewer.js](https://github.com/william-aqn/blog/blob/master/assets/js/stl-viewer.js)
  * [assets/css/hacker/stl-viewer.scss](https://github.com/william-aqn/blog/blob/master/assets/css/hacker/stl-viewer.scss)
 
-**Использование в посте:**
-
+## Использование в посте:
 {% raw %}
 ```
-{% include stl-viewer.html model="/assets/blog/model.stl" %}
+{% include stl-viewer.html model="/assets/blog/3d-glider/glider_emblem.stl" %}
 ```
 {% endraw %}
+
+## Пример
+{% include stl-viewer.html model="/assets/blog/3d-glider/glider_emblem.stl" %}
+
+[Инструкция для подключения](/2026/02/12/jekyll-widgets.html)
 
 *Виджет создан с помощью Claude 4.6*
