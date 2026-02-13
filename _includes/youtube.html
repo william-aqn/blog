@@ -1,3 +1,4 @@
-{% assign width = include.width | default: 560 %}
-{% assign height = include.height | default: 420 %}
-<iframe width="{{ width }}" height="{{ height }}" src="https://www.youtube.com/embed/{{ include.id }}?color=white&theme=light" frameborder="0" allowfullscreen></iframe>
+<link rel="stylesheet" href="{{ '/assets/css/hacker/youtube.css?v=' | append: site.github.build_revision | relative_url }}" />
+<div class="youtube-container">
+  <iframe src="https://www.youtube.com/embed/{{ include.id }}?color=white&theme=light" allowfullscreen></iframe>
+</div>
