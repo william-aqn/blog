@@ -14,7 +14,7 @@ tags: jekyll widget github-pages
  * [_includes/youtube.html](https://github.com/william-aqn/blog/blob/master/_includes/youtube.html)
  * [assets/css/hacker/youtube.scss](https://github.com/william-aqn/blog/blob/master/assets/css/hacker/youtube.scss)
 
-**Вызов в посте:**
+**Использование в посте:**
 
 ```
 {% include youtube.html id="VIDEO_ID" %}
@@ -31,7 +31,7 @@ tags: jekyll widget github-pages
  * [assets/js/stl-viewer.js](https://github.com/william-aqn/blog/blob/master/assets/js/stl-viewer.js)
  * [assets/css/hacker/stl-viewer.scss](https://github.com/william-aqn/blog/blob/master/assets/css/hacker/stl-viewer.scss)
 
-**Вызов в посте:**
+**Использование в посте:**
 
 ```
 {% include stl-viewer.html model="/assets/blog/3d-vent-grille/vent_grille.stl" %}
