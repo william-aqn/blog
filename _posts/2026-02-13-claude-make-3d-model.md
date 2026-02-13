@@ -17,8 +17,6 @@ tags: 3d scad stl
  * Отверстия: 4 мм, на расстоянии 15 мм от краёв по углам
 
 ## Результат
-![grille](/assets/blog/3d-vent-grille/grille_v1.webp)
+{% include stl-viewer.html model="/assets/blog/3d-vent-grille/vent_grille.stl" %}
 
 **Claude 4.6** создал [модель stl+scad](/assets/blog/3d-vent-grille/grille_v1.zip) с помощью **Python** - **trimesh + manifold3d**
-
-{% include stl-viewer.html model="/assets/blog/3d-vent-grille/vent_grille.stl" %}
