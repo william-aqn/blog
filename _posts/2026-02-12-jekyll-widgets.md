@@ -10,8 +10,8 @@ tags: jekyll widget github-pages
 В Jekyll есть механизм `_includes` — добавить HTML-файл в папку, и дальше вставлять его одной строкой в любой пост.
 
 Виджеты:
- * [YouTube — адаптивный iframe](/2026/02/13/jekyll-widget-youtube.html)
- * [STL 3D Viewer — интерактивная 3D модель](/2026/02/13/jekyll-widget-stl-viewer.html)
+ * [YouTube — адаптивный iframe](/2026/02/12/jekyll-widget-youtube.html)
+ * [STL 3D Viewer — интерактивная 3D модель](/2026/02/12/jekyll-widget-stl-viewer.html)
 
 ## Как подключить к себе
 
