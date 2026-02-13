@@ -14,6 +14,7 @@ include('/assets/js/shape-3.js');
 include('/assets/js/shape-4.js');
 include('/assets/js/device.min.js');
 include('/assets/js/termly-prompt.min.js');
+include('/assets/js/jquery.rd-navbar.js');
 
 /* cookie.JS
  ========================================================*/
