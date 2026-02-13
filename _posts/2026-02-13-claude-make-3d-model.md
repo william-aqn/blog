@@ -24,4 +24,4 @@ tags: 3d scad stl
 *И 3D просмотрщик stl файлов для этого поста, так же был создан Claude 4.6*
 
 ## Отправляем на печать
-{% include youtube.html id="1rk5jzWqHzI" %}
+{% include youtube.html id="oh5DIHs1A9Q" %}
