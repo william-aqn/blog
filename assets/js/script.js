@@ -159,26 +159,6 @@ document.write('<meta name="viewport" content="width=device-width,initial-scale=
 
         stage_4.start();
 
-        /* Swiffy in mobile menu clones */
-        var mobileShapes = [
-            {id: 'shape-1', obj: swiffyobject},
-            {id: 'shape-2', obj: swiffyobject2},
-            {id: 'shape-3', obj: swiffyobject3},
-            {id: 'shape-4', obj: swiffyobject4}
-        ];
-        $('.rd-mobilemenu_ul [id^="shape-"]').each(function () {
-            var original = this.id;
-            var mobileId = 'mobile-' + original;
-            this.id = mobileId;
-            for (var k = 0; k < mobileShapes.length; k++) {
-                if (mobileShapes[k].id === original) {
-                    var s = new swiffy.Stage(document.getElementById(mobileId), mobileShapes[k].obj, {});
-                    s.start();
-                    break;
-                }
-            }
-        });
-
     }
     if ($('#terminal-container').length) {
         var shell = new TermlyPrompt('#terminal-container', { /* options object */ });

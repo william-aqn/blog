@@ -52,7 +52,6 @@ $text-muted: #a29b97;
 
 .rd-mobilemenu_ul a {
   display: block;
-  position: relative;
   padding: 12px 20px;
   text-align: left;
   color: $text-color;
@@ -71,8 +70,6 @@ $text-muted: #a29b97;
 }
 
 .rd-mobilemenu_ul .menu-item {
-  position: relative;
-  z-index: 1;
   font-size: 16px;
   font-weight: 400;
   text-transform: none;
@@ -84,17 +81,8 @@ $text-muted: #a29b97;
   display: none;
 }
 
-/* Swiffy animation as item background */
 .rd-mobilemenu_ul .hover {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 0.35;
-  z-index: 0;
-  overflow: hidden;
+  display: none;
 }
 
 .rd-mobilemenu_ul:after {
