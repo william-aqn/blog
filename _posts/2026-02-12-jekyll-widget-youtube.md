@@ -15,12 +15,15 @@ tags: jekyll widget youtube
  * [_includes/youtube.html](https://github.com/william-aqn/blog/blob/master/_includes/youtube.html)
  * [assets/css/hacker/youtube.scss](https://github.com/william-aqn/blog/blob/master/assets/css/hacker/youtube.scss)
 
-## Использование в посте:
+## Использование в посте
 {% raw %}
 ```
 {% include youtube.html id="VIDEO_ID" %}
 ```
 {% endraw %}
+
+## Пример
+{% include youtube.html id="P54Z4IT9Zfc" %}
 
 [Инструкция для подключения](/2026/02/12/jekyll-widgets.html)
 
