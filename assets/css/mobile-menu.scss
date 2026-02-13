@@ -32,34 +32,40 @@ $text-muted: #a29b97;
   background-color: $main-color;
 }
 
-/* Slide-out menu */
+/* Slide-out menu — compact, semi-transparent, only links */
 .rd-mobilemenu_ul {
   top: 0;
-  bottom: 0;
-  width: 220px;
-  padding: 64px 0 24px;
-  background: $bg-menu;
+  bottom: auto;
+  width: auto;
+  min-width: 180px;
+  padding: 60px 0 0;
+  background: rgba(94, 72, 65, 0.9);
   color: $text-color;
   border-right: none;
   box-shadow: none;
   font-family: "Roboto Condensed", sans-serif;
   font-size: 16px;
   line-height: 1.4;
-  transform: translateX(-220px);
+  transform: translateX(-100%);
+  overflow: visible;
 }
 
 .rd-mobilemenu_ul a {
   display: block;
-  padding: 14px 20px;
+  padding: 12px 20px;
   text-align: left;
   color: $text-color;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   transition: color 0.2s, background 0.2s;
 }
 
+.rd-mobilemenu_ul a:last-child {
+  border-bottom: none;
+}
+
 .rd-mobilemenu_ul a:hover,
 .rd-mobilemenu_ul a.active {
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.2);
   color: $main-color;
 }
 
@@ -70,15 +76,9 @@ $text-muted: #a29b97;
   line-height: 1.4;
 }
 
-.rd-mobilemenu_ul .menu-item span {
-  display: none;
-}
-
+.rd-mobilemenu_ul .menu-item span,
 .rd-mobilemenu_ul .menu-item small {
-  display: block;
-  font-size: 12px;
-  color: $text-muted;
-  margin-top: 2px;
+  display: none;
 }
 
 .rd-mobilemenu_ul .hover {
@@ -89,7 +89,7 @@ $text-muted: #a29b97;
   display: none;
 }
 
-/* Backdrop when menu is open */
+/* No backdrop — don't block the page */
 .rd-mobilemenu.active {
-  background: rgba(0, 0, 0, 0.5);
+  background: none;
 }
