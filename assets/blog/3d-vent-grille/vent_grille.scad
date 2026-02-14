@@ -1,17 +1,17 @@
 // Ventilation grille — collar UP, decorations on bottom face
 // Plate: 210.0x210.0x3.0mm, Shaft: 150.0x150.0mm
-// Collar: 210.0x60.0mm, depth 30.0mm, R=5.0mm
-// Funnel: 150.0mm → 204.0mm
+// Collar: 204.0x60.0mm, depth 30.0mm, R=5.0mm
+// Funnel: 150.0mm → 198.0mm
 
 $fn = 32;
 
 plate = 210.0; shaft = 150.0; wall = 3.0;
-duct_w = 210.0; duct_h = 60.0;
+duct_w = 204.0; duct_h = 60.0;
 collar_depth = 30.0; collar_r = 5.0;
 hole_dia = 4.0; hole_offset = 15.0;
 margin = (plate - shaft) / 2;
 
-funnel_top_w = 150.0; funnel_bot_w = 204.0;
+funnel_top_w = 150.0; funnel_bot_w = 198.0;
 funnel_h = 54.0;
 center_x = plate / 2; center_y = margin + duct_h / 2;
 
@@ -63,10 +63,10 @@ difference() {
         }
 
         // Collar (UP from plate)
-        translate([0, margin, wall])
+        translate([(plate - duct_w) / 2, margin, wall])
         difference() {
             rounded_rect(duct_w, duct_h, collar_depth, collar_r);
-            translate([0, -margin, -1])
+            translate([-(plate - duct_w) / 2, -margin, -1])
                 funnel_shape(funnel_bot_w, funnel_h, funnel_top_w, funnel_h,
                              collar_depth + 2, center_x, center_y);
         }
