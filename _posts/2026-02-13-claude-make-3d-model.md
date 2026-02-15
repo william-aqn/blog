@@ -44,4 +44,4 @@ tags: 3d scad stl
 *И [3D просмотрщик stl файлов](/2026/02/12/jekyll-widget-stl-viewer.html) для этого поста, так же был создан Claude 4.6*
 
 ## Отправляем на печать
-{% include youtube.html id="oh5DIHs1A9Q" %}
+{% include youtube.html id="rl6RxP2Qemk" %}
