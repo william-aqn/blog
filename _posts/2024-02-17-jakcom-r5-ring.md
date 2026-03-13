@@ -6,7 +6,7 @@ tags: nfc t5577 ntag216 mifare1k proxmark3 flipperzero
 ---
 # Приручаем 6-в-1 кольцо Jakcom r5 smart ring
 
-Купить можно на [aliexpress](https://aliexpress.ru/item/1005005644883504.html?sku_id=12000034932612948) или на [ozon](https://www.ozon.ru/product/smart-koltso-r5-mozhet-zamenit-6-beskontaktnyh-kart-besprovodnoy-disk-u-podderzhka-komand-624101734/), цены +- одинаковые (~2100 рублей)
+Купить можно на [aliexpress](https://aliexpress.ru/wholesale?SearchText=Jakcom+r5+smart+ring&g=y&page=1) или на [ozon](https://www.ozon.ru/search/?text=Jakcom+r5+smart+ring&from_global=true), цены +- одинаковые (~2100 рублей)
 
 Читаем инструкцию, смотрим где располагаются метки
 * по бокам 2 метки t5577 (ID) 125 kHz
