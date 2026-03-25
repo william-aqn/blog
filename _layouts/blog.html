@@ -5,6 +5,7 @@ layout: hacker
 <div id="blog_posts">
     <ul>
         {% for post in site.posts %}
+        {% unless post.hidden %}
         <li>
             <a id="{{ post.id }}" href="{{ post.url }}">{{ post.title }}</a>
             {% if post.password %}
@@ -16,6 +17,7 @@ layout: hacker
             {% endif %}
             <hr/>
         </li>
+        {% endunless %}
         {% endfor %}
     </ul>
 </div>
