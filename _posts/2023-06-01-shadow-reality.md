@@ -72,7 +72,6 @@ docker run -itd \
 # Клиенты
 * Windows https://github.com/MatsuriDayo/nekoray/releases
     * Ядро выбираем sing-box
-    * Тип подключения - VPN Mode
     * Настройка профиля
     ![Настройка nekobox](/assets/blog/shadow-reality/win-nekobox.png)
 * Android https://github.com/MatsuriDayo/NekoBoxForAndroid/releases
