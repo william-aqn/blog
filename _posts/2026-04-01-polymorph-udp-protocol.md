@@ -21,5 +21,5 @@ tags: ai udp socks5
 * Установка в 1 клик
 * В пике скорость до 30 Мбит/с
 * Красивый клиентский UI в консоли
-![client](/assets/blog/genome/client.png)
+![genome-client](/assets/blog/genome/client.png)
 

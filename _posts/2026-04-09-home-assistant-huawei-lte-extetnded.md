@@ -19,5 +19,5 @@ tags: ai ha hacs
 
 Устанавливаем [Huawei LTE Extended](https://github.com/william-aqn/huawei_lte_extended) через HACS и читаем СМС
 
-![client](/assets/blog/huawei-lte/sms_sensor.png)
+![huawei-lte-sms_sensor](/assets/blog/huawei-lte/sms_sensor.png)
 

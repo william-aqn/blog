@@ -30,3 +30,4 @@ tags: ai amneziawg sh script
 * Добавление дополнительных клиентских конфигов
 * Вывод конфига в консоль в виде QR кода
 
+![behind-7-proxies](/assets/blog/amneziawg/behind-7-proxies.webp)
