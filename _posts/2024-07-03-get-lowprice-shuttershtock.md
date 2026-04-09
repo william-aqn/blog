@@ -6,6 +6,7 @@ tags: work
 ---
 
 # Правильно покупаем картинки с shutterstock / Adobe Stock (Fotolia) / DepositPhotos / iStockphoto
+После ухода зарубежных стоков с российского рынка - доступ к лицензионному контенту ограничен. Один из альтернативных способов:
 
 1. Пишем на почту [sis_supp@yahoo.com](mailto:sis_supp@yahoo.com) или в ВК [sis_supp](https://vk.com/sis_supp) с пометкой регистрация
 2. Заходим с полученными реквизитами на [simpleimage.services](https://simpleimage.services)
