@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ '/assets/css/hacker/styles.css?v=' | append: site.github.build_revision | relative_url }}" />
+    <link rel="stylesheet" href="{{ '/assets/css/hacker/footer.css?v=' | append: site.github.build_revision | relative_url }}" />
     <link rel="alternate" type="application/rss+xml" title="Блог.RSS" href="/feed.xml" />
     {% include favicon.html %}
     {% seo %}
@@ -27,6 +28,12 @@
             {{ content }}
         </section>
     </div>
+    <footer class="site-footer">
+        <div class="container">
+            <p>Crimson.Lab &copy; 2022–<span id="footer-year"></span> | <a href="/disclaimer">Disclaimer</a></p>
+        </div>
+    </footer>
+    <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
     <script src="{{ '/assets/js/oneko.js?v=' | append: site.github.build_revision | relative_url }}"></script>
 </body>
 </html>

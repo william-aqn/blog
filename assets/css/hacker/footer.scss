@@ -1,0 +1,31 @@
+---
+---
+
+$main-color: #E4C49F;
+$footer-text: rgba(228, 196, 159, 0.4);
+$footer-border: rgba(228, 196, 159, 0.3);
+$footer-link: rgba(228, 196, 159, 0.5);
+$footer-link-hover: $main-color;
+
+.site-footer {
+  margin-top: 40px;
+  padding: 20px 0;
+  border-top: 1px dashed $footer-border;
+  text-align: center;
+
+  p {
+    margin: 0;
+    color: $footer-text;
+    font-size: 14px;
+  }
+
+  a {
+    color: $footer-link;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $footer-link-hover;
+    }
+  }
+}
