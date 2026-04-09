@@ -19,13 +19,13 @@ $footer-link-hover: $main-color;
     font-size: 14px;
   }
 
-  a {
-    color: $footer-link;
-    text-decoration: none;
-    transition: color 0.2s ease;
+  // a {
+  //   color: $footer-link;
+  //   text-decoration: none;
+  //   transition: color 0.2s ease;
 
-    &:hover {
-      color: $footer-link-hover;
-    }
-  }
+  //   &:hover {
+  //     color: $footer-link-hover;
+  //   }
+  // }
 }
