@@ -11,7 +11,7 @@ tags: ai amneziawg sh script
 
 ```
                          AmneziaWG tunnel
-  Clients --> [ Server A (Amnezia VPN) ] ===========> [ Server B ] --> Internet
+  Clients --> [ Server A (Amnezia WG) ] ===========> [ Server B ] --> Internet
                   |           |                            |
                   |           +-- MASQUERADE on awg0       +-- NAT (masquerade)
                   |           +-- source-based routing
