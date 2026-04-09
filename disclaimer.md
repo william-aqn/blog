@@ -2,7 +2,8 @@
 layout: hacker
 title: "Crimson.Lab / Отказ от ответственности"
 description: "Disclaimer — отказ от ответственности"
-permalink: /disclaimer
+permalink: /disclaimer.html
+canonical_url: https://x-crm.in/disclaimer.html
 ---
 
 # Отказ от ответственности
