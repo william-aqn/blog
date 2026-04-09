@@ -9,6 +9,17 @@ tags: ai amneziawg sh script
 
 Есть интересный протокол передачи данных - [AmneziaWG](https://github.com/amnezia-vpn/amneziawg-go), но для ручной установки - мало скриптов. А тот, который делает цепочку из серверов - нет.
 
+```
+                         AmneziaWG tunnel
+  Clients --> [ Server A (Amnezia VPN) ] ===========> [ Server B ] --> Internet
+                  |           |                            |
+                  |           +-- MASQUERADE on awg0       +-- NAT (masquerade)
+                  |           +-- source-based routing
+                  |
+                  +-- SSH / direct access
+                      via default gateway
+```
+
 Призываем Claude Opus 4.6, и создаём скрипт [Amnezia-to-Amnezia: AWG tunnel between servers](https://github.com/william-aqn/amnezia-to-amnezia) для установки в 1 клик на чистом сервере
 
 * Сборка из исходников
@@ -18,3 +29,4 @@ tags: ai amneziawg sh script
 * Автозапуск сервера/клиента от сервера/тоннеля
 * Добавление дополнительных клиентских конфигов
 * Вывод конфига в консоль в виде QR кода
+
