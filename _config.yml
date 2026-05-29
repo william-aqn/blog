@@ -10,6 +10,9 @@ title: Crimson.Lab
 description: Лаборатория Кримсона
 excerpt_separator: <!--more-->
 url: "https://x-crm.in"
+amc_proxy_base: "https://app.x-crm.in"  # Cloudflare Worker (HTTPS+CORS) → http://amc.x-crm.in
+minecraft_address: "amc.x-crm.in"       # адрес для подключения в игре (Minecraft Java, порт 25565)
+minecraft_download_url: "https://launcher.mojang.com/download/MinecraftInstaller.exe"  # офиц. установщик Minecraft (Windows)
 assets:
   sources:
     - assets/blog

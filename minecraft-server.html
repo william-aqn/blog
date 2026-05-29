@@ -1,0 +1,53 @@
+---
+layout: hacker
+title: "Crimson.Lab / Minecraft"
+description: "Статус Minecraft-сервера"
+permalink: /minecraft-server
+noindex: true
+---
+<link rel="stylesheet" href="{{ '/assets/css/hacker/minecraft-server.css?v=' | append: site.github.build_revision | relative_url }}" />
+
+<section id="minecraft-server" data-proxy-base="{{ site.amc_proxy_base }}" data-default-icon="{{ '/assets/images/mc-default-icon.svg?v=' | append: site.github.build_revision | relative_url }}">
+    <div id="mc-servers" class="mc-servers">
+        <p class="mc-state">Загрузка статуса…</p>
+    </div>
+
+    <div class="mc-connect">
+        <h2 class="mc-connect__title">Как подключиться</h2>
+
+        <div class="mc-connect__addr-label" id="mc-addr-label">Адрес сервера</div>
+        <button type="button" class="mc-connect__addr" id="mc-addr" title="Нажми, чтобы скопировать"><span>{{ site.minecraft_address }}</span></button>
+
+        <ol class="mc-connect__steps">
+            <li>Открой Minecraft Java (версия <span id="mc-version">26.1.2</span>)</li>
+            <li>«Сетевая игра» → «Добавить сервер»</li>
+            <li>Вставь адрес: {{ site.minecraft_address }}</li>
+            <li>Жми «Подключиться»</li>
+        </ol>
+
+        <div class="mc-connect__note">
+            <div class="mc-connect__note-title">А пароль?</div>
+            <p class="mc-connect__note-lead">При входе само появится окошко с паролем — в чат ничего писать не надо.</p>
+            <div class="mc-connect__row"><span class="mc-connect__tag">1-й раз</span><span>придумай пароль и повтори его. Обязательно запомни!</span></div>
+            <div class="mc-connect__row"><span class="mc-connect__tag">потом</span><span>просто вводи свой пароль в этом окне при каждом заходе.</span></div>
+        </div>
+    </div>
+
+    <a id="mc-download" class="mc-btn" href="{{ site.minecraft_download_url }}" rel="nofollow noopener">Скачать Minecraft</a>
+
+    {% if site.data.minecraft_plugins %}
+    <div class="mc-plugins">
+        <h2 class="mc-plugins__title">Плагины</h2>
+        <ul class="mc-plugins__list">
+            {% for plugin in site.data.minecraft_plugins %}
+            {% capture chip %}<span class="mc-plugins__name">{{ plugin.name }}</span>{% if plugin.desc %}<span class="mc-plugins__desc">{{ plugin.desc }}</span>{% endif %}{% if plugin.version %}<span class="mc-plugins__version">{{ plugin.version }}</span>{% endif %}{% endcapture %}
+            <li class="mc-plugins__item">
+                {% if plugin.url %}<a class="mc-plugins__card" href="{{ plugin.url }}" target="_blank" rel="noopener noreferrer">{{ chip }}</a>{% else %}<span class="mc-plugins__card">{{ chip }}</span>{% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</section>
+
+<script src="{{ '/assets/js/minecraft-server.js?v=' | append: site.github.build_revision | relative_url }}"></script>
