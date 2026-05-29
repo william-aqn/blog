@@ -3,6 +3,7 @@
 
 $main-color: #E4C49F;
 $online-color: #6fcf6f;
+$starting-color: #d6a84a;
 $offline-color: #e0795f;
 $card-bg: rgba(228, 196, 159, 0.05);
 $card-bg-hover: rgba(228, 196, 159, 0.1);
@@ -74,11 +75,13 @@ $card-gap: 16px;
   flex-shrink: 0;
 
   &.is-online { background: $online-color; }
+  &.is-starting { background: $starting-color; }
   &.is-offline { background: $offline-color; }
 }
 
 .mc-status-label {
   &.is-online { color: $online-color; }
+  &.is-starting { color: $starting-color; }
   &.is-offline { color: $offline-color; }
 }
 

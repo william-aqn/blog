@@ -19,6 +19,7 @@
     empty: 'Серверы не найдены',
     noConfig: 'Источник данных не настроен',
     online: 'Онлайн',
+    starting: 'Запускается…',
     offline: 'Оффлайн',
     players: 'Игроки',
     version: 'Версия',
@@ -37,6 +38,7 @@
   var CSS_META = 'mc-card__meta';
   var CSS_STATE = 'mc-state';
   var CSS_ONLINE = 'is-online';
+  var CSS_STARTING = 'is-starting';
   var CSS_OFFLINE = 'is-offline';
 
   var root = document.getElementById(ROOT_ID);
@@ -69,6 +71,25 @@
     box.appendChild(p);
   }
 
+  // Crafty при недоступном сервере отдаёт строку "False" / null вместо данных — считаем это «нет значения».
+  function cleanStr(value) {
+    if (value === null || value === undefined) return '';
+    var s = String(value).trim();
+    var low = s.toLowerCase();
+    if (s === '' || low === 'false' || low === 'none' || low === 'null') return '';
+    return s;
+  }
+
+  function truthy(value) {
+    if (value === true) return true;
+    if (typeof value === 'number') return value !== 0;
+    if (typeof value === 'string') {
+      var s = value.trim().toLowerCase();
+      return s === 'true' || s === '1' || s === 'yes';
+    }
+    return false;
+  }
+
   function createMeta(label, value) {
     var span = document.createElement('span');
     var strong = document.createElement('strong');
@@ -78,18 +99,24 @@
     return span;
   }
 
-  function createStatus(online) {
-    var modifier = online ? CSS_ONLINE : CSS_OFFLINE;
+  function createStatus(state) {
+    var map = {
+      online: { mod: CSS_ONLINE, text: TXT.online },
+      starting: { mod: CSS_STARTING, text: TXT.starting },
+      offline: { mod: CSS_OFFLINE, text: TXT.offline }
+    };
+    var s = map[state] || map.offline;
+
     var row = document.createElement('div');
     row.className = CSS_STATUS;
 
     var dot = document.createElement('span');
-    dot.className = CSS_DOT + ' ' + modifier;
+    dot.className = CSS_DOT + ' ' + s.mod;
     row.appendChild(dot);
 
     var label = document.createElement('span');
-    label.className = CSS_LABEL + ' ' + modifier;
-    label.textContent = online ? TXT.online : TXT.offline;
+    label.className = CSS_LABEL + ' ' + s.mod;
+    label.textContent = s.text;
     row.appendChild(label);
 
     return row;
@@ -111,13 +138,18 @@
     var body = document.createElement('div');
     body.className = CSS_BODY;
 
-    var titleText = server.desc || server.world_name || TXT.unknown;
+    var desc = cleanStr(server.desc);
+    var world = cleanStr(server.world_name);
+    var version = cleanStr(server.version);
+    var running = truthy(server.running);
+    var state = running ? (version !== '' ? 'online' : 'starting') : 'offline';
+    var titleText = desc || world || TXT.unknown;
 
-    if (server.world_name && server.world_name !== titleText) {
-      var world = document.createElement('div');
-      world.className = CSS_WORLD;
-      world.textContent = server.world_name;
-      body.appendChild(world);
+    if (world && world !== titleText) {
+      var worldEl = document.createElement('div');
+      worldEl.className = CSS_WORLD;
+      worldEl.textContent = world;
+      body.appendChild(worldEl);
     }
 
     var title = document.createElement('div');
@@ -125,15 +157,20 @@
     title.textContent = titleText;
     body.appendChild(title);
 
-    body.appendChild(createStatus(!!server.running));
+    body.appendChild(createStatus(state));
 
     var meta = document.createElement('div');
     meta.className = CSS_META;
-    meta.appendChild(createMeta(TXT.players, server.online + ' / ' + server.max));
-    if (server.version) {
-      meta.appendChild(createMeta(TXT.version, server.version));
+    var max = Number(server.max) || 0;
+    if (max > 0) {
+      meta.appendChild(createMeta(TXT.players, (Number(server.online) || 0) + ' / ' + max));
     }
-    body.appendChild(meta);
+    if (version !== '') {
+      meta.appendChild(createMeta(TXT.version, version));
+    }
+    if (meta.childNodes.length) {
+      body.appendChild(meta);
+    }
 
     card.appendChild(body);
     return card;
@@ -141,9 +178,11 @@
 
   function updateVersion(rawVersion) {
     var el = document.getElementById(VERSION_ID);
-    if (!el || !rawVersion) return;
-    var match = String(rawVersion).match(VERSION_RE);
-    el.textContent = match ? match[0] : rawVersion;
+    if (!el) return;
+    var clean = cleanStr(rawVersion);
+    if (clean === '') return;                 // нет данных (сервер не опрошен) — оставляем дефолт
+    var match = clean.match(VERSION_RE);
+    if (match) el.textContent = match[0];     // обновляем только если нашли номер версии
   }
 
   function copyText(text) {
