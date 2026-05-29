@@ -29,6 +29,7 @@
   var CSS_CARD = 'mc-card';
   var CSS_ICON = 'mc-card__icon';
   var CSS_BODY = 'mc-card__body';
+  var CSS_WORLD = 'mc-card__world';
   var CSS_TITLE = 'mc-card__title';
   var CSS_STATUS = 'mc-card__status';
   var CSS_DOT = 'mc-status-dot';
@@ -110,9 +111,18 @@
     var body = document.createElement('div');
     body.className = CSS_BODY;
 
+    var titleText = server.desc || server.world_name || TXT.unknown;
+
+    if (server.world_name && server.world_name !== titleText) {
+      var world = document.createElement('div');
+      world.className = CSS_WORLD;
+      world.textContent = server.world_name;
+      body.appendChild(world);
+    }
+
     var title = document.createElement('div');
     title.className = CSS_TITLE;
-    title.textContent = server.desc || server.world_name || TXT.unknown;
+    title.textContent = titleText;
     body.appendChild(title);
 
     body.appendChild(createStatus(!!server.running));

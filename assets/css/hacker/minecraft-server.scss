@@ -47,6 +47,12 @@ $card-gap: 16px;
   min-width: 0;
 }
 
+.mc-card__world {
+  color: $dim-color;
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+
 .mc-card__title {
   color: $main-color;
   font-size: 18px;
