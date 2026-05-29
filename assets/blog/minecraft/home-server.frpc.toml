@@ -1,0 +1,19 @@
+serverAddr = "***"
+serverPort = 7000
+loginFailExit = false
+auth.method = "token"
+auth.token = "***"
+
+[[proxies]]
+name = "minecraft"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 25565
+remotePort = 25565
+
+[[proxies]]
+name = "status"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 8080
+remotePort = 80
