@@ -225,17 +225,19 @@ $addr-bg: rgba(0, 0, 0, 0.25);
 
 .mc-connect__steps li {
   counter-increment: mc-step;
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
+  position: relative;
+  padding-left: 32px;
   margin-bottom: 8px;
   font-size: 14px;
+  line-height: 22px;
   color: $main-color;
 }
 
 .mc-connect__steps li::before {
   content: counter(mc-step);
-  flex: none;
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 22px;
   height: 22px;
   line-height: 22px;
