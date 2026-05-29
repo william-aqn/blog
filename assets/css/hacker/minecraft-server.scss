@@ -62,10 +62,9 @@ $card-gap: 16px;
 }
 
 .mc-card__status {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 6px;
+  gap: 6px;
 }
 
 .mc-status-dot {
@@ -86,11 +85,16 @@ $card-gap: 16px;
 }
 
 .mc-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
   color: $dim-color;
   font-size: 13px;
-  line-height: 1.6;
+}
 
-  span + span { margin-left: 14px; }
+.mc-card__sep {
+  opacity: 0.5;
 }
 
 .mc-state {

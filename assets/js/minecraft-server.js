@@ -21,8 +21,6 @@
     online: 'Онлайн',
     starting: 'Запускается…',
     offline: 'Оффлайн',
-    players: 'Игроки',
-    version: 'Версия',
     unknown: '—',
     copied: 'Скопировано!'
   };
@@ -36,6 +34,7 @@
   var CSS_DOT = 'mc-status-dot';
   var CSS_LABEL = 'mc-status-label';
   var CSS_META = 'mc-card__meta';
+  var CSS_SEP = 'mc-card__sep';
   var CSS_STATE = 'mc-state';
   var CSS_ONLINE = 'is-online';
   var CSS_STARTING = 'is-starting';
@@ -90,15 +89,6 @@
     return false;
   }
 
-  function createMeta(label, value) {
-    var span = document.createElement('span');
-    var strong = document.createElement('strong');
-    strong.textContent = label + ': ';
-    span.appendChild(strong);
-    span.appendChild(document.createTextNode(value));
-    return span;
-  }
-
   function createStatus(state) {
     var map = {
       online: { mod: CSS_ONLINE, text: TXT.online },
@@ -107,19 +97,19 @@
     };
     var s = map[state] || map.offline;
 
-    var row = document.createElement('div');
-    row.className = CSS_STATUS;
+    var wrap = document.createElement('span');
+    wrap.className = CSS_STATUS;
 
     var dot = document.createElement('span');
     dot.className = CSS_DOT + ' ' + s.mod;
-    row.appendChild(dot);
+    wrap.appendChild(dot);
 
     var label = document.createElement('span');
     label.className = CSS_LABEL + ' ' + s.mod;
     label.textContent = s.text;
-    row.appendChild(label);
+    wrap.appendChild(label);
 
-    return row;
+    return wrap;
   }
 
   function createCard(server) {
@@ -157,20 +147,25 @@
     title.textContent = titleText;
     body.appendChild(title);
 
-    body.appendChild(createStatus(state));
-
     var meta = document.createElement('div');
     meta.className = CSS_META;
+    meta.appendChild(createStatus(state));
+
     var max = Number(server.max) || 0;
-    if (max > 0) {
-      meta.appendChild(createMeta(TXT.players, (Number(server.online) || 0) + ' / ' + max));
-    }
-    if (version !== '') {
-      meta.appendChild(createMeta(TXT.version, version));
-    }
-    if (meta.childNodes.length) {
-      body.appendChild(meta);
-    }
+    var extras = [];
+    if (max > 0) extras.push((Number(server.online) || 0) + ' / ' + max);
+    if (version !== '') extras.push(version);
+    extras.forEach(function (text) {
+      var sep = document.createElement('span');
+      sep.className = CSS_SEP;
+      sep.textContent = '·';
+      meta.appendChild(sep);
+      var seg = document.createElement('span');
+      seg.textContent = text;
+      meta.appendChild(seg);
+    });
+
+    body.appendChild(meta);
 
     card.appendChild(body);
     return card;
