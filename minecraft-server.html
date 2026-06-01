@@ -36,6 +36,23 @@ canonical_url: https://x-crm.in/minecraft-server.html
 
     <a id="mc-download" class="mc-btn" href="{{ site.minecraft_download_url }}" rel="nofollow noopener">Скачать Minecraft</a>
 
+    {% if site.data.minecraft_voice %}
+    <div class="mc-voice">
+        <h2 class="mc-voice__title">Голосовой чат</h2>
+        <ul class="mc-voice__list">
+            {% for voice in site.data.minecraft_voice %}
+            <li class="mc-voice__item">
+                <span class="mc-voice__app">
+                    <span class="mc-voice__name">{{ voice.name }}</span>
+                    {% if voice.client %}<a class="mc-voice__client" href="{{ voice.client }}" rel="nofollow noopener">скачать клиент</a>{% endif %}
+                </span>
+                <button type="button" class="mc-voice__addr mc-copy" title="Нажми, чтобы скопировать">{{ site.minecraft_address }}</button>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
     {% if site.data.minecraft_plugins %}
     <div class="mc-plugins">
         <h2 class="mc-plugins__title">Плагины</h2>

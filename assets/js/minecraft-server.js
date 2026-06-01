@@ -13,6 +13,7 @@
   var ADDR_LABEL_ID = 'mc-addr-label';
   var COPIED_FEEDBACK_MS = 1500;
   var CSS_COPIED = 'is-copied';
+  var CSS_COPY = 'mc-copy';
 
   var TXT = {
     error: 'Не удалось получить статус',
@@ -49,6 +50,7 @@
   var defaultIcon = root.getAttribute('data-default-icon') || '';
 
   initCopy();
+  initCopyButtons();
 
   var base = (root.getAttribute('data-proxy-base') || '').replace(TRAILING_SLASH, '');
   if (!base) {
@@ -216,6 +218,19 @@
           label.classList.remove(CSS_COPIED);
         }, COPIED_FEEDBACK_MS);
       }).catch(function () {});
+    });
+  }
+
+  // Обобщённое копирование для любых кнопок .mc-copy (адреса голосовых серверов и т.п.).
+  function initCopyButtons() {
+    var buttons = document.querySelectorAll('.' + CSS_COPY);
+    Array.prototype.forEach.call(buttons, function (btn) {
+      btn.addEventListener('click', function () {
+        copyText((btn.getAttribute('data-copy') || btn.textContent).trim()).then(function () {
+          btn.classList.add(CSS_COPIED);
+          setTimeout(function () { btn.classList.remove(CSS_COPIED); }, COPIED_FEEDBACK_MS);
+        }).catch(function () {});
+      });
     });
   }
 

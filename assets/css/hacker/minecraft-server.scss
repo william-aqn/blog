@@ -289,6 +289,83 @@ $addr-bg: rgba(0, 0, 0, 0.25);
   white-space: nowrap;
 }
 
+.mc-voice {
+  margin-top: 28px;
+}
+
+.mc-voice__title {
+  color: $main-color;
+  font-size: 16px;
+  margin: 0 0 12px;
+}
+
+.mc-voice__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mc-voice__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border: 1px dashed $card-border;
+  background: $card-bg;
+}
+
+.mc-voice__app {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mc-voice__name {
+  color: $main-color;
+}
+
+.mc-voice__client {
+  color: $dim-color;
+  font-size: 12px;
+  text-decoration: none;
+
+  &:hover {
+    color: $main-color;
+    text-decoration: underline;
+  }
+}
+
+.mc-voice__addr {
+  position: relative;
+  padding: 0;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 15px;
+  color: $mc-green-text;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.mc-copy.is-copied::after {
+  content: "скопировано";
+  position: absolute;
+  right: 100%;
+  margin-right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  color: $online-color;
+  font-size: 12px;
+}
+
 .mc-btn {
   display: block;
   width: fit-content;
