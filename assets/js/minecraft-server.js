@@ -9,6 +9,8 @@
   var VALID_ICON = /^(data:image\/|https?:\/\/)/i;
   var VERSION_RE = /\d+(?:\.\d+)+/;
   var VERSION_ID = 'mc-version';
+  var VERSION_WIKI_PREFIX = 'https://ru.minecraft.wiki/w/';
+  var VERSION_WIKI_SUFFIX = '_(Java_Edition)';
   var ADDR_ID = 'mc-addr';
   var ADDR_LABEL_ID = 'mc-addr-label';
   var COPIED_FEEDBACK_MS = 1500;
@@ -179,7 +181,11 @@
     var clean = cleanStr(rawVersion);
     if (clean === '') return;                 // нет данных (сервер не опрошен) — оставляем дефолт
     var match = clean.match(VERSION_RE);
-    if (match) el.textContent = match[0];     // обновляем только если нашли номер версии
+    if (!match) return;                       // обновляем только если нашли номер версии
+    el.textContent = match[0];
+    if (el.tagName === 'A') {                 // ссылка на вики синхронизируется с версией
+      el.href = VERSION_WIKI_PREFIX + match[0] + VERSION_WIKI_SUFFIX;
+    }
   }
 
   function copyText(text) {

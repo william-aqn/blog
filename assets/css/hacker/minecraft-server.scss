@@ -242,6 +242,17 @@ $addr-bg: rgba(0, 0, 0, 0.25);
   font-size: 13px;
 }
 
+.mc-version-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 2px;
+
+  &:hover {
+    text-decoration-style: solid;
+  }
+}
+
 .mc-connect__note {
   padding: 14px;
   border: 1px dashed $card-border;
