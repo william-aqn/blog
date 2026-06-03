@@ -47,3 +47,11 @@ type = "udp"
 localIP = "127.0.0.1"
 localPort = 64738
 remotePort = 64738
+
+# BlueMap — world web map, port 8100 end-to-end
+[[proxies]]
+name = "bluemap"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 8100
+remotePort = 8100

@@ -25,3 +25,6 @@
 - name: Vault
   desc: "API экономики и прав"
   url: "https://dev.bukkit.org/projects/vault"
+- name: BlueMap
+  desc: "3D-карта мира в браузере"
+  url: "https://github.com/BlueMap-Minecraft/BlueMap/releases"

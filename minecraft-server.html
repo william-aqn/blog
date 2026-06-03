@@ -8,6 +8,11 @@ canonical_url: https://x-crm.in/minecraft-server.html
 ---
 <link rel="stylesheet" href="{{ '/assets/css/hacker/minecraft-server.css?v=' | append: site.github.build_revision | relative_url }}" />
 
+{% if site.bluemap_url %}
+<iframe class="mc-bg" src="{{ site.bluemap_url }}" title="Карта мира" aria-hidden="true" tabindex="-1" loading="lazy"></iframe>
+<div class="mc-bg__scrim"></div>
+{% endif %}
+
 <section id="minecraft-server" data-proxy-base="{{ site.amc_proxy_base }}" data-default-icon="{{ '/assets/images/mc-default-icon.svg?v=' | append: site.github.build_revision | relative_url }}">
     <div id="mc-servers" class="mc-servers">
         <p class="mc-state">Загрузка статуса…</p>

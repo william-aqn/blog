@@ -14,6 +14,7 @@ amc_proxy_base: "https://app.x-crm.in"  # Cloudflare Worker (HTTPS+CORS)
 minecraft_address: "amc.x-crm.in"       # адрес для подключения в игре (Minecraft Java, порт 25565)
 minecraft_download_url: "https://launcher.mojang.com/download/MinecraftInstaller.exe"  # офиц. установщик Minecraft (Windows)
 tlauncher_url: "https://tlauncher.org/installer"  # неофициальный лаунчер (без аккаунта Mojang)
+bluemap_url: "https://app.x-crm.in"  # фон-карта BlueMap
 assets:
   sources:
     - assets/blog
