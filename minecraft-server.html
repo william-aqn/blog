@@ -35,7 +35,7 @@ canonical_url: https://x-crm.in/minecraft-server.html
     </div>
 
     <div class="mc-download">
-        <h2 class="mc-download__title">Скачать</h2>
+        <h2 class="mc-download__title">Скачать Minecraft</h2>
         <div class="mc-download__options">
             <a class="mc-btn" href="{{ site.minecraft_download_url }}" rel="nofollow noopener">Официальная версия (Microsoft)</a>
             <a class="mc-btn mc-btn--alt" href="{{ site.tlauncher_url }}" rel="nofollow noopener">Бесплатная версия (TLauncher)</a>
@@ -61,7 +61,7 @@ canonical_url: https://x-crm.in/minecraft-server.html
 
     {% if site.data.minecraft_plugins %}
     <div class="mc-plugins">
-        <h2 class="mc-plugins__title">Плагины</h2>
+        <h2 class="mc-plugins__title">Установленные плагины на сервере</h2>
         <ul class="mc-plugins__list">
             {% for plugin in site.data.minecraft_plugins %}
             {% capture chip %}<span class="mc-plugins__name">{{ plugin.name }}</span>{% if plugin.desc %}<span class="mc-plugins__desc">{{ plugin.desc }}</span>{% endif %}{% if plugin.version %}<span class="mc-plugins__version">{{ plugin.version }}</span>{% endif %}{% endcapture %}
