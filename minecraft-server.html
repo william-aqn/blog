@@ -9,7 +9,7 @@ canonical_url: https://x-crm.in/minecraft-server.html
 <link rel="stylesheet" href="{{ '/assets/css/hacker/minecraft-server.css?v=' | append: site.github.build_revision | relative_url }}" />
 
 {% if site.bluemap_url %}
-<iframe class="mc-bg" id="mc-map" src="{{ site.bluemap_url }}" title="Карта мира" aria-hidden="true" tabindex="-1" loading="lazy"></iframe>
+<iframe class="mc-bg" id="mc-map" src="{{ site.bluemap_url }}{{ site.bluemap_view }}" title="Карта мира" aria-hidden="true" tabindex="-1" loading="lazy"></iframe>
 <div class="mc-bg__scrim"></div>
 <button type="button" class="mc-map-close" id="mc-map-close">Закрыть карту</button>
 {% endif %}

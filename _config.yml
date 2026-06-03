@@ -15,6 +15,7 @@ minecraft_address: "amc.x-crm.in"       # адрес для подключени
 minecraft_download_url: "https://launcher.mojang.com/download/MinecraftInstaller.exe"  # офиц. установщик Minecraft (Windows)
 tlauncher_url: "https://tlauncher.org/installer"  # неофициальный лаунчер (без аккаунта Mojang)
 bluemap_url: "https://app.x-crm.in"  # фон-карта BlueMap
+bluemap_view: "#world:7:46:29:168:-0.65:0.29:0:0:perspective"  # начальный вид (часть после # из URL BlueMap)
 assets:
   sources:
     - assets/blog
