@@ -14,6 +14,10 @@ $btn-bg-hover: rgba(228, 196, 159, 0.25);
 $icon-size: 56px;
 $dot-size: 10px;
 $card-gap: 16px;
+$mc-green: #4e7a35;
+$mc-green-text: #7fe05a;
+$badge-text: #fff;
+$addr-bg: rgba(0, 0, 0, 0.25);
 
 .mc-bg {
   position: fixed;
@@ -229,11 +233,6 @@ a.mc-plugins__card {
   font-size: 12px;
   line-height: 1.3;
 }
-
-$mc-green: #4e7a35;
-$mc-green-text: #7fe05a;
-$badge-text: #fff;
-$addr-bg: rgba(0, 0, 0, 0.25);
 
 .mc-connect {
   margin-top: 28px;
