@@ -2,34 +2,26 @@
 # url  — ссылка на страницу плагина (чип становится кликабельным).
 # desc — короткое описание «что делает» (необязательно).
 - name: AuthMe
-  version: 6.0.1-SNAPSHOT
   desc: "Авторизация по паролю"
   url: "https://ci.codemc.io/job/AuthMe/job/AuthMeReloaded/"
 - name: EssentialsX
-  version: 2.22.0-dev+112
   desc: "Базовые команды сервера"
   url: "https://essentialsx.net/downloads"
 - name: EssentialsXChat
-  version: 2.22.0-dev+112
   desc: "Форматирование чата"
   url: "https://essentialsx.net/downloads"
 - name: EssentialsXSpawn
-  version: 2.22.0-dev+112
   desc: "Управление спавном"
   url: "https://essentialsx.net/downloads"
 - name: LuckPerms
-  version: 5.5.53
   desc: "Права и группы"
   url: "https://luckperms.net/download"
 - name: PacketEvents
-  version: 2.12.1
   desc: "Библиотека пакетов"
   url: "https://github.com/retrooper/packetevents/releases"
 - name: ProtocolLib
-  version: ""
   desc: "Доступ к протоколу"
   url: "https://github.com/dmulloy2/ProtocolLib/releases"
 - name: Vault
-  version: ""
   desc: "API экономики и прав"
   url: "https://dev.bukkit.org/projects/vault"

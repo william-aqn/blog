@@ -64,7 +64,7 @@ canonical_url: https://x-crm.in/minecraft-server.html
         <h2 class="mc-plugins__title">Установленные плагины на сервере</h2>
         <ul class="mc-plugins__list">
             {% for plugin in site.data.minecraft_plugins %}
-            {% capture chip %}<span class="mc-plugins__name">{{ plugin.name }}</span>{% if plugin.desc %}<span class="mc-plugins__desc">{{ plugin.desc }}</span>{% endif %}{% if plugin.version %}<span class="mc-plugins__version">{{ plugin.version }}</span>{% endif %}{% endcapture %}
+            {% capture chip %}<span class="mc-plugins__name">{{ plugin.name }}</span>{% if plugin.desc %}<span class="mc-plugins__desc">{{ plugin.desc }}</span>{% endif %}{% endcapture %}
             <li class="mc-plugins__item">
                 {% if plugin.url %}<a class="mc-plugins__card" href="{{ plugin.url }}" target="_blank" rel="noopener noreferrer">{{ chip }}</a>{% else %}<span class="mc-plugins__card">{{ chip }}</span>{% endif %}
             </li>
