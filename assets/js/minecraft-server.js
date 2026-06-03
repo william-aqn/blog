@@ -16,6 +16,10 @@
   var COPIED_FEEDBACK_MS = 1500;
   var CSS_COPIED = 'is-copied';
   var CSS_COPY = 'mc-copy';
+  var CSS_MAP_ACTIVE = 'mc-map-active';
+  var MAP_ID = 'mc-map';
+  var MAP_OPEN_ID = 'mc-map-btn';
+  var MAP_CLOSE_ID = 'mc-map-close';
 
   var TXT = {
     error: 'Не удалось получить статус',
@@ -53,6 +57,7 @@
 
   initCopy();
   initCopyButtons();
+  initMap();
 
   var base = (root.getAttribute('data-proxy-base') || '').replace(TRAILING_SLASH, '');
   if (!base) {
@@ -237,6 +242,31 @@
           setTimeout(function () { btn.classList.remove(CSS_COPIED); }, COPIED_FEEDBACK_MS);
         }).catch(function () {});
       });
+    });
+  }
+
+  // Кнопка «Посмотреть карту»: карта на весь экран и интерактивна, затенение убрано.
+  function initMap() {
+    var openBtn = document.getElementById(MAP_OPEN_ID);
+    var closeBtn = document.getElementById(MAP_CLOSE_ID);
+    if (!openBtn || !closeBtn) return;
+    var iframe = document.getElementById(MAP_ID);
+    var rootEl = document.documentElement;
+
+    function setOpen(open) {
+      if (open) {
+        rootEl.classList.add(CSS_MAP_ACTIVE);
+        if (iframe) iframe.removeAttribute('aria-hidden');
+      } else {
+        rootEl.classList.remove(CSS_MAP_ACTIVE);
+        if (iframe) iframe.setAttribute('aria-hidden', 'true');
+      }
+    }
+
+    openBtn.addEventListener('click', function () { setOpen(true); });
+    closeBtn.addEventListener('click', function () { setOpen(false); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setOpen(false);
     });
   }
 

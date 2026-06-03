@@ -33,6 +33,52 @@ $card-gap: 16px;
   pointer-events: none;
 }
 
+.mc-map-btn,
+.mc-map-close {
+  position: fixed;
+  z-index: 5;
+  padding: 8px 14px;
+  background: rgba(13, 13, 13, 0.85);
+  border: 1px solid $main-color;
+  color: $main-color;
+  font-family: monospace;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+
+  &:hover { background: rgba(13, 13, 13, 0.95); }
+}
+
+.mc-map-btn {
+  right: 16px;
+  bottom: 16px;
+}
+
+.mc-map-close {
+  right: 16px;
+  top: 16px;
+  z-index: 1001;
+  display: none;
+}
+
+// Режим «карта на весь экран» — карта поверх всего и интерактивна, затенение убрано
+html.mc-map-active .mc-bg {
+  z-index: 1000;
+  pointer-events: auto;
+}
+
+html.mc-map-active .mc-bg__scrim {
+  display: none;
+}
+
+html.mc-map-active .mc-map-btn {
+  display: none;
+}
+
+html.mc-map-active .mc-map-close {
+  display: block;
+}
+
 #minecraft-server {
   max-width: 640px;
   margin: 24px auto;
