@@ -34,7 +34,13 @@ canonical_url: https://x-crm.in/minecraft-server.html
         </div>
     </div>
 
-    <a id="mc-download" class="mc-btn" href="{{ site.minecraft_download_url }}" rel="nofollow noopener">Скачать Minecraft</a>
+    <div class="mc-download">
+        <h2 class="mc-download__title">Скачать</h2>
+        <div class="mc-download__options">
+            <a class="mc-btn" href="{{ site.minecraft_download_url }}" rel="nofollow noopener">Официальная версия (Microsoft)</a>
+            <a class="mc-btn mc-btn--alt" href="{{ site.tlauncher_url }}" rel="nofollow noopener">Бесплатная версия (TLauncher)</a>
+        </div>
+    </div>
 
     {% if site.data.minecraft_voice %}
     <div class="mc-voice">

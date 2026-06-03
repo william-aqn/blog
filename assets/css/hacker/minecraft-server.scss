@@ -366,10 +366,23 @@ $addr-bg: rgba(0, 0, 0, 0.25);
   font-size: 12px;
 }
 
+.mc-download {
+  margin-top: 28px;
+}
+
+.mc-download__title {
+  color: $main-color;
+  font-size: 16px;
+  margin: 0 0 12px;
+}
+
+.mc-download__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 .mc-btn {
-  display: block;
-  width: fit-content;
-  margin: 24px auto 0;
   padding: 10px 20px;
   background: $btn-bg;
   border: 1px solid $main-color;
@@ -378,9 +391,21 @@ $addr-bg: rgba(0, 0, 0, 0.25);
   font-size: 14px;
   text-decoration: none;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 
   &:hover { background: $btn-bg-hover; }
+}
+
+.mc-btn--alt {
+  background: none;
+  border-color: $card-border;
+  color: $dim-color;
+
+  &:hover {
+    background: $card-bg;
+    border-color: $main-color;
+    color: $main-color;
+  }
 }
 
 @media (max-width: 480px) {
