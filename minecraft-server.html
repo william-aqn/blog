@@ -11,7 +11,6 @@ canonical_url: https://x-crm.in/minecraft-server.html
 {% if site.bluemap_url %}
 <iframe class="mc-bg" id="mc-map" src="{{ site.bluemap_url }}" title="Карта мира" aria-hidden="true" tabindex="-1" loading="lazy"></iframe>
 <div class="mc-bg__scrim"></div>
-<button type="button" class="mc-map-btn" id="mc-map-btn">Посмотреть карту</button>
 <button type="button" class="mc-map-close" id="mc-map-close">Закрыть карту</button>
 {% endif %}
 
@@ -24,7 +23,12 @@ canonical_url: https://x-crm.in/minecraft-server.html
         <h2 class="mc-connect__title">Как подключиться</h2>
 
         <div class="mc-connect__addr-label" id="mc-addr-label">Адрес сервера</div>
-        <button type="button" class="mc-connect__addr" id="mc-addr" title="Нажми, чтобы скопировать"><span>{{ site.minecraft_address }}</span></button>
+        <div class="mc-connect__addr-row">
+            <button type="button" class="mc-connect__addr" id="mc-addr" title="Нажми, чтобы скопировать"><span>{{ site.minecraft_address }}</span></button>
+            {% if site.bluemap_url %}
+            <button type="button" class="mc-map-btn" id="mc-map-btn" title="Посмотреть карту" aria-label="Посмотреть карту"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg></button>
+            {% endif %}
+        </div>
 
         <ol class="mc-connect__steps">
             <li>Открой Minecraft Java (версия <a id="mc-version" class="mc-version-link" href="https://ru.minecraft.wiki/w/26.1.2_(Java_Edition)" target="_blank" rel="nofollow noopener">26.1.2</a>)</li>

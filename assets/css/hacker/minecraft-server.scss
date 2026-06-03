@@ -33,10 +33,34 @@ $card-gap: 16px;
   pointer-events: none;
 }
 
-.mc-map-btn,
+// Кнопка-иконка «Посмотреть карту» — рядом с адресом сервера
+.mc-map-btn {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  background: $addr-bg;
+  border: 1px dashed $card-border;
+  color: $main-color;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    border-color: $mc-green-text;
+    color: $mc-green-text;
+  }
+
+  svg { display: block; }
+}
+
+// Кнопка «Закрыть карту» — плавающая, поверх полноэкранной карты
 .mc-map-close {
   position: fixed;
-  z-index: 5;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1001;
+  display: none;
   padding: 8px 14px;
   background: rgba(13, 13, 13, 0.85);
   border: 1px solid $main-color;
@@ -49,18 +73,6 @@ $card-gap: 16px;
   &:hover { background: rgba(13, 13, 13, 0.95); }
 }
 
-.mc-map-btn {
-  right: 16px;
-  bottom: 16px;
-}
-
-.mc-map-close {
-  right: 16px;
-  top: 16px;
-  z-index: 1001;
-  display: none;
-}
-
 // Режим «карта на весь экран» — карта поверх всего и интерактивна, затенение убрано
 html.mc-map-active .mc-bg {
   z-index: 1000;
@@ -68,10 +80,6 @@ html.mc-map-active .mc-bg {
 }
 
 html.mc-map-active .mc-bg__scrim {
-  display: none;
-}
-
-html.mc-map-active .mc-map-btn {
   display: none;
 }
 
@@ -250,10 +258,15 @@ $addr-bg: rgba(0, 0, 0, 0.25);
   color: $mc-green-text;
 }
 
-.mc-connect__addr {
-  display: block;
-  width: 100%;
+.mc-connect__addr-row {
+  display: flex;
+  gap: 8px;
   margin-bottom: 18px;
+}
+
+.mc-connect__addr {
+  flex: 1;
+  min-width: 0;
   padding: 12px;
   text-align: center;
   background: $addr-bg;
