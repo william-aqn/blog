@@ -10,7 +10,7 @@ title: Crimson.Lab
 description: Лаборатория Кримсона
 excerpt_separator: <!--more-->
 url: "https://x-crm.in"
-amc_proxy_base: "https://amc.x-crm.in/minecraft/status"
+amc_proxy_base: "https://amc.x-crm.in/minecraft"
 minecraft_address: "amc.x-crm.in"       # адрес для подключения в игре
 minecraft_download_url: "https://launcher.mojang.com/download/MinecraftInstaller.exe"  # офиц. установщик Minecraft (Windows)
 tlauncher_url: "https://tlauncher.org/installer"  # неофициальный лаунчер (без аккаунта Mojang)
