@@ -29,7 +29,11 @@ amc.x-crm.in {
             header Cache-Control "public, max-age=10"
             respond @opts 204
             rewrite * /status
-            reverse_proxy 127.0.0.1:81
+            reverse_proxy 127.0.0.1:81 {
+                header_down -Access-Control-Allow-Origin
+                header_down -Access-Control-Allow-Methods
+                header_down -Access-Control-Allow-Headers
+            }
         }
     }
 
