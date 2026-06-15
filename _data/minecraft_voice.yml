@@ -1,7 +1,9 @@
 # Голосовые серверы (выводятся на /minecraft-server).
 # name   — название (и какой клиент нужен).
 # client — ссылка на скачивание клиента (Windows).
+# invite — (опц.) пригласительная ссылка; если задана, вместо адреса показывается «Присоединиться».
 - name: Mumble
   client: "https://dl.mumble.info/latest/stable/client-windows-x64"
 - name: Matrix (Element)
   client: "https://packages.element.io/desktop/install/win32/x64/Element%20Setup.exe"
+  invite: "https://matrix.to/#/!cvJbUfKyYEHVpHMDMv:amc.x-crm.in?via=amc.x-crm.in"

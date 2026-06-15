@@ -63,7 +63,11 @@ canonical_url: https://x-crm.in/minecraft-server.html
                     <span class="mc-voice__name">{{ voice.name }}</span>
                     {% if voice.client %}<a class="mc-voice__client" href="{{ voice.client }}" rel="nofollow noopener">скачать клиент</a>{% endif %}
                 </span>
+                {% if voice.invite %}
+                <a class="mc-voice__addr" href="{{ voice.invite }}" target="_blank" rel="nofollow noopener">Присоединиться</a>
+                {% else %}
                 <button type="button" class="mc-voice__addr mc-copy" title="Нажми, чтобы скопировать">{{ site.minecraft_address }}</button>
+                {% endif %}
             </li>
             {% endfor %}
         </ul>
