@@ -1,7 +1,7 @@
 # Голосовые серверы (выводятся на /minecraft-server).
 # name   — название (и какой клиент нужен).
 # client — ссылка на скачивание клиента (Windows).
-- name: TeamSpeak 3
-  client: "https://files.teamspeak-services.com/releases/client/3.6.2/TeamSpeak3-Client-win64-3.6.2.exe"
 - name: Mumble
   client: "https://dl.mumble.info/latest/stable/client-windows-x64"
+- name: Matrix (Element)
+  client: "https://packages.element.io/desktop/install/win32/x64/Element%20Setup.exe"

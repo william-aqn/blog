@@ -1,0 +1,44 @@
+amc.x-crm.in {
+    @root   path /
+    @opts   method OPTIONS
+    @assets path /assets/*
+
+    # Корень → публичная страница сервера
+    redir @root https://x-crm.in/minecraft-server.html 302
+
+    # ─────── Matrix ───────
+    reverse_proxy /_matrix/* 127.0.0.1:8008
+    reverse_proxy /_synapse/client/* 127.0.0.1:8008
+    handle /.well-known/matrix/client {
+        header Content-Type application/json
+        header Access-Control-Allow-Origin *
+        respond `{"m.homeserver":{"base_url":"https://amc.x-crm.in"}}`
+    }
+    handle /.well-known/matrix/server {
+        header Content-Type application/json
+        respond `{"m.server":"amc.x-crm.in:443"}`
+    }
+
+    # ─────── Minecraft: статус ───────
+    handle /minecraft/status {
+        route {
+            header Access-Control-Allow-Origin  *
+            header Access-Control-Allow-Methods "GET, OPTIONS"
+            header Access-Control-Allow-Headers "Content-Type"
+            header Content-Type  "application/json; charset=utf-8"
+            header Cache-Control "public, max-age=10"
+            respond @opts 204
+            rewrite * /status
+            reverse_proxy 127.0.0.1:81
+        }
+    }
+
+    # ─────── Minecraft: BlueMap ───────
+    redir /minecraft/map /minecraft/map/ 308
+    handle_path /minecraft/map/* {
+        reverse_proxy 127.0.0.1:8100
+        header -X-Frame-Options
+        header Content-Security-Policy "frame-ancestors 'self' https://x-crm.in https://*.x-crm.in"
+        header @assets Cache-Control "public, max-age=86400, immutable"
+    }
+}

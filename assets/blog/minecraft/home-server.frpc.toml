@@ -16,22 +16,7 @@ name = "status"
 type = "tcp"
 localIP = "127.0.0.1"
 localPort = 8080
-remotePort = 80
-
-# TeamSpeak 3 (if the service runs on another host, set its LAN IP in localIP)
-[[proxies]]
-name = "teamspeak-voice"
-type = "udp"                 # voice — UDP
-localIP = "127.0.0.1"
-localPort = 9987
-remotePort = 9987
-
-[[proxies]]
-name = "teamspeak-files"
-type = "tcp"                 # file transfer (avatars, icons)
-localIP = "127.0.0.1"
-localPort = 30033
-remotePort = 30033
+remotePort = 81
 
 # Mumble — port 64738 (TCP — control, UDP — voice); on another host, set its LAN IP
 [[proxies]]
@@ -55,3 +40,10 @@ type = "tcp"
 localIP = "127.0.0.1"
 localPort = 8100
 remotePort = 8100
+
+[[proxies]]
+name = "matrix"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 8008
+remotePort = 8008
