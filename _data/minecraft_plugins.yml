@@ -18,7 +18,7 @@
   url: "https://luckperms.net/download"
 - name: PacketEvents
   desc: "Библиотека пакетов"
-  url: "https://github.com/retrooper/packetevents/releases"
+  url: "https://ci.codemc.io/job/retrooper/job/packetevents/lastSuccessfulBuild/artifact/build/libs/"
 - name: ProtocolLib
   desc: "Доступ к протоколу"
   url: "https://github.com/dmulloy2/ProtocolLib/releases"
