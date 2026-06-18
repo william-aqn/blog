@@ -1,0 +1,8 @@
+# amtm and its modules are POSIX shell scripts for Asuswrt-Merlin routers.
+# They MUST be served with LF line endings: the router keeps an LF copy
+# (amtm runs dos2unix on its own files) and compares its MD5 against the raw
+# file fetched from x-crm.in. CRLF here would make the hashes never match,
+# producing a permanent phantom "MD5 upd" on every run and risking a broken
+# shebang during bootstrap. Force LF regardless of the committer's platform.
+amtm    text eol=lf
+*.mod   text eol=lf
