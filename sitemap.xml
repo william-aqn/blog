@@ -23,6 +23,11 @@ layout: null
     <lastmod>{{ site.time | date_to_xmlschema  }}</lastmod>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>{{ "/donation.html" | prepend: site.baseurl | prepend: site.url }}</loc>
+    <lastmod>{{ site.time | date_to_xmlschema  }}</lastmod>
+    <priority>0.3</priority>
+  </url>
   {% for post in site.posts %}
   <url>
     <loc>{{ post.url | prepend: site.baseurl | prepend: site.url }}</loc>

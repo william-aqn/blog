@@ -1,0 +1,90 @@
+---
+---
+
+$main-color: #E4C49F;
+$donation-border: rgba(228, 196, 159, 0.3);
+$donation-label: rgba(228, 196, 159, 0.6);
+$donation-bg: rgba(228, 196, 159, 0.05);
+$donation-copied: #9FE4A8;
+$donation-copy-hover-text: #1a1a1a;
+
+$donation-gap: 12px;
+$donation-item-gap: 20px;
+$donation-radius: 4px;
+$donation-padding: 16px;
+$donation-max-width: 560px;
+
+.donation {
+  display: flex;
+  flex-direction: column;
+  gap: $donation-item-gap;
+  max-width: $donation-max-width;
+  margin: 24px 0;
+}
+
+.donation__item {
+  display: flex;
+  flex-direction: column;
+  gap: $donation-gap;
+}
+
+.donation__label {
+  color: $donation-label;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.donation__link {
+  color: $main-color;
+  font-size: 18px;
+  text-decoration: none;
+  word-break: break-all;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.donation__address {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $donation-gap;
+  padding: $donation-padding;
+  border: 1px dashed $donation-border;
+  border-radius: $donation-radius;
+  background: $donation-bg;
+}
+
+.donation__code {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: $main-color;
+  font-size: 15px;
+  word-break: break-all;
+  background: none;
+}
+
+.donation__copy {
+  flex: 0 0 auto;
+  padding: 8px 16px;
+  color: $main-color;
+  font: inherit;
+  background: transparent;
+  border: 1px solid $main-color;
+  border-radius: $donation-radius;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    color: $donation-copy-hover-text;
+    background: $main-color;
+  }
+
+  &.is-copied {
+    color: $donation-copied;
+    border-color: $donation-copied;
+    background: transparent;
+  }
+}
