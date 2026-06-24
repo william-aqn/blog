@@ -57,7 +57,7 @@
 
   function generate() {
     var data = (el.input.value || '').trim();
-    if (!data) { showError('Введите адрес или текст.'); return; }
+    if (!data) { showError('Введите текст для QR кода.'); return; }
     showError('');
     var styleKey = el.style.value;
     var ecl = el.ecl.value;
