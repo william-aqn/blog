@@ -1,0 +1,26 @@
+{%- comment -%}
+  Общие зависимости QR-виджетов: библиотека qr-code-styling + пресеты стилей.
+  Подключается и простым виджетом (qr.html), и генератором (qr-generator.html).
+
+  Зачем нужен guard ниже.
+  Если на одной странице несколько QR-виджетов (например, лента блога — посты
+  выводятся целиком, без <!--more-->), этот файл подключается несколько раз, и
+  браузер каждый раз заново выполняет qr-code-styling.js. При повторном запуске
+  внутренний счётчик instanceId стартует с нуля — разные QR получают одинаковые
+  id для clip-path, и второй код отрисовывается «обрезанным».
+
+  Поэтому первый загруженный класс QRCodeStyling запоминаем и после повторной
+  загрузки восстанавливаем: счётчик instanceId остаётся сквозным, id не
+  конфликтуют. Саму библиотеку не правим — остаётся как есть для ресинка.
+{%- endcomment -%}
+<script src="{{ '/assets/js/qr-code-styling.js?v=' | append: site.github.build_revision | relative_url }}"></script>
+<script>
+(function () {
+  if (window.__QRCodeStylingFirst) {
+    window.QRCodeStyling = window.__QRCodeStylingFirst;
+  } else if (window.QRCodeStyling) {
+    window.__QRCodeStylingFirst = window.QRCodeStyling;
+  }
+})();
+</script>
+<script src="{{ '/assets/js/qr-styles.js?v=' | append: site.github.build_revision | relative_url }}"></script>

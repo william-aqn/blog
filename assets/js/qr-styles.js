@@ -4,6 +4,8 @@
 (function () {
   'use strict';
 
+  if (window.QRStyles) return; // уже подключён (виджет может встречаться на странице несколько раз)
+
   var DARK = '#161310';
   var TAN = '#E4C49F';
   var WHITE = '#ffffff';
