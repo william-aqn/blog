@@ -12,7 +12,8 @@ $donation-gap: 12px;
 $donation-item-gap: 20px;
 $donation-radius: 4px;
 $donation-padding: 16px;
-$donation-max-width: 560px;
+$donation-max-width: 640px;
+$donation-address-min: 260px;
 
 .donation {
   display: flex;
@@ -46,7 +47,19 @@ $donation-max-width: 560px;
   }
 }
 
+.donation__usdt {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: $donation-item-gap;
+
+  .qr-widget {
+    flex: 0 0 auto;
+  }
+}
+
 .donation__address {
+  flex: 1 1 $donation-address-min;
   display: flex;
   flex-wrap: wrap;
   align-items: center;

@@ -19,11 +19,13 @@ canonical_url: https://x-crm.in/donation.html
 
   <div class="donation__item">
     <span class="donation__label">USDT · TRC-20</span>
-    <div class="donation__address">
-      <code id="usdt-trc20" class="donation__code">TC9MSnePyR6MBfSGU6WRCNEmCa5iyzmWUr</code>
-      <button type="button" class="donation__copy" data-copy-target="usdt-trc20" data-copy-label="Копировать" data-copied-label="Скопировано">Копировать</button>
+    <div class="donation__usdt">
+      <div class="donation__address">
+        <code id="usdt-trc20" class="donation__code">TC9MSnePyR6MBfSGU6WRCNEmCa5iyzmWUr</code>
+        <button type="button" class="donation__copy" data-copy-target="usdt-trc20" data-copy-label="Копировать" data-copied-label="Скопировано">Копировать</button>
+      </div>
+      {% include qr.html data="TC9MSnePyR6MBfSGU6WRCNEmCa5iyzmWUr" logo="/assets/images/usdt-logo.svg" size="200" %}
     </div>
-    {% include qr.html data="TC9MSnePyR6MBfSGU6WRCNEmCa5iyzmWUr" logo="/assets/images/usdt-logo.svg" size="200" %}
   </div>
 </div>
 
