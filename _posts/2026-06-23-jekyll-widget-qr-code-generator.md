@@ -18,6 +18,6 @@ tags: jekyll widget qr javascript
 
 {% include qr.html data="https://x-crm.in" style="dots" size="200" %}
 
-Нужен интерактивный qr генератор с настройками и скачиванием изображения? -> [UI для генератора QR-кодов](/2026/06/24/qr-code-generator-ui.html)
+Бонус - [UI для генератора QR-кодов](/2026/06/24/qr-code-generator-ui.html)
 
 *Виджет создан с помощью Claude Opus 4.8 (Ultracode)*
