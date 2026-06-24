@@ -9,7 +9,7 @@ tags: jekyll widget paygate crypto javascript
 
 Ещё один виджет в коллекцию. Минимальная сумма выплаты зависит от сети и монеты (minimum order amount varies per blockchain network and coin) - держать такую таблицу руками бессмысленно, значения плавают вместе с курсом.
 
-Решение — живая таблица: данные тянутся с API [PayGate](https://paygate.to/) прямо в браузере, поэтому всегда актуальны.
+Решение - живая таблица: данные тянутся с API [PayGate](https://paygate.to/) прямо в браузере, поэтому всегда актуальны.
 
 {% raw %}
 ```liquid
