@@ -2,7 +2,7 @@
 layout: post
 title: "UI для генератора QR-кодов"
 description: "Интерактивный генератор с настройками и скачиванием"
-tags: jekyll widget qr javascript
+tags: qr javascript
 ---
 
 # UI для генератора QR-кодов
