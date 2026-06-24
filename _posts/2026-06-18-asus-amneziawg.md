@@ -22,21 +22,12 @@ curl -sfL https://raw.githubusercontent.com/william-aqn/asuswrt-merlin-amneziawg
 
 После перезагружается роутер и в админке уже полноценный UI с возможностью разграничить трафик по различным направлениям.
 
-ps. Пришлось форкнуть [исходный репозиторий](https://github.com/r0otx/asuswrt-merlin-amneziawg/), т.к. там ошибки сразу летят:
+Пришлось форкнуть [исходный репозиторий](https://github.com/r0otx/asuswrt-merlin-amneziawg/), сначала пофиксил ошибки, а потом кучу всего доработали с клодом!
 
-Ошибка ERROR: **Cannot create temp directory**
-```sh
-opkg install coreutils-mktemp
-```
-
-Ошибка **ERROR: Invalid H1**
-```
-Добавить из изменения из PR https://github.com/r0otx/asuswrt-merlin-amneziawg/pull/13/changes
-```
 
 На всякий случай сделал зеркало amtm (на 18.06.2026)
 ```sh
 curl -Os https://x-crm.in/assets/blog/asus/amtm/amtm && sh amtm
 ```
 
-Сообщество для обсуждения в ТГ - https://t.me/asusxray
+Сообщество для обсуждения в ТГ - [https://t.me/asusxray](https://t.me/asusxray)
