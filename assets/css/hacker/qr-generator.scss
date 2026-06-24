@@ -123,15 +123,13 @@ $output-min: 340px;
   svg { display: block; border-radius: $radius; max-width: 100%; height: auto; }
 }
 
-.qrg__meta {
-  color: $muted;
+.qrg__warn {
+  color: $warn-color;
   font-size: 12px;
   text-align: center;
   max-width: $output-min;
   margin: 0;
 }
-
-.qrg__meta--warn { color: $warn-color; }
 
 .qrg__downloads {
   display: flex;

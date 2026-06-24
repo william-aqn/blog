@@ -10,7 +10,7 @@
   var IDS = {
     input: 'qrg-input', style: 'qrg-style', ecl: 'qrg-ecl',
     logo: 'qrg-logo', logoFile: 'qrg-logo-file', generate: 'qrg-generate',
-    output: 'qrg-output', meta: 'qrg-meta', error: 'qrg-error',
+    output: 'qrg-output', warn: 'qrg-warn', error: 'qrg-error',
     downloads: 'qrg-downloads', dlSvg: 'qrg-dl-svg', dlPng: 'qrg-dl-png'
   };
   var el = {};
@@ -45,19 +45,24 @@
     el.error.hidden = !msg;
   }
 
-  function setMeta(styleKey, ecl, hasLogo) {
+  function setWarning(styleKey, ecl, hasLogo) {
     var s = STYLES[styleKey] || STYLES.site;
-    var text = ['Стиль: ' + s.label, 'Коррекция: ' + ecl, 'Логотип: ' + (hasLogo ? 'да' : 'нет')].join(' · ');
     var warn = '';
     if (s.warn) warn = s.warn;
     else if (hasLogo && (ecl === 'L' || ecl === 'M')) warn = 'С логотипом надёжнее уровень Q или H.';
-    el.meta.textContent = warn ? text + '  ⚠ ' + warn : text;
-    el.meta.className = warn ? 'qrg__meta qrg__meta--warn' : 'qrg__meta';
+    el.warn.textContent = warn ? '⚠ ' + warn : '';
+    el.warn.hidden = !warn;
+  }
+
+  function clearResult() {
+    el.output.innerHTML = '';
+    el.downloads.hidden = true; // кнопки скачивания — только когда есть готовый QR
+    el.warn.hidden = true;
   }
 
   function generate() {
     var data = (el.input.value || '').trim();
-    if (!data) { showError('Введите текст для QR кода.'); return; }
+    if (!data) { showError('Введите текст для QR кода.'); clearResult(); return; }
     showError('');
     var styleKey = el.style.value;
     var ecl = el.ecl.value;
@@ -66,10 +71,11 @@
       qr = new QRCodeStyling(window.QRStyles.build(data, styleKey, ecl, logo, SIZE, QUIET_ZONE));
       el.output.innerHTML = '';
       qr.append(el.output);
-      setMeta(styleKey, ecl, !!logo);
+      setWarning(styleKey, ecl, !!logo);
       el.downloads.hidden = false;
     } catch (e) {
       showError('Ошибка генерации: ' + e.message);
+      clearResult();
     }
   }
 
