@@ -115,7 +115,10 @@
 
   // --- События ---
   el.generate.addEventListener('click', generate);
-  el.input.addEventListener('keydown', function (e) { if (e.key === 'Enter') generate(); });
+  // Enter — перенос строки (поле многострочное), Ctrl/Cmd+Enter — генерация
+  el.input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); generate(); }
+  });
   el.logo.addEventListener('input', function () { fileLogo = ''; });
   el.logoFile.addEventListener('change', function () {
     var file = el.logoFile.files && el.logoFile.files[0];
