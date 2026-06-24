@@ -12,6 +12,8 @@ tags: jekyll widget github-pages
 Виджеты:
  * [YouTube — адаптивный iframe](/2026/02/12/jekyll-widget-youtube.html)
  * [STL 3D Viewer — интерактивная 3D модель](/2026/02/12/jekyll-widget-stl-viewer.html)
+ * [QR Generator](/2026/06/23/jekyll-widget-qr-code-generator.html)
+ * [PayGate — минимальные суммы выплат](/2026/06/23/jekyll-widget-paygate-minimums.html)
 
 ## Как подключить к себе
 

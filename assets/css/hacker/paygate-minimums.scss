@@ -1,0 +1,66 @@
+---
+---
+
+$main-color: #E4C49F;
+$border: rgba(228, 196, 159, 0.25);
+$header-bg: rgba(228, 196, 159, 0.08);
+$row-alt: rgba(228, 196, 159, 0.04);
+$muted: rgba(228, 196, 159, 0.6);
+$error-color: #e74c3c;
+
+$max-height: 420px;
+$radius: 4px;
+
+.paygate-wrap {
+  margin: 20px 0;
+  color: $muted;
+}
+
+.paygate__scroll {
+  max-height: $max-height;
+  overflow: auto;
+  border: 1px solid $border;
+  border-radius: $radius;
+}
+
+.paygate {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+
+  th, td {
+    padding: 7px 12px;
+    text-align: left;
+    border-bottom: 1px solid $border;
+    white-space: nowrap;
+  }
+
+  thead th {
+    position: sticky;
+    top: 0;
+    background: #1a1a1a;
+    color: $main-color;
+    z-index: 1;
+  }
+
+  tbody tr:nth-child(even) { background: $row-alt; }
+  tbody td { color: $main-color; }
+}
+
+.paygate__coin {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.paygate__logo {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.paygate__min { font-variant-numeric: tabular-nums; }
+
+.paygate__error { color: $error-color; }

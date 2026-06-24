@@ -1,0 +1,17 @@
+---
+---
+
+$qr-radius: 6px;
+
+.qr-widget {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: $qr-radius;
+  }
+}

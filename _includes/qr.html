@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="{{ '/assets/css/hacker/qr.css?v=' | append: site.github.build_revision | relative_url }}" />
+<div class="qr-widget"
+     data-qr="{{ include.data }}"
+     data-style="{{ include.style | default: 'site' }}"
+     data-ecl="{{ include.ecl | default: 'H' }}"
+     data-size="{{ include.size | default: 240 }}"
+     {% if include.logo %}data-logo="{{ include.logo | relative_url }}"{% endif %}>
+  <noscript>{{ include.data }}</noscript>
+</div>
+<script src="{{ '/assets/js/qr-code-styling.js?v=' | append: site.github.build_revision | relative_url }}"></script>
+<script src="{{ '/assets/js/qr-styles.js?v=' | append: site.github.build_revision | relative_url }}"></script>
+<script src="{{ '/assets/js/qr-widget.js?v=' | append: site.github.build_revision | relative_url }}"></script>

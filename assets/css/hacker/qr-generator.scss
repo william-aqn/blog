@@ -1,0 +1,143 @@
+---
+---
+
+$main-color: #E4C49F;
+$error-color: #e74c3c;
+$warn-color: #e0a458;
+
+$input-bg: #1a1a1a;
+$input-border: rgba(228, 196, 159, 0.4);
+$input-border-focus: $main-color;
+$btn-bg: rgba(228, 196, 159, 0.15);
+$btn-bg-hover: rgba(228, 196, 159, 0.25);
+$muted: rgba(228, 196, 159, 0.6);
+
+$gap: 14px;
+$radius: 4px;
+$output-min: 340px;
+
+.qrg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-start;
+  margin: 24px 0;
+  border: 1px dashed $input-border;
+  padding: 20px;
+}
+
+.qrg__controls {
+  flex: 1 1 280px;
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+.qrg__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.qrg__row {
+  display: flex;
+  gap: $gap;
+
+  .qrg__field { flex: 1 1 0; }
+}
+
+.qrg__label {
+  color: $muted;
+  font-size: 13px;
+}
+
+.qrg__input {
+  background: $input-bg;
+  border: 1px solid $input-border;
+  color: $main-color;
+  padding: 8px 12px;
+  font-family: monospace;
+  font-size: 14px;
+  outline: none;
+  border-radius: $radius;
+  transition: border-color 0.2s ease;
+
+  &:focus { border-color: $input-border-focus; }
+}
+
+.qrg__textarea {
+  resize: vertical;
+  min-height: 64px;
+}
+
+.qrg__file {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: $muted;
+  font-size: 12px;
+
+  input { color: $muted; font-size: 12px; max-width: 100%; }
+}
+
+.qrg__btn {
+  background: $btn-bg;
+  border: 1px solid $main-color;
+  color: $main-color;
+  padding: 10px 16px;
+  font-family: monospace;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: $radius;
+  transition: background 0.2s ease;
+
+  &:hover { background: $btn-bg-hover; }
+}
+
+.qrg__btn--sm {
+  padding: 7px 14px;
+  font-size: 13px;
+}
+
+.qrg__error {
+  color: $error-color;
+  font-size: 13px;
+  margin: 0;
+}
+
+.qrg__result {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.qrg__output {
+  min-width: $output-min;
+  min-height: $output-min;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg { display: block; border-radius: $radius; max-width: 100%; height: auto; }
+}
+
+.qrg__meta {
+  color: $muted;
+  font-size: 12px;
+  text-align: center;
+  max-width: $output-min;
+  margin: 0;
+}
+
+.qrg__meta--warn { color: $warn-color; }
+
+.qrg__downloads {
+  display: flex;
+  gap: 10px;
+}
+
+@media (max-width: 600px) {
+  .qrg__output { min-width: 280px; }
+}

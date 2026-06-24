@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="{{ '/assets/css/hacker/qr-generator.css?v=' | append: site.github.build_revision | relative_url }}" />
+<div class="qrg" id="qrg">
+  <div class="qrg__controls">
+    <label class="qrg__field">
+      <span class="qrg__label">Адрес кошелька или текст</span>
+      <input type="text" id="qrg-input" class="qrg__input" value="TC9MSnePyR6MBfSGU6WRCNEmCa5iyzmWUr" autocomplete="off" spellcheck="false" />
+    </label>
+    <div class="qrg__row">
+      <label class="qrg__field">
+        <span class="qrg__label">Стиль</span>
+        <select id="qrg-style" class="qrg__input">
+          <option value="site">В стиле сайта</option>
+          <option value="dots">Точки</option>
+          <option value="classic">Классический</option>
+          <option value="gold">Золото на тёмном ⚠</option>
+        </select>
+      </label>
+      <label class="qrg__field">
+        <span class="qrg__label">Коррекция</span>
+        <select id="qrg-ecl" class="qrg__input">
+          <option value="L">L · 7%</option>
+          <option value="M">M · 15%</option>
+          <option value="Q">Q · 25%</option>
+          <option value="H" selected>H · 30%</option>
+        </select>
+      </label>
+    </div>
+    <label class="qrg__field">
+      <span class="qrg__label">SVG-логотип в центр (необязательно)</span>
+      <textarea id="qrg-logo" class="qrg__input qrg__textarea" rows="3" placeholder="Вставьте код &lt;svg&gt;…&lt;/svg&gt;" spellcheck="false"></textarea>
+    </label>
+    <label class="qrg__file">
+      <input type="file" id="qrg-logo-file" accept="image/svg+xml,image/png,image/jpeg" />
+      <span>…или загрузите файл (SVG / PNG / JPG)</span>
+    </label>
+    <button type="button" id="qrg-generate" class="qrg__btn">Сгенерировать</button>
+    <p class="qrg__error" id="qrg-error" hidden></p>
+  </div>
+  <div class="qrg__result">
+    <div class="qrg__output" id="qrg-output"></div>
+    <p class="qrg__meta" id="qrg-meta"></p>
+    <div class="qrg__downloads" id="qrg-downloads" hidden>
+      <button type="button" class="qrg__btn qrg__btn--sm" id="qrg-dl-svg">Скачать SVG</button>
+      <button type="button" class="qrg__btn qrg__btn--sm" id="qrg-dl-png">Скачать PNG</button>
+    </div>
+  </div>
+</div>
+<script src="{{ '/assets/js/qr-code-styling.js?v=' | append: site.github.build_revision | relative_url }}"></script>
+<script src="{{ '/assets/js/qr-styles.js?v=' | append: site.github.build_revision | relative_url }}"></script>
+<script src="{{ '/assets/js/qr-generator.js?v=' | append: site.github.build_revision | relative_url }}"></script>
