@@ -87,7 +87,9 @@ layout: default
     </section>
 
 
-    <section id="blog" class="well-5 bg-primary border-top parallax" data-url="/assets/images/header-bg-v1.jpg">
+    <link rel="stylesheet" href="{{ '/assets/css/hacker/hex-bg.css?v=' | append: site.github.build_revision | relative_url }}" />
+    <section id="blog" class="well-5 bg-primary border-top hex-bg-host">
+        <div class="hex-bg" aria-hidden="true"></div>
         <div class="container">
             <h2 class="border-left border-left-inv"><a href="/blog.html">Блог</a> <br>Кримсона</h2>
             <div class="columns">
@@ -104,3 +106,4 @@ layout: default
     </section>
 
 </main>
+<script src="{{ '/assets/js/hex-bg.js?v=' | append: site.github.build_revision | relative_url }}"></script>
