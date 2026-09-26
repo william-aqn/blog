@@ -27,7 +27,7 @@ tags: ai go flutter webrtc e2e self-hosted
 Интерфейс сначала нарисовал Claude Design: макеты всех экранов от входа до админки. Спецификацию с цветами и шрифтами Claude Code перенёс в оба клиента, так что веб и приложение выглядят одинаково.
 
 <details>
-<summary>Макеты из Claude Design</summary>
+<summary>Некоторые макеты из Claude Design</summary>
 <a href="/assets/blog/messenger/design.png"><img src="/assets/blog/messenger/design.png" alt="Макеты Family Messenger в Claude Design"></a>
 </details>
 
