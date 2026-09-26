@@ -6,6 +6,7 @@ $accent-color: #E47C56;
 $bg-menu: #5E4841;
 $text-color: #f2f2f2;
 $text-muted: #a29b97;
+$toggle-bg-alpha: 0.85; // burger stays visible on the light #service strip
 
 /* Mobile panel — hide bar, keep burger floating */
 .rd-mobilepanel {
@@ -25,6 +26,8 @@ $text-muted: #a29b97;
   left: 8px;
   width: 48px;
   height: 48px;
+  border-radius: 50%;
+  background: rgba($bg-menu, $toggle-bg-alpha);
 }
 
 .rd-mobilepanel_toggle span,

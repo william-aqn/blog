@@ -7,6 +7,7 @@
             submenuClass: 'rd-mobilemenu_submenu',
             panelClass: 'rd-mobilepanel',
             toggleClass: 'rd-mobilepanel_toggle',
+            toggleLabel: 'Меню',
             titleClass: 'rd-mobilepanel_title'
         },
         lastY, dir;
@@ -36,7 +37,10 @@
                     'class': settings.panelClass
                 })
                     .append($('<button/>', {
-                        'class': settings.toggleClass
+                        'type': 'button',
+                        'class': settings.toggleClass,
+                        'aria-label': settings.toggleLabel,
+                        'aria-expanded': 'false'
                     }).append($('<span/>')))
                     .append($('<h2/>', {
                         'class': settings.titleClass,
@@ -126,9 +130,15 @@
                 type = 'click';
             }
 
+            // picking an item closes the menu (a click inside the menu is not an outside click)
+            $('body').delegate('.' + settings.menuClass + ' a', 'click', function () {
+                $('.' + settings.toggleClass + '.active').trigger(type);
+            });
+
             $('body').delegate('.' + settings.toggleClass, type, function () {
                 var o = $('.' + settings.cntClass);
                 $(this).toggleClass('active');
+                $(this).attr('aria-expanded', String(!o.hasClass('active')));
 
                 if (o.hasClass('active')) {
                     $(this).removeClass('active');
@@ -158,7 +168,7 @@
 
                 if (o.css('display') == 'none') {
                     o.removeClass('active');
-                    $('.' + settings.toggleClass).removeClass('active');
+                    $('.' + settings.toggleClass).removeClass('active').attr('aria-expanded', 'false');
                     $('body').undelegate('*', 'mousewheel', nav.scroll);
                     $('body').undelegate('*', 'touchmove', nav.scroll);
                     $('body').undelegate('*', 'touchend', nav.touchend);

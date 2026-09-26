@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Приручаем 6-в-1 кольцо Jakcom r5 smart ring"
-description: "Одно кольцо, что бы открывать всё..."
+description: "Одно кольцо, чтобы открывать всё..."
 tags: nfc t5577 ntag216 mifare1k proxmark3 flipperzero
 ---
 # Приручаем 6-в-1 кольцо Jakcom r5 smart ring

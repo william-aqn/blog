@@ -2,7 +2,7 @@
 layout: post
 title: "Исследуем патчи в DLL"
 description: "Декомпиляция"
-tags: hach hex patch
+tags: hack hex patch
 ---
 
 # Исследуем патчи в DLL

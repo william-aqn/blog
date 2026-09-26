@@ -4,8 +4,8 @@ layout: hacker
 <link rel="stylesheet" href="{{ '/assets/css/hacker/spoiler.css?v=' | append: site.github.build_revision | relative_url }}" />
 <div id="blog_posts">
     <ul>
-        {% for post in site.posts %}
-        {% unless post.hidden %}
+        {% include visible-posts.html %}
+        {% for post in visible_posts %}
         <li>
             <a id="{{ post.id }}" href="{{ post.url }}">{{ post.title }}</a>
             {% if post.password %}
@@ -17,7 +17,6 @@ layout: hacker
             {% endif %}
             <hr/>
         </li>
-        {% endunless %}
         {% endfor %}
     </ul>
 </div>

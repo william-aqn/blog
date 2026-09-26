@@ -28,7 +28,8 @@ layout: null
     <lastmod>{{ site.time | date_to_xmlschema  }}</lastmod>
     <priority>0.3</priority>
   </url>
-  {% for post in site.posts %}
+  {% include visible-posts.html %}
+  {% for post in visible_posts %}
   <url>
     <loc>{{ post.url | prepend: site.baseurl | prepend: site.url }}</loc>
     <lastmod>{{ post.date | date_to_xmlschema  }}</lastmod>

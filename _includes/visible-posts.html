@@ -1,0 +1,2 @@
+{% comment %} Posts without "hidden: true" in their front matter {% endcomment %}
+{% assign visible_posts = site.posts | where_exp: "post", "post.hidden != true" %}

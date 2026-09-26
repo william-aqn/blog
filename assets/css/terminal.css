@@ -110,5 +110,8 @@
       background: transparent;
       color: white;
       position: relative; }
+      @media (pointer: coarse) {
+        #terminal-wrapper #terminal-container input.terminal-input {
+          font-size: 16px; } }
     #terminal-wrapper #terminal-container .terminal-output {
       white-space: pre-wrap; }

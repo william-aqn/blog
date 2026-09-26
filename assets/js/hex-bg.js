@@ -20,12 +20,10 @@
     var TRAVEL_VAR = '--hex-bg-travel';     // read by the hex-bg-scan keyframes
     var TAG = 'div';
     var ANIMATION_OFF = 'none';
-    var EVENT_READY = 'DOMContentLoaded';
     var EVENT_ITERATION = 'animationiteration';
     var EVENT_VISIBILITY = 'visibilitychange';
     var EVENT_RESIZE = 'resize';
     var EVENT_LOAD = 'load';
-    var STATE_LOADING = 'loading';
     var PX = 'px';
     var SEC = 's';
     var FLIP = ' scaleX(-1)';
@@ -236,11 +234,5 @@
         window.addEventListener(EVENT_LOAD, measureBeams);
     }
 
-    // After the whole document: the site's viewport meta is written later by script.js,
-    // and the cell count depends on the real viewport size
-    if (document.readyState === STATE_LOADING) {
-        document.addEventListener(EVENT_READY, init);
-    } else {
-        init();
-    }
+    init();
 })();

@@ -7,7 +7,8 @@ description: "Лаборатория Кримсона - 404"
 <div id="blog_post_list">
     <p>Страница не существует, возможно переименована:</p>
     <ul>
-        {% for post in site.posts %}
+        {% include visible-posts.html %}
+        {% for post in visible_posts %}
         <li>
             <a id="{{ post.id }}" href="{{ post.url }}">{{ post.title }}</a>
             {{ post.description }}

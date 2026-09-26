@@ -1,4 +1,8 @@
 $(window).load(function () {
+    var SCROLL_MS = 1000;
+    var REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
+    var scrollMs = window.matchMedia && window.matchMedia(REDUCED_MOTION_QUERY).matches ? 0 : SCROLL_MS;
+
     $(document).on("scroll", onScroll);
 
     //smoothscroll
@@ -11,7 +15,7 @@ $(window).load(function () {
         $target = $(target);
         $('html, body').stop().animate({
             'scrollTop': $target.offset().top + 2
-        }, 1000, 'swing', function () {
+        }, scrollMs, 'swing', function () {
             window.location.hash = target;
         });
     });
@@ -25,7 +29,7 @@ $(window).load(function () {
         $target = $(target);
         $('html, body').stop().animate({
             'scrollTop': $target.offset().top + 2
-        }, 1000, 'swing', function () {
+        }, scrollMs, 'swing', function () {
             window.location.hash = target;
         });
     });
