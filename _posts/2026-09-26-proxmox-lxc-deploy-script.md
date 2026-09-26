@@ -19,11 +19,6 @@ curl -fsSL https://raw.githubusercontent.com/william-aqn/family-messenger-e2e/ma
 
 Всё переопределяется через окружение, запуск может быть полностью неинтерактивным.
 
-```sh
-curl -fsSL https://raw.githubusercontent.com/william-aqn/family-messenger-e2e/main/deploy/proxmox.sh \
-  | CTID=120 DOMAIN=chat.example.com sh
-```
-
 По умолчанию `DOMAIN=auto` берёт адрес контейнера, и Caddy выдаёт сертификат локального CA: браузер один раз предупредит, а Flutter-приложению нужен настоящий домен с публичным сертификатом.
 
 Скрипт: [deploy/proxmox.sh](https://github.com/william-aqn/family-messenger-e2e/blob/main/deploy/proxmox.sh)
