@@ -1,13 +1,11 @@
 ---
 ---
 
-// Main page links: visible keyboard focus and hover states that keep the text readable.
+// Main page links: visible keyboard focus.
 
 $main-links-sand: #E4C49F;
-$main-links-accent: #E47C56;
 $main-links-focus-width: 2px;
 $main-links-focus-offset: 3px;
-$main-links-hover-time: 0.3s;
 
 a:focus-visible,
 button:focus-visible {
@@ -20,20 +18,7 @@ button:focus-visible {
   outline-offset: $main-links-focus-width * -2;
 }
 
-// The whole blog card is the link: a block box gets the focus ring and a real hover
+// The whole blog card is the link: a block box gets the focus ring around the card
 #blog .columns-item a {
   display: block;
-
-  h3 {
-    transition: color $main-links-hover-time;
-  }
-
-  &:hover h3,
-  &:focus-visible h3 {
-    color: $main-links-accent;
-  }
-}
-
-#blog h2 a:hover {
-  color: $main-links-accent;
 }
