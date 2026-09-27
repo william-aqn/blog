@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Скам на Alibaba: продавец Granier Francis (cn1576475672rxir)"
-description: "Спонтанная покупка в 3 часа ночи: $1700 за две CMP 170HX, товара нет, продавец требует доплату «за СДЭК»."
+title: "Скам на Alibaba: Shanghai Huanying Machinery, продавец Granier Francis (cn1576475672rxir)"
+description: "Спонтанная покупка в 3 часа ночи: $1700 за две CMP 170HX, товара нет, продавец требует доплату «за СДЭК». Приметы продавца и признаки схемы"
 tags: alibaba scam cdek gpu
 ---
 
-# Скам на Alibaba: продавец Granier Francis (cn1576475672rxir)
+# Скам на Alibaba: Shanghai Huanying Machinery, продавец Granier Francis (cn1576475672rxir)
 
 27 сентября 2026 заплатил продавцу с Alibaba.com $1700 за две видеокарты NVIDIA CMP 170HX. Трек-номера нет, товара нет, деньги не возвращают - зато просят доплатить.
 
@@ -15,11 +15,16 @@ tags: alibaba scam cdek gpu
 
 ## Приметы
 
+- **Поставщик:** Shanghai Huanying Machinery Limited Company (логотип Joylift), Trading Company, 2 года на Alibaba.com, Китай
 - **Аккаунт на Alibaba:** `cn1576475672rxir`, в чате - Granier Francis
 - **Объявление:** «LEGIT DEAL For New CMP 170HX…» (в русской версии - «ВЫГОДНОЕ ПРЕДЛОЖЕНИЕ: Новая видеокарта CMP 170HX…»), ID `11000037616521`, 754,71 € за штуку, минимальный заказ 2 шт.
 - **Почта:** `supersaleslimited@gmail.com` - с неё пришло «письмо от СДЭК», продавец подтвердил, что это их адрес
 - **Домен:** `cdeklogistics.com` - фигурирует в том же письме. Официальный сайт СДЭК - cdek.ru
 - **Карта для оплаты рублями:** Сбербанк, номер заканчивается на `9643`, получатель - частное лицо «Игорь К.»
+
+![Shanghai Huanying Machinery Limited Company на Alibaba](/assets/blog/alibaba-scam/supplier.png)
+
+Участвует ли в этом сама компания или её аккаунтом пользуются мошенники - не знаю. Но объявление, переписка и реквизиты для оплаты - оттуда.
 
 ## Как это было
 
@@ -35,6 +40,7 @@ tags: alibaba scam cdek gpu
 - **«Письма от СДЭК» с gmail** и левых доменов. Статус посылки - только на cdek.ru или в приложении СДЭК
 - **Давление** - «СДЭК ждёт», «нужно оплатить сейчас»
 - **«LEGIT DEAL» прямо в названии** - честному продавцу незачем писать, что он честный
+- **Профиль не про видеокарты** - «Machinery» в названии и логотип Joylift, а в продаже GPU. Мошенники нередко работают через чужие - взломанные или купленные - аккаунты поставщиков
 - **3 часа ночи** - формально не признак схемы. Но всё перечисленное выше в это время почему-то не замечаешь - только утром
 
 ## Что сделано
@@ -47,8 +53,8 @@ tags: alibaba scam cdek gpu
 
 Не платите вне Alibaba - только заказом с Trade Assurance на сайте. Уже заплатили - сохраните переписку, подайте жалобу в Alibaba и заявление в полицию, ничего не доплачивайте. Тем, кто предлагает «вернуть деньги» за комиссию, тоже не платите - это второй круг того же развода.
 
-Вам писал тот же Granier Francis или прислали те же реквизиты - напишите в комментариях. Чем больше жалоб, тем быстрее аккаунт заблокируют.
+Покупали у Shanghai Huanying Machinery, вам писал тот же Granier Francis или прислали те же реквизиты - напишите в комментариях. Чем больше жалоб, тем быстрее аккаунт заблокируют.
 
 ## English summary
 
-**Scam warning: Alibaba seller "Granier Francis" (cn1576475672rxir).** On Sep 27, 2026 I prepaid $1700 outside Alibaba for two NVIDIA CMP 170HX cards (listing "LEGIT DEAL For New CMP 170HX", ID 11000037616521). Nothing was shipped. After payment the seller demanded an extra $500 and a bigger order, "confirmed" by a fake CDEK email from supersaleslimited@gmail.com, and has not refunded. Never pay Alibaba sellers outside Trade Assurance.
+**Scam warning: Alibaba supplier Shanghai Huanying Machinery Limited Company (Joylift logo), contact "Granier Francis" (cn1576475672rxir).** On Sep 27, 2026 I prepaid $1700 outside Alibaba for two NVIDIA CMP 170HX cards (listing "LEGIT DEAL For New CMP 170HX", ID 11000037616521). Nothing was shipped. After payment the seller demanded an extra $500 and a bigger order, "confirmed" by a fake CDEK email from supersaleslimited@gmail.com, and has not refunded. Never pay Alibaba sellers outside Trade Assurance.
