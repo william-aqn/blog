@@ -1,0 +1,183 @@
+---
+---
+
+// Main page sections as one dark "laboratory": #about with the console beside it (in the flow, no overhang),
+// the #service status band and #blog (hex grille). Each is a full-width band, and the bands meet on hairlines
+// instead of solid brown strips. The footer is in main-footer.scss, the post cards in main-blog.scss.
+// #about and #service share two columns: text | console, then the service title | its chips and text under the console.
+// One heading system everywhere: .section-head = rule on the left + mono kicker with the menu number + title.
+@import "crimson-palette";
+
+$section-pad-y: 104px;
+$section-pad-y-mobile: 60px;
+$band-pad-y: 64px;             // #service is a status band, lower than the big sections (from sm up)
+$section-head-gap: 36px;       // heading block -> section content
+
+$kicker-size: 13px;
+$kicker-tracking: .18em;
+$kicker-gap: 16px;
+
+$lab-col-gap: 72px;
+$lab-text-cols: 5;             // text : console width ratio from $bp-lg (equal columns below it: the titles need the room)
+$lab-console-cols: 7;
+$lab-stack-gap: 40px;          // console below the text on narrow screens
+$lab-text-size: 18px;
+$lab-text-line: 1.6;
+$lab-motto-gap: 32px;
+
+// #service: a slightly lifted dark band with faint warm scanlines
+$service-scanline-alpha: .025;
+
+// #service chips (pointed hex-like ends) and text
+$chip-cut: 10px;
+$chip-pad: 6px 18px;
+$chip-gap: 10px;
+$chip-size: 16px;
+$chip-tracking: .08em;
+$chip-bg-alpha: .1;
+$service-text-size: 24px;
+$service-text-size-mobile: 20px;
+$service-text-line: 1.45;
+$service-text-gap: 22px;
+
+// Every section reached from the menu owns its breathing room as padding. scrollTo.js animates to the
+// section's offset().top and then sets location.hash: both land on the same spot, so there is no snap at the
+// end, and the sections touch each other, so the menu always has an active item.
+// Black under the hairlines (the hex grille of #blog covers the rest of its section).
+.lab-section {
+  padding: $section-pad-y 0;
+  background: $ink;
+
+  @media (max-width: $bp-sm - 1) {
+    padding: $section-pad-y-mobile 0;
+  }
+}
+
+// ---- Dividers: every band after the first one starts with a hairline (the footer draws its own)
+.lab-section + .lab-section {
+  border-top: $rule;
+}
+
+// ---- Heading system
+.section-head {
+  margin: 0 0 $section-head-gap;
+
+  h2 {
+    margin: 0;
+  }
+}
+
+.section-kicker {
+  margin: 0 0 $kicker-gap;
+  font-family: $font-mono;
+  font-size: $kicker-size;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: $kicker-tracking;
+  text-transform: uppercase;
+  color: $text-muted;
+}
+
+// The number as in the header menu: full sand, the label muted
+.section-kicker__num {
+  color: $sand;
+}
+
+// ---- #about + console
+// style.css paints paragraphs cold grey: warm muted sand on the dark band
+.lab__text {
+  font-size: $lab-text-size;
+  line-height: $lab-text-line;
+  color: $text-muted;
+}
+
+.lab__motto {
+  margin-top: $lab-motto-gap;
+
+  li {
+    color: $text-muted;
+  }
+
+  // style.css stacks the words on phones: keep them on one left edge
+  @media (max-width: $bp-phone-max) {
+    li + li {
+      margin-left: 0;
+    }
+  }
+}
+
+.lab__console {
+  margin-top: $lab-stack-gap;
+}
+
+// ---- #service: title on the left, chips and one line of text on the right
+.lab-service {
+  background: crt-scanlines($service-scanline-alpha, $sand), $band;
+
+  @media (min-width: $bp-sm) {
+    padding: $band-pad-y 0;
+  }
+}
+
+.lab__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $chip-gap;
+}
+
+.lab__chip {
+  padding: $chip-pad;
+  clip-path: hex-chip-clip($chip-cut);
+  background: rgba($sand, $chip-bg-alpha);
+  font-family: $font-mono;
+  font-size: $chip-size;
+  letter-spacing: $chip-tracking;
+  color: $sand;
+}
+
+.lab__service-text {
+  margin-top: $service-text-gap;
+  font-family: $font-display;
+  font-size: $service-text-size-mobile;
+  font-weight: 400;
+  line-height: $service-text-line;
+  color: $sand;
+
+  @media (min-width: $bp-sm) {
+    font-size: $service-text-size;
+  }
+}
+
+// Two columns: text | wider console, then the service title | its chips and text right under the console
+@media (min-width: $bp-md) {
+  .lab__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+    @media (min-width: $bp-lg) {
+      grid-template-columns: minmax(0, #{$lab-text-cols}fr) minmax(0, #{$lab-console-cols}fr);
+    }
+    column-gap: $lab-col-gap;
+  }
+
+  // the console is as tall as its text: centred beside #about
+  .lab__console {
+    align-self: center;
+    margin-top: 0;
+  }
+
+  .lab-service {
+    .lab__grid {
+      align-items: center;
+    }
+
+    .section-head {
+      margin-bottom: 0;
+    }
+  }
+
+  // centred on the title, not on the kicker above it
+  .lab__service-body {
+    padding-top: $kicker-size + $kicker-gap;
+  }
+}

@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="{{ '/assets/css/styles.css?v=' | append: site.github.build_revision | relative_url }}" />
   <link rel="stylesheet" href="{{ '/assets/css/mobile-menu.css?v=' | append: site.github.build_revision | relative_url }}" />
   <link rel="stylesheet" href="{{ '/assets/css/hacker/main-links.css?v=' | append: site.github.build_revision | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/hacker/main-footer.css?v=' | append: site.github.build_revision | relative_url }}" />
 
   <script src="/assets/js/jquery.js"></script>
   <script src="/assets/js/jquery-migrate-1.2.1.js"></script>
@@ -40,16 +41,18 @@
       ========================================================
       -->
     {{ content }}
-    <footer>
-      <section class="well-1">
-        <div class="container">
-          <div class="copyright">DCRM &copy; 2005–<span id="copyright-year"></span> | <a
-                  href="/disclaimer.html">Disclaimer</a> | <a
-                  href="/copyright.html">Copyright</a> | <a
-                  href="/donation.html">Donation</a> | <a
-                  href="{{ site.github.repository_url }}" target="_blank">Crimson.GitHub</a></div>
+    <footer class="lab-footer">
+      <div class="container">
+        <div class="copyright lab-footer__row">
+          <span class="lab-footer__copy">DCRM &copy; 2005–<span id="copyright-year"></span></span>
+          <ul class="lab-footer__links">
+            <li><a href="/disclaimer.html">Disclaimer</a></li>
+            <li><a href="/copyright.html">Copyright</a></li>
+            <li><a href="/donation.html">Donation</a></li>
+            <li><a href="{{ site.github.repository_url }}" target="_blank" rel="noopener">Crimson.GitHub</a></li>
+          </ul>
         </div>
-      </section>
+      </div>
     </footer>
   </div>
   <script src="{{ '/assets/js/script.js?v=' | append: site.github.build_revision | relative_url }}"></script>

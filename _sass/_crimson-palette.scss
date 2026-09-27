@@ -1,0 +1,44 @@
+// Crimson.Lab palette and shared constants of the main page.
+// Usage in a Jekyll SCSS file (after its front matter): @import "crimson-palette";
+// Ruby Sass 3.7 (GitHub Pages) compatible: no @use, no math.div, no "/" division.
+
+// ---- Palette
+$sand: #E4C49F;          // main colour: headings, links and text on dark
+$brown: #5E4841;
+$accent: #E47C56;        // light of the grille and tiny static details, never text and never a hover state
+$ink: #000;              // background of the dark sections and the footer
+$metal: #140c09;         // dark metal of the hex grille
+$band: #0c0806;          // lifted dark band of #service
+$spark-warm: #ffe2bb;
+$text-muted: rgba($sand, .65);
+$rule-color: rgba($sand, .15);
+$hairline: 1px;          // width of rules, frames and separators
+$rule: $hairline solid $rule-color;      // a hairline rule: the dividers between the bands, the console title bar
+
+// ---- Type: the site's self-hosted heading font and system monospace fonts, nothing else is downloaded
+$font-display: "Exo 2", sans-serif;
+$font-mono: ui-monospace, "Cascadia Mono", "SF Mono", Menlo, Consolas, "DejaVu Sans Mono", "Liberation Mono", monospace;
+
+// ---- CRT scanlines shared by the hex grille, the console and the #service band
+$crt-scanline-h: 1px;
+$crt-scanline-period: 3px;
+
+// Pointy-top hexagon for clip-path (hex markers and indicators)
+$hex-clip: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+
+// A flat-top hexagon stretched to any width for clip-path: a chip with pointed ends $cut long
+@function hex-chip-clip($cut) {
+  @return polygon($cut 0, calc(100% - #{$cut}) 0, 100% 50%, calc(100% - #{$cut}) 100%, $cut 100%, 0 50%);
+}
+
+// ---- Breakpoints of grid.css
+$bp-sm: 768px;
+$bp-md: 992px;
+$bp-lg: 1200px;
+$bp-phone-max: 479px;
+
+// Horizontal lines of $color (dark by default), one background layer
+@function crt-scanlines($alpha, $color: $ink) {
+  @return repeating-linear-gradient(to bottom, rgba($color, $alpha), rgba($color, $alpha) $crt-scanline-h,
+    rgba($color, 0) $crt-scanline-h, rgba($color, 0) $crt-scanline-period);
+}

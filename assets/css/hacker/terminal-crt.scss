@@ -1,0 +1,162 @@
+---
+---
+
+// Console in #about (termly-prompt) as a quiet CRT screen in the site palette.
+// terminal.css keeps the widget's layout; this file is its look. Loaded after styles.css:
+// every selector starts with #terminal-wrapper, so it is at least as specific as terminal.css.
+@import "crimson-palette";
+
+$crt-radius: 6px;
+$crt-border: rgba($sand, .22);
+$crt-glass-center: #20140f;
+$crt-glass-edge: #0b0605;
+$crt-glass-at: 50% 30%;
+$crt-glow: 0 0 56px rgba($sand, .07);
+$crt-drop: 0 30px 60px rgba($ink, .55);
+$crt-scanline-alpha: .22;
+$crt-vignette-alpha: .5;
+$crt-vignette-stop: 55%;
+
+$crt-bar-h: 34px;
+$crt-bar-pad: 14px;
+$crt-bar-bg: #170e0b;
+$crt-light-w: 10px;
+$crt-light-h: 12px;
+$crt-light-gap: 8px;
+$crt-light-dim: #8a6a5e;
+$crt-lights: $accent, $crt-light-dim, $brown;
+$crt-title-size: 12px;
+$crt-title-tracking: .06em;
+
+$crt-pad: 18px;
+$crt-pad-narrow: 12px;
+$crt-font-size: 15px;
+$crt-font-size-narrow: 12px;
+$crt-line: 1.55;
+$crt-text-glow: 0 0 6px rgba($sand, .35);
+$crt-prompt-alpha: .75;
+$crt-heading-tracking: .08em;
+$crt-heading-gap: 6px;
+$crt-scrollbar: rgba($sand, .3);
+
+// The console is as tall as its text and grows with the output up to these heights, then scrolls
+$crt-max-h: 460px;
+$crt-max-h-tablet: 400px;
+$crt-max-h-phone: 340px;
+$crt-narrow-max: 500px;  // breakpoint of terminal.css
+
+#terminal-wrapper {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: $hairline solid $crt-border;
+  border-radius: $crt-radius;
+  box-shadow: $crt-glow, $crt-drop;
+
+  // scanlines and a dark vignette over the glass; clicks go through to the prompt
+  &::after {
+    content: "";
+    position: absolute;
+    top: $crt-bar-h;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: crt-scanlines($crt-scanline-alpha),
+      radial-gradient(ellipse at center, rgba($ink, 0) $crt-vignette-stop, rgba($ink, $crt-vignette-alpha));
+  }
+
+  .terminal-topbar {
+    position: relative;
+    display: flex;
+    flex: none;
+    align-items: center;
+    height: $crt-bar-h;
+    padding: 0 $crt-bar-pad;
+    border-bottom: $rule;
+    border-radius: 0;
+    background: $crt-bar-bg;
+    text-align: left;
+  }
+
+  .terminal-topbar__light {
+    width: $crt-light-w;
+    height: $crt-light-h;
+    clip-path: $hex-clip;
+
+    & + .terminal-topbar__light {
+      margin-left: $crt-light-gap;
+    }
+  }
+
+  @for $i from 1 through length($crt-lights) {
+    .terminal-topbar__light:nth-child(#{$i}) {
+      background: nth($crt-lights, $i);
+    }
+  }
+
+  .terminal-topbar__title {
+    position: absolute;
+    right: 0;
+    left: 0;
+    font-family: $font-mono;
+    font-size: $crt-title-size;
+    letter-spacing: $crt-title-tracking;
+    text-align: center;
+    color: $text-muted;
+    pointer-events: none;
+  }
+
+  #terminal-container {
+    flex: none;
+    height: auto;
+    max-height: $crt-max-h;
+    padding: $crt-pad;
+    background: radial-gradient(ellipse at $crt-glass-at, $crt-glass-center, $crt-glass-edge);
+    text-shadow: $crt-text-glow;
+    scrollbar-width: thin;
+    scrollbar-color: $crt-scrollbar transparent;
+
+    &,
+    * {
+      font-family: $font-mono;
+      font-size: $crt-font-size;
+      letter-spacing: 0;
+      line-height: $crt-line;
+    }
+
+    h3 {
+      margin-bottom: $crt-heading-gap;
+      letter-spacing: $crt-heading-tracking;
+    }
+
+    .terminal-info {
+      color: rgba($sand, $crt-prompt-alpha);
+    }
+
+    input.terminal-input {
+      caret-color: $accent;
+    }
+  }
+
+  @media (max-width: $crt-narrow-max) {
+    #terminal-container {
+      max-height: $crt-max-h-phone;
+      padding: $crt-pad-narrow;
+
+      * {
+        font-size: $crt-font-size-narrow;
+      }
+    }
+  }
+
+  @media (min-width: $crt-narrow-max + 1) and (max-width: $bp-md - 1) {
+    #terminal-container {
+      max-height: $crt-max-h-tablet;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}

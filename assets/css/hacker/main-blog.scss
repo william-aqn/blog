@@ -1,0 +1,147 @@
+---
+---
+
+// Main page #blog: every visible post as a card on dark glass, in a grid filled row by row (newest first,
+// left to right), with a rail on the left.
+// Hover / keyboard focus: the card "locks on" - the rail turns solid sand, a faint frame
+// and a warm tint appear and a sand -> brown line (the owner's hover brown) runs along the bottom edge.
+// No accent orange on hover, text keeps its colours; only transform and opacity are animated.
+@import "crimson-palette";
+
+// ---- Grid
+$grid-cols-sm: 2;
+$grid-cols-md: 3;
+$grid-gap: 18px;
+
+// ---- Card
+$card-pad-top: 18px;
+$card-pad-right: 22px;
+$card-pad-bottom: 22px;
+$card-pad-left: 24px;
+$card-rail-w: 2px;
+$card-glass: rgba($metal, .78);
+$card-rail: rgba($sand, .2);
+$card-lit-tint: rgba($sand, .05);
+$card-lit-frame: rgba($sand, .22);
+$card-lit-glow: 0 0 28px rgba($sand, .1);
+$card-line-h: 2px;
+$card-lit-line: linear-gradient(to right, $sand, $brown);
+
+$title-size: 20px;
+$title-line: 1.3;
+
+$desc-size: 16px;
+$desc-line: 1.4;
+$desc-gap: 8px;
+$desc-alpha: .72;
+
+// ---- Motion
+$card-time: .25s;
+$card-ease: cubic-bezier(.2, .7, .3, 1);
+
+// Hover only where there is a real pointer (no sticky hover after a tap); keyboard focus everywhere
+@mixin card-lit {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+
+  &:focus-visible {
+    @content;
+  }
+}
+
+.post-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: $grid-gap;
+
+  @media (min-width: $bp-sm) {
+    grid-template-columns: repeat($grid-cols-sm, minmax(0, 1fr));
+  }
+
+  @media (min-width: $bp-md) {
+    grid-template-columns: repeat($grid-cols-md, minmax(0, 1fr));
+  }
+}
+
+// The link fills the grid cell, so every card of a row is as tall as the tallest one
+.post-card {
+  display: flex;
+}
+
+// The whole card is one link; its own stacking context keeps the lit layer under the text
+.post-card__link {
+  position: relative;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  padding: $card-pad-top $card-pad-right $card-pad-bottom $card-pad-left;
+  border-left: $card-rail-w solid $card-rail;
+  background: $card-glass;
+
+  // lit state: solid sand rail over the idle one, warm tint and a faint frame
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: -$card-rail-w;
+    z-index: -1;
+    border: $hairline solid $card-lit-frame;
+    border-left: $card-rail-w solid $sand;
+    background: $card-lit-tint;
+    box-shadow: $card-lit-glow;
+    opacity: 0;
+    transition: opacity $card-time $card-ease;
+  }
+
+  // the line along the bottom edge: sand -> brown, grows out of the rail
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: -$card-rail-w;
+    height: $card-line-h;
+    background: $card-lit-line;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform $card-time $card-ease;
+  }
+
+  @include card-lit {
+    &::before {
+      opacity: 1;
+    }
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.post-card__title {
+  margin: 0;
+  font-size: $title-size;
+  line-height: $title-line;
+  text-transform: none;
+  color: $sand;
+}
+
+.post-card__desc {
+  margin-top: $desc-gap;
+  font-size: $desc-size;
+  font-weight: 400;
+  line-height: $desc-line;
+  color: rgba($sand, $desc-alpha);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .post-card__link::before,
+  .post-card__link::after {
+    transition: none;
+  }
+}

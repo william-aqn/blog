@@ -9,19 +9,21 @@
 // Everything is sized in px, so nothing stretches with the section height.
 // Ruby Sass 3.7 (GitHub Pages) compatible: no @use, no math.div, no "/" division.
 
+@import "crimson-palette";
+
 // ---- Palette
-$hex-bg-sand: #E4C49F;
-$hex-bg-brown: #5E4841;
-$hex-bg-accent: #E47C56;
+$hex-bg-sand: $sand;
+$hex-bg-brown: $brown;
+$hex-bg-accent: $accent;
 $hex-bg-amber: #c08c60;
 $hex-bg-ember: #7a3524;
 $hex-bg-umber: #3b2219;
 $hex-bg-pit: #0c0705;
 $hex-bg-base: #33201a;
-$hex-bg-metal: #140c09;
+$hex-bg-metal: $metal;
 $hex-bg-metal-lit: #c8966c;
 $hex-bg-shadow: #000;
-$hex-bg-spark-warm: #ffe2bb;
+$hex-bg-spark-warm: $spark-warm;
 $hex-bg-spark-hot: #ffb08a;
 
 // ---- Grille: pointy-top hexes; one tile is 1 cell wide and 2 rows tall
@@ -72,8 +74,6 @@ $hex-bg-cap-h: 200px;
 $hex-bg-edge-alpha: .5;
 $hex-bg-edge-w: 22%;
 $hex-bg-scanline-alpha: .16;
-$hex-bg-scanline-h: 1px;
-$hex-bg-scanline-period: 3px;
 
 // ---- Glowing cells: a soft light under one hole, the grille cuts it into a crisp hex
 $hex-bg-spark-size: $hex-bg-cell-w * 2.4;
@@ -215,8 +215,7 @@ $hex-bg-scan-time: 20s;     // hex-bg.js fits it to the section height
       linear-gradient(to top, hex-bg-shade($hex-bg-cap-alpha), hex-bg-shade(0)),
       linear-gradient(to right, hex-bg-shade($hex-bg-edge-alpha), hex-bg-shade(0) $hex-bg-edge-w,
         hex-bg-shade(0) (100% - $hex-bg-edge-w), hex-bg-shade($hex-bg-edge-alpha)),
-      repeating-linear-gradient(to bottom, hex-bg-shade($hex-bg-scanline-alpha), hex-bg-shade($hex-bg-scanline-alpha) $hex-bg-scanline-h,
-        hex-bg-shade(0) $hex-bg-scanline-h, hex-bg-shade(0) $hex-bg-scanline-period),
+      crt-scanlines($hex-bg-scanline-alpha),
       hex-bg-svg-url(hex-bg-grille-svg());
     background-size: 100% 100%, 100% $hex-bg-cap-h, 100% $hex-bg-cap-h, 100% 100%, 100% 100%, $hex-bg-cell-w $hex-bg-tile-h;
     background-position: 0 0, 0 0, 0 100%, 0 0, 0 0, 0 0;

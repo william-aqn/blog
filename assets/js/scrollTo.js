@@ -14,7 +14,7 @@ $(window).load(function () {
             menu = target;
         $target = $(target);
         $('html, body').stop().animate({
-            'scrollTop': $target.offset().top + 2
+            'scrollTop': $target.offset().top
         }, scrollMs, 'swing', function () {
             window.location.hash = target;
         });
@@ -28,7 +28,7 @@ $(window).load(function () {
             menu = target;
         $target = $(target);
         $('html, body').stop().animate({
-            'scrollTop': $target.offset().top + 2
+            'scrollTop': $target.offset().top
         }, scrollMs, 'swing', function () {
             window.location.hash = target;
         });
@@ -52,7 +52,7 @@ function onScroll(event) {
         try {
             var refElement = $(currLink.attr("href"));
             if (refElement.length > 0) {
-                if ((refElement.position().top - 20) <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                if ((refElement.position().top - 20) <= scrollPos && refElement.position().top + refElement.outerHeight() > scrollPos) {
                     currLink.parent().parent().find('li').removeClass("active");
                     currLink.parent().addClass("active");
                 }

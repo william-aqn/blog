@@ -37,27 +37,34 @@ layout: default
         </nav>
     </div>
 </header>
+{% assign asset_version = '?v=' | append: site.github.build_revision %}
+<link rel="stylesheet" href="{{ '/assets/css/hacker/main-sections.css' | append: asset_version | relative_url }}" />
+<link rel="stylesheet" href="{{ '/assets/css/hacker/terminal-crt.css' | append: asset_version | relative_url }}" />
+<link rel="stylesheet" href="{{ '/assets/css/hacker/hex-bg.css' | append: asset_version | relative_url }}" />
+<link rel="stylesheet" href="{{ '/assets/css/hacker/main-blog.css' | append: asset_version | relative_url }}" />
 <main>
-    <section id="about" class="bg-image">
-        <section class="well-1">
-            <div class="container relative">
-                <h2 class="border-left">Информация <br> о работе</h2>
-                <div class="row offset-1">
-                    <div class="col-md-6">
-                        <p>Задание только в чёткой формулировке, сложность не имеет значения.<br>Работа не за бесплатно.<br>Стоимость часа - $80&nbsp;.</p>
-                        <ul class="inline-list links center md-left">
-                            <li>долго</li>
-                            <li>дорого</li>
-                            <li>афигенно</li>
-                        </ul>
+    <section id="about" class="lab-section">
+        <div class="container">
+            <div class="lab__grid">
+                <div>
+                    <div class="section-head border-left border-left-inv">
+                        <p class="section-kicker"><span class="section-kicker__num">00.</span> Обо мне</p>
+                        <h2>Информация <br> о работе</h2>
                     </div>
+                    <p class="lab__text">Задание только в чёткой формулировке, сложность не имеет значения.<br>Работа не за бесплатно.<br>Стоимость часа - $80.</p>
+                    <ul class="inline-list links lab__motto">
+                        <li>долго</li>
+                        <li>дорого</li>
+                        <li>афигенно</li>
+                    </ul>
                 </div>
-                <div class="img">
+                <div class="lab__console">
                     <div id="terminal-wrapper">
-                        <div class="terminal-topbar">
-                            <!--span class="button red"></span>
-                                      <span class="button yellow"></span>
-                                      <span class="button green"></span-->
+                        <div class="terminal-topbar" aria-hidden="true">
+                            <span class="terminal-topbar__light"></span>
+                            <span class="terminal-topbar__light"></span>
+                            <span class="terminal-topbar__light"></span>
+                            <span class="terminal-topbar__title">root@{{ site.url | split: '//' | last }} - /</span>
                         </div>
                         <div id="terminal-container">
                             <div class="session">
@@ -70,41 +77,50 @@ layout: default
                             </div>
                         </div>
                     </div>
-                    <!--img src="/assets/images/page-1_img01.png1" alt=""-->
                 </div>
             </div>
-        </section>
-        <section id="service" class="well-2 bg-color">
-            <div class="container">
-                <div class="row">
-                    <div style="clear: left" class="col-md-6">
-                        <h5 class="primary-clr">Системная архитектура: Java, Go, AI-агенты.
-                            Проектирую решения, где модели работают как часть системы.</h5>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
     </section>
 
+    <section id="service" class="lab-section lab-service">
+        <div class="container">
+            <div class="lab__grid">
+                <div class="section-head border-left border-left-inv">
+                    <p class="section-kicker"><span class="section-kicker__num">01.</span> Услуги</p>
+                    <h2>Системная <br> архитектура</h2>
+                </div>
+                <div class="lab__service-body">
+                    <ul class="lab__chips">
+                        <li class="lab__chip">Java</li>
+                        <li class="lab__chip">Go</li>
+                        <li class="lab__chip">AI-агенты</li>
+                    </ul>
+                    <p class="lab__service-text">Проектирую решения, где модели работают как часть системы.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <link rel="stylesheet" href="{{ '/assets/css/hacker/hex-bg.css?v=' | append: site.github.build_revision | relative_url }}" />
-    <section id="blog" class="well-5 bg-primary border-top hex-bg-host">
+    <section id="blog" class="lab-section hex-bg-host">
         <div class="hex-bg" aria-hidden="true"></div>
         <div class="container">
-            <h2 class="border-left border-left-inv"><a href="/blog.html">Блог</a> <br>Кримсона</h2>
-            <div class="columns">
-                {% include visible-posts.html %}
+            <div class="section-head border-left border-left-inv">
+                <p class="section-kicker"><span class="section-kicker__num">02.</span> Блог</p>
+                <h2><a href="{{ '/blog.html' | relative_url }}">Блог</a> <br>Кримсона</h2>
+            </div>
+            {% include visible-posts.html %}
+            <div class="post-grid">
                 {% for post in visible_posts %}
-                <div class="columns-item">
-                    <a href="{{ post.url }}">
-                        <h3>{{ post.title }}</h3>
-                        <div>{{ post.description }}</div>
+                <article class="post-card">
+                    <a class="post-card__link" href="{{ post.url | relative_url }}">
+                        <h3 class="post-card__title">{{ post.title }}</h3>
+                        {% if post.description %}<p class="post-card__desc">{{ post.description }}</p>{% endif %}
                     </a>
-                </div>
+                </article>
                 {% endfor %}
             </div>
         </div>
     </section>
 
 </main>
-<script src="{{ '/assets/js/hex-bg.js?v=' | append: site.github.build_revision | relative_url }}"></script>
+<script src="{{ '/assets/js/hex-bg.js' | append: asset_version | relative_url }}"></script>

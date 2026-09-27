@@ -65,53 +65,20 @@
       -ms-transform-origin: 50% 50%;
       -ms-animation-fill-mode: forwards;
       /*IE 10+*/ } }
-  #terminal-wrapper .terminal-topbar {
-    background: #E4C49F;
-    height: 30px;
-    border-radius: 8px 8px 0 0;
-    padding-left: 10px;
-    text-align: right; }
-    #terminal-wrapper .terminal-topbar .button {
-      height: 15px;
-      width: 15px;
-      border-radius: 50%;
-      display: inline-block;
-      margin: 7px; }
-      #terminal-wrapper .terminal-topbar .button.red {
-        background: #E75448; }
-      #terminal-wrapper .terminal-topbar .button.green {
-        background: #2ecc71; }
-      #terminal-wrapper .terminal-topbar .button.yellow {
-        background: #f39c12; }
   #terminal-wrapper #terminal-container {
-    background: #5E4841;
-    /*font-family: "Courier new", "Courier", monospace;*/
     text-align: left;
-    padding: 10px;
-    height: 580px;
     overflow-x: hidden;
-    overflow-y: scroll; }
-    #terminal-wrapper #terminal-container * {
-      font-size: 14px;
-      letter-spacing: 1px; }
-      @media screen and (max-width: 500px) {
-        #terminal-wrapper #terminal-container * {
-          font-size: 11px; } }
-    @media screen and (max-width: 500px) {
-      #terminal-wrapper #terminal-container {
-        height: 200px; } }
-    #terminal-wrapper #terminal-container h1 {
-      font-size: 16px;
-      letter-spacing: 3px; }
+    overflow-y: auto; }
     #terminal-wrapper #terminal-container input.terminal-input {
       padding: 0 5px;
       border: none;
       outline: none;
       background: transparent;
-      color: white;
+      font: inherit;
+      color: inherit;
       position: relative; }
       @media (pointer: coarse) {
-        #terminal-wrapper #terminal-container input.terminal-input {
+        #terminal-wrapper #terminal-container .current input.terminal-input {
           font-size: 16px; } }
     #terminal-wrapper #terminal-container .terminal-output {
       white-space: pre-wrap; }

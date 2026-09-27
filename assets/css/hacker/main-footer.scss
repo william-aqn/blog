@@ -1,0 +1,52 @@
+---
+---
+
+// Footer of the default layout (the main page): one compact line on black under a hairline.
+// Separators live on the list items, outside the links: the hit area of a link never covers a "|".
+@import "crimson-palette";
+
+$footer-pad-y: 26px;
+$footer-size: 15px;
+$footer-gap-x: 32px;
+$footer-gap-y: 8px;
+$footer-link-pad-y: 4px;       // taller hit areas on phones (at least 24px)
+$footer-separator: "|";
+$footer-separator-gap: 12px;
+$footer-separator-alpha: .3;
+
+.lab-footer {
+  border-top: $rule;
+  background: $ink;
+}
+
+.lab-footer__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: $footer-gap-y $footer-gap-x;
+  padding: ($footer-pad-y - $footer-link-pad-y) 0;   // the links add their own padding
+  font-size: $footer-size;
+}
+
+.lab-footer__copy {
+  color: $text-muted;
+}
+
+.lab-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+
+  // style.css sets "vertical-align: top" on everything: keep the padded link on the text baseline
+  a {
+    display: inline-block;
+    padding: $footer-link-pad-y 0;
+    vertical-align: baseline;
+  }
+
+  li + li::before {
+    content: $footer-separator;
+    margin: 0 $footer-separator-gap;
+    color: rgba($sand, $footer-separator-alpha);
+  }
+}

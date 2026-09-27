@@ -17,8 +17,3 @@ button:focus-visible {
 .nav a:focus-visible {
   outline-offset: $main-links-focus-width * -2;
 }
-
-// The whole blog card is the link: a block box gets the focus ring around the card
-#blog .columns-item a {
-  display: block;
-}
