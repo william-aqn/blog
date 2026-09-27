@@ -15,6 +15,7 @@ $muted: rgba(228, 196, 159, 0.6);
 $gap: 14px;
 $radius: 4px;
 $output-min: 340px;
+$output-min-phone: 280px;
 
 .qrg {
   display: flex;
@@ -107,6 +108,7 @@ $output-min: 340px;
 
 .qrg__result {
   flex: 0 0 auto;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -136,6 +138,7 @@ $output-min: 340px;
   gap: 10px;
 }
 
+// On phones the QR box keeps its size but never gets wider than the column (e.g. inside a list in /blog.html)
 @media (max-width: 600px) {
-  .qrg__output { min-width: 280px; }
+  .qrg__output { min-width: 0; width: $output-min-phone; max-width: 100%; }
 }

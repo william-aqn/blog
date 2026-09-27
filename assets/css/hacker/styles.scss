@@ -4,6 +4,7 @@
 @import "{{ site.theme }}";
 
 $main-color: #E4C49F;
+$phone-max: 767px;
 header h1, h1, h2, h3, h4, h5, h6 {
     color: $main-color;
 }
@@ -21,6 +22,20 @@ hr {
 }
 #blog_posts > ul > li h1:first-of-type {
     display: none;
+}
+
+// Posts and excerpts never widen the page on phones:
+// long URLs, paths and inline code wrap when they do not fit (code blocks keep scrolling: pre sets word-wrap: normal)
+#main_content {
+    overflow-wrap: break-word;
+}
+
+// markdown tables (no class; widget tables bring their own scroll wrapper) scroll inside their own box
+@media (max-width: $phone-max) {
+    #main_content table:not([class]) {
+        display: block;
+        overflow-x: auto;
+    }
 }
 
   
