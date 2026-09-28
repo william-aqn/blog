@@ -69,8 +69,7 @@ $toggle-bg-alpha: 0.85; // burger stays visible over the header photo and the he
   border-bottom: none;
 }
 
-.rd-mobilemenu_ul a:hover,
-.rd-mobilemenu_ul a.active {
+.rd-mobilemenu_ul a:hover {
   background: rgba(0, 0, 0, 0.2);
   color: $main-color;
 }
@@ -93,11 +92,6 @@ $toggle-bg-alpha: 0.85; // burger stays visible over the header photo and the he
   display: none;
 }
 
-/* No backdrop — don't block the page */
-.rd-mobilemenu.active {
-  background: none;
-}
-
 /* =============================================
    CSS animations — replacing swiffy in mobile
    ============================================= */
@@ -114,10 +108,6 @@ $toggle-bg-alpha: 0.85; // burger stays visible over the header photo and the he
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
-}
-
-.rd-mobilemenu_ul .hover canvas {
-  display: none;
 }
 
 /* Appear only on hover */

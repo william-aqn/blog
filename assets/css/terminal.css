@@ -34,10 +34,6 @@
   margin: 0 auto;
   position: relative;
   top: 0px; }
-  #terminal-wrapper * {
-    color: #E4C49F; }
-  #terminal-wrapper pre {
-    background: transparent; }
   @media screen and (min-width: 501px) {
     #terminal-wrapper {
       animation: bounceIn ease-out .25s;

@@ -114,6 +114,7 @@ include('/assets/js/jquery.easing.1.3.js');
     if ($('#terminal-container').length) {
         decorateConsoleInputs(TermlyPrompt);
         var shell = new TermlyPrompt('#terminal-container', { /* options object */ });
+        bindConsoleKeys(shell);
         shell.run('help');
     }
 });
@@ -147,5 +148,54 @@ function decorateConsoleInputs(Prompt) {
     };
 }
 
+/* Console keys
+ =============================================*/
+// The console keeps the keyboard like a terminal: Tab completes the command name instead of moving
+// the focus out of the page widget; Escape releases the focus, so keyboard users can go on with Tab.
+function bindConsoleKeys(shell) {
+    var KEY_TAB = 9;
+    var KEY_ESCAPE = 27;
+    var INPUT_CLASS = 'terminal-input';
+    var ARG_SEPARATOR = ' ';
 
+    function commonPrefix(words) {
+        var prefix = words[0];
+        var i;
+        for (i = 1; i < words.length; i++) {
+            while (words[i].indexOf(prefix) !== 0) {
+                prefix = prefix.slice(0, -1);
+            }
+        }
+        return prefix;
+    }
 
+    // Only the command name is completed: one match gets a separator after it, several - their common start
+    function complete(input) {
+        var typed = input.value;
+        var matches;
+        if (!typed || typed.indexOf(ARG_SEPARATOR) !== -1) {
+            return;
+        }
+        matches = Object.keys(shell.ShellCommands).filter(function (name) {
+            return name.indexOf(typed) === 0;
+        });
+        if (matches.length === 1) {
+            input.value = matches[0] + ARG_SEPARATOR;
+        } else if (matches.length > 1) {
+            input.value = commonPrefix(matches);
+        }
+    }
+
+    shell.container.addEventListener('keydown', function (event) {
+        var input = event.target;
+        if (!input.classList || !input.classList.contains(INPUT_CLASS)) {
+            return;
+        }
+        if (event.keyCode === KEY_TAB) {
+            event.preventDefault();
+            complete(input);
+        } else if (event.keyCode === KEY_ESCAPE) {
+            input.blur();
+        }
+    });
+}
