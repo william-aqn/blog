@@ -3,7 +3,8 @@
 
 // Vector hex grille background with a small cyberpunk animation (main page, #blog).
 // Markup: <section class="hex-bg-host"><div class="hex-bg" aria-hidden="true"></div>...</section>
-// hex-bg.js adds the animated layer (.hex-bg__fx) inside .hex-bg.
+// hex-bg.js adds the animated layer (.hex-bg__fx, a canvas) inside .hex-bg and takes its look from the
+// custom properties set on .hex-bg here (motion lives in hex-bg.js).
 // Paint order: warm light (.hex-bg background) -> glowing cells, data packet, scan beam (.hex-bg__fx)
 // -> grille + shade (.hex-bg::after) -> section content.
 // Everything is sized in px, so nothing stretches with the section height.
@@ -75,35 +76,21 @@ $hex-bg-edge-alpha: .5;
 $hex-bg-edge-w: 22%;
 $hex-bg-scanline-alpha: .16;
 
-// ---- Glowing cells: a soft light under one hole, the grille cuts it into a crisp hex
+// ---- Glowing cells and the data packet: a soft light under one hole, the grille cuts it into a crisp hex
+// (gradient offsets run from the centre, 0, to the edge of the sprite, 1)
 $hex-bg-spark-size: $hex-bg-cell-w * 2.4;
-$hex-bg-spark-core-stop: 36%;
-$hex-bg-spark-halo-stop: 62%;
+$hex-bg-spark-core-stop: .36;
+$hex-bg-spark-halo-stop: .62;
 $hex-bg-spark-core-alpha: .9;
 $hex-bg-spark-halo-alpha: .25;
-$hex-bg-hot-every: 3;       // every n-th cell glows orange
-$hex-bg-flicker-time: 5s;   // hex-bg.js randomizes it per cell
-$hex-bg-flicker-peak: 1;
-$hex-bg-flicker-dip: .25;
-$hex-bg-flicker-hold: .7;
-$hex-bg-flicker-on: 5%;
-$hex-bg-flicker-dip-at: 8%;
-$hex-bg-flicker-back: 11%;
-$hex-bg-flicker-hold-at: 38%;
-$hex-bg-flicker-off: 62%;
-
-// ---- Data packet: a light dot running along a row of holes, then resting
-$hex-bg-packet-time: 10s;   // hex-bg.js randomizes it
-$hex-bg-packet-fade: 2%;
-$hex-bg-packet-run: 14%;
 
 // ---- Scan beam under the grille: soft trail, soft edge (no hard line behind the text)
+// (gradient offsets run from the top, 0, to the leading bottom edge, 1)
 $hex-bg-beam-h: 140px;
 $hex-bg-beam-body-alpha: .12;
 $hex-bg-beam-edge-alpha: .3;
-$hex-bg-beam-body-stop: 80%;
-$hex-bg-beam-edge-stop: 96%;
-$hex-bg-scan-time: 20s;     // hex-bg.js fits it to the section height
+$hex-bg-beam-body-stop: .8;
+$hex-bg-beam-edge-stop: .96;
 
 // "rgb(r,g,b)": colour for inline SVG without "#", which would break the data URI
 @function hex-bg-rgb($color) {
@@ -152,10 +139,26 @@ $hex-bg-scan-time: 20s;     // hex-bg.js fits it to the section height
   @return $svg + "</g><use xlink:href='%23s' transform='rotate(180 #{$w} #{$h * .5})'/></svg>";
 }
 
+// Gradient for the canvas of hex-bg.js from (colour alpha offset) stops: "r g b alpha offset, ..."
+@function hex-bg-stops($stops...) {
+  $list: ();
+  @each $stop in $stops {
+    $color: nth($stop, 1);
+    $list: append($list, red($color) green($color) blue($color) nth($stop, 2) nth($stop, 3), comma);
+  }
+  @return $list;
+}
+
 // Glowing hole: flat core over one hole, faint halo into the neighbours
 @function hex-bg-spark($core, $halo) {
-  @return radial-gradient(circle closest-side, $core, rgba($core, $hex-bg-spark-core-alpha) $hex-bg-spark-core-stop,
-    rgba($halo, $hex-bg-spark-halo-alpha) $hex-bg-spark-halo-stop, rgba($halo, 0));
+  @return hex-bg-stops(($core 1 0), ($core $hex-bg-spark-core-alpha $hex-bg-spark-core-stop),
+    ($halo $hex-bg-spark-halo-alpha $hex-bg-spark-halo-stop), ($halo 0 1));
+}
+
+// Scan beam: warm trail, light leading edge
+@function hex-bg-beam() {
+  @return hex-bg-stops(($hex-bg-accent 0 0), ($hex-bg-accent $hex-bg-beam-body-alpha $hex-bg-beam-body-stop),
+    ($hex-bg-sand $hex-bg-beam-edge-alpha $hex-bg-beam-edge-stop), ($hex-bg-sand 0 1));
 }
 
 @function hex-bg-blob($rx, $ry, $color, $alpha) {
@@ -186,9 +189,14 @@ $hex-bg-scan-time: 20s;     // hex-bg.js fits it to the section height
   z-index: -1;
   overflow: hidden;
   pointer-events: none;
-  // grid pitch for hex-bg.js
+  // for hex-bg.js: grid pitch, sizes and gradients of the animated layer
   --hex-bg-cell-w: #{$hex-bg-cell-w};
   --hex-bg-row-h: #{$hex-bg-row-h};
+  --hex-bg-spark-size: #{$hex-bg-spark-size};
+  --hex-bg-spark: #{hex-bg-spark($hex-bg-spark-warm, $hex-bg-sand)};
+  --hex-bg-spark-hot: #{hex-bg-spark($hex-bg-spark-hot, $hex-bg-accent)};
+  --hex-bg-beam-h: #{$hex-bg-beam-h};
+  --hex-bg-beam: #{hex-bg-beam()};
 
   $images: ();
   $sizes: ();
@@ -223,91 +231,11 @@ $hex-bg-scan-time: 20s;     // hex-bg.js fits it to the section height
   }
 }
 
+// Canvas of hex-bg.js: only as big as the part of the layer on screen; hex-bg.js sizes it and moves it there
 .hex-bg__fx {
-  @include hex-bg-fill;
-}
-
-// hex-bg.js moves every cell to a new hole at the end of each flicker cycle
-.hex-bg__cell {
   position: absolute;
   top: 0;
   left: 0;
-  width: $hex-bg-spark-size;
-  height: $hex-bg-spark-size;
-  margin-top: $hex-bg-spark-size * -0.5;
-  margin-left: $hex-bg-spark-size * -0.5;
-  opacity: 0;
-  background-image: hex-bg-spark($hex-bg-spark-warm, $hex-bg-sand);
-  animation: hex-bg-flicker $hex-bg-flicker-time linear infinite;
-
-  // cells are the first children of .hex-bg__fx (hex-bg.js), so nth-child counts only them
-  &:nth-child(#{$hex-bg-hot-every}n) {
-    background-image: hex-bg-spark($hex-bg-spark-hot, $hex-bg-accent);
-  }
-}
-
-// Row segment the packet runs along; hex-bg.js sets its position, width and direction
-.hex-bg__packet {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: $hex-bg-spark-size;
-  margin-top: $hex-bg-spark-size * -0.5;
-  transform-origin: 0 50%;
-}
-
-// Dot drawn at the left edge of a box as wide as the segment: translateX(100%) carries it to the far end
-.hex-bg__dot {
-  width: 100%;
-  height: 100%;
-  margin-left: $hex-bg-spark-size * -0.5;
-  opacity: 0;
-  background: hex-bg-spark($hex-bg-spark-hot, $hex-bg-accent) 0 50% no-repeat;
-  background-size: $hex-bg-spark-size $hex-bg-spark-size;
-  animation: hex-bg-packet $hex-bg-packet-time linear infinite;
-}
-
-// Travel distance (--hex-bg-travel) is set on the beam by hex-bg.js
-.hex-bg__beam {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: $hex-bg-beam-h;
-  background-image: linear-gradient(to bottom, rgba($hex-bg-accent, 0), rgba($hex-bg-accent, $hex-bg-beam-body-alpha) $hex-bg-beam-body-stop,
-    rgba($hex-bg-sand, $hex-bg-beam-edge-alpha) $hex-bg-beam-edge-stop, rgba($hex-bg-sand, 0));
-  transform: translateY(-100%);
-  animation: hex-bg-scan $hex-bg-scan-time linear infinite;
-}
-
-.hex-bg--paused {
-  .hex-bg__cell,
-  .hex-bg__dot,
-  .hex-bg__beam {
-    animation-play-state: paused;
-  }
-}
-
-@keyframes hex-bg-flicker {
-  0% { opacity: 0; }
-  #{$hex-bg-flicker-on} { opacity: $hex-bg-flicker-peak; }
-  #{$hex-bg-flicker-dip-at} { opacity: $hex-bg-flicker-dip; }
-  #{$hex-bg-flicker-back} { opacity: $hex-bg-flicker-peak; }
-  #{$hex-bg-flicker-hold-at} { opacity: $hex-bg-flicker-hold; }
-  #{$hex-bg-flicker-off}, 100% { opacity: 0; }
-}
-
-@keyframes hex-bg-packet {
-  0% { opacity: 0; transform: translateX(0); }
-  #{$hex-bg-packet-fade} { opacity: 1; }
-  #{$hex-bg-packet-run - $hex-bg-packet-fade} { opacity: 1; }
-  #{$hex-bg-packet-run}, 100% { opacity: 0; transform: translateX(100%); }
-}
-
-// var() is interpolated so old Ruby Sass passes it through untouched
-@keyframes hex-bg-scan {
-  from { transform: translateY(-100%); }
-  to { transform: translateY(#{"var(--hex-bg-travel)"}); }
 }
 
 // Static vector background only
