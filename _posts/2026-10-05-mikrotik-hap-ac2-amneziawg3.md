@@ -11,15 +11,14 @@ tags: mikrotik amneziawg gpt codex
 
 В результате получился скрипт-визард, который установит AWG3 на Микротик [microtik-awg3-installer](https://github.com/william-aqn/microtik-awg3-installer)
 
+Теперь есть и **веб-панель AWG Control прямо на роутере**: импорт и редактирование конфигов, переключение VPN-профилей и выбор маршрута для каждого устройства — напрямую, через VPN или по Geo-спискам. Панель и VPN работают в одном контейнере.
+
+![Веб-панель AWG Control с демонстрационным профилем](/assets/blog/mikrotik-awg3/awg-profiles-preview.png)
+
+_Скриншот из репозитория; профиль и адрес сервера — демонстрационные._
+
 Кнопкой MODE на роутере переключается **Нормальный интернет**/**Обычный интернет** и usr светодиод сигнализирует о состоянии подключения.
 
 _Ридми в репозитории делалось исключительно GPT-6.1 Sol, я ничего не правил - можно посмотреть стилистику сола, как пишет текста._
 
-Есть нюанс - запуск скрипта-визарда должен быть **на компьютере** с Python 3.10+, т.к. на микротике нет курла или ещё чего-либо.
-
-```sh
-git clone https://github.com/william-aqn/microtik-awg3-installer.git
-cd microtik-awg3-installer
-```
-
-Linux/macOS: `bash install.sh`. Windows: `powershell -NoProfile -ExecutionPolicy Bypass -File .\install.ps1`.
+Скрипт-визард запускается **на компьютере** с Git, Python 3.10+ и Docker с Linux-контейнерами. Команды установки для Windows и Linux/macOS, настройка панели и все подробности — в [README репозитория](https://github.com/william-aqn/microtik-awg3-installer#установка).
