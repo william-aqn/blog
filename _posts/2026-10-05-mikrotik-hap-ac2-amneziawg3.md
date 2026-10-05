@@ -16,3 +16,5 @@ tags: mikrotik amneziawg gpt codex
 ![Веб-панель AWG Control с демонстрационным профилем](/assets/blog/mikrotik-awg3/awg-profiles-preview.png)
 
 Кнопкой MODE на роутере переключается **Нормальный интернет**/**Обычный интернет** и usr светодиод сигнализирует о состоянии подключения.
+
+_p.s. на Авито примерная цена hAP ac² ~5k руб_
