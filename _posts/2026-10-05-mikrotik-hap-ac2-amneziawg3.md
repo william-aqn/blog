@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "AmneziaWG на MikroTik"
-description: "Настройка MikroTik и AmneziaWG"
+description: "Настройка MikroTik и AmneziaWG в 1 клик (ну почти)"
 tags: mikrotik amneziawg gpt codex
 ---
 
