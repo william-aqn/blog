@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "AmneziaWG+Podkop на Flint 2"
+title: "AmneziaWG+Podkop на Flint 2 (GL-MT6000)"
 description: "YouTube, Telegram и немного автоматизации на GL.iNet Flint 2."
 tags: glinet flint2 openwrt amneziawg podkop codex
 ---
 
-# AmneziaWG+Podkop на Flint 2
+# AmneziaWG+Podkop на Flint 2 (GL-MT6000)
 
 После [ASUS]({% post_url 2026-06-18-asus-amneziawg %}) и [MikroTik]({% post_url 2026-10-05-mikrotik-hap-ac2-amneziawg3 %}) добрался до **GL.iNet Flint 2**. Раньше на этом месте полагалось открыть двадцать вкладок, разобраться в версиях пакетов и провести вечер в обнимку с SSH. Теперь техническое задание выглядит примерно так:
 
