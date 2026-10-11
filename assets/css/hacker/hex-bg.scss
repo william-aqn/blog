@@ -1,11 +1,13 @@
 ---
 ---
 
-// Vector hex grille background with a small cyberpunk animation (main page, #blog).
+// Vector hex grille background with flowing light behind the holes (main page, #blog).
 // Markup: <section class="hex-bg-host"><div class="hex-bg" aria-hidden="true"></div>...</section>
-// hex-bg.js adds the animated layer (.hex-bg__fx, a canvas) inside .hex-bg and takes its look from the
-// custom properties set on .hex-bg here (motion lives in hex-bg.js).
-// Paint order: warm light (.hex-bg background) -> glowing cells, data packet, scan beam (.hex-bg__fx)
+// hex-bg.js adds the animated layer (.hex-bg__fx, a canvas with one pixel per half hole) inside .hex-bg and takes
+// the grid pitch and the colours of the light from the custom properties set on .hex-bg here (motion lives in
+// hex-bg.js: a funnel of light from edge to edge; after a console command, the black hole of hex-bg-blackhole.js,
+// faded in with the same opacity transition).
+// Paint order: warm light (.hex-bg background) -> animated light (.hex-bg__fx)
 // -> grille + shade (.hex-bg::after) -> section content.
 // Everything is sized in px, so nothing stretches with the section height.
 // Ruby Sass 3.7 (GitHub Pages) compatible: no @use, no math.div, no "/" division.
@@ -25,7 +27,6 @@ $hex-bg-metal: $metal;
 $hex-bg-metal-lit: #c8966c;
 $hex-bg-shadow: #000;
 $hex-bg-spark-warm: $spark-warm;
-$hex-bg-spark-hot: #ffb08a;
 
 // ---- Grille: pointy-top hexes; one tile is 1 cell wide and 2 rows tall
 $hex-bg-sqrt3: 1.7320508;
@@ -68,29 +69,27 @@ $hex-bg-blobs:
   (300px 220px $hex-bg-pit .7 1150px 790px 700px 420px),
   (560px 330px $hex-bg-accent .2 1930px 1690px 260px 780px);
 
-// ---- Shade over the grille: calm veil, top/bottom caps, side vignette, CRT scanlines
+// ---- Shade over the grille: calm veil, top/bottom caps, CRT scanlines (no side vignette: the light runs from edge
+// to edge)
 $hex-bg-veil-alpha: .3;
 $hex-bg-cap-alpha: .45;
 $hex-bg-cap-h: 200px;
-$hex-bg-edge-alpha: .5;
-$hex-bg-edge-w: 22%;
 $hex-bg-scanline-alpha: .16;
 
-// ---- Glowing cells and the data packet: a soft light under one hole, the grille cuts it into a crisp hex
-// (gradient offsets run from the centre, 0, to the edge of the sprite, 1)
-$hex-bg-spark-size: $hex-bg-cell-w * 2.4;
-$hex-bg-spark-core-stop: .36;
-$hex-bg-spark-halo-stop: .62;
-$hex-bg-spark-core-alpha: .9;
-$hex-bg-spark-halo-alpha: .25;
-
-// ---- Scan beam under the grille: soft trail, soft edge (no hard line behind the text)
-// (gradient offsets run from the top, 0, to the leading bottom edge, 1)
-$hex-bg-beam-h: 140px;
-$hex-bg-beam-body-alpha: .12;
-$hex-bg-beam-edge-alpha: .3;
-$hex-bg-beam-body-stop: .8;
-$hex-bg-beam-edge-stop: .96;
+// ---- Animated light under the holes (both scenes of hex-bg.js): colour of a hole by the light intensity, from dark
+// (0) to the brightest (1): outside the light the warm light of the background dims slightly, so the light stands
+// out; faint ember and accent on its scattered edges, amber and sand in the band or the disk, warm white on the
+// ripple crests (colour alpha offset)
+$hex-bg-light-stops:
+  ($hex-bg-pit .18 0),
+  ($hex-bg-ember .45 .12),
+  ($hex-bg-accent .5 .24),
+  ($hex-bg-amber .66 .42),
+  ($hex-bg-sand .86 .72),
+  ($hex-bg-spark-warm 1 1);
+// The light fades in when the layer comes into view and out when it stops; hex-bg.js swaps the funnel for the black
+// hole after this fade out
+$hex-bg-fx-fade: .8s;
 
 // "rgb(r,g,b)": colour for inline SVG without "#", which would break the data URI
 @function hex-bg-rgb($color) {
@@ -139,26 +138,14 @@ $hex-bg-beam-edge-stop: .96;
   @return $svg + "</g><use xlink:href='%23s' transform='rotate(180 #{$w} #{$h * .5})'/></svg>";
 }
 
-// Gradient for the canvas of hex-bg.js from (colour alpha offset) stops: "r g b alpha offset, ..."
-@function hex-bg-stops($stops...) {
+// Colour ramp for the canvas of hex-bg.js from (colour alpha offset) stops: "r g b alpha offset, ..."
+@function hex-bg-stops($stops) {
   $list: ();
   @each $stop in $stops {
     $color: nth($stop, 1);
     $list: append($list, red($color) green($color) blue($color) nth($stop, 2) nth($stop, 3), comma);
   }
   @return $list;
-}
-
-// Glowing hole: flat core over one hole, faint halo into the neighbours
-@function hex-bg-spark($core, $halo) {
-  @return hex-bg-stops(($core 1 0), ($core $hex-bg-spark-core-alpha $hex-bg-spark-core-stop),
-    ($halo $hex-bg-spark-halo-alpha $hex-bg-spark-halo-stop), ($halo 0 1));
-}
-
-// Scan beam: warm trail, light leading edge
-@function hex-bg-beam() {
-  @return hex-bg-stops(($hex-bg-accent 0 0), ($hex-bg-accent $hex-bg-beam-body-alpha $hex-bg-beam-body-stop),
-    ($hex-bg-sand $hex-bg-beam-edge-alpha $hex-bg-beam-edge-stop), ($hex-bg-sand 0 1));
 }
 
 @function hex-bg-blob($rx, $ry, $color, $alpha) {
@@ -189,14 +176,10 @@ $hex-bg-beam-edge-stop: .96;
   z-index: -1;
   overflow: hidden;
   pointer-events: none;
-  // for hex-bg.js: grid pitch, sizes and gradients of the animated layer
+  // for hex-bg.js: grid pitch and the colours of the animated layer
   --hex-bg-cell-w: #{$hex-bg-cell-w};
   --hex-bg-row-h: #{$hex-bg-row-h};
-  --hex-bg-spark-size: #{$hex-bg-spark-size};
-  --hex-bg-spark: #{hex-bg-spark($hex-bg-spark-warm, $hex-bg-sand)};
-  --hex-bg-spark-hot: #{hex-bg-spark($hex-bg-spark-hot, $hex-bg-accent)};
-  --hex-bg-beam-h: #{$hex-bg-beam-h};
-  --hex-bg-beam: #{hex-bg-beam()};
+  --hex-bg-light: #{hex-bg-stops($hex-bg-light-stops)};
 
   $images: ();
   $sizes: ();
@@ -221,21 +204,29 @@ $hex-bg-beam-edge-stop: .96;
       linear-gradient(hex-bg-shade($hex-bg-veil-alpha), hex-bg-shade($hex-bg-veil-alpha)),
       linear-gradient(to bottom, hex-bg-shade($hex-bg-cap-alpha), hex-bg-shade(0)),
       linear-gradient(to top, hex-bg-shade($hex-bg-cap-alpha), hex-bg-shade(0)),
-      linear-gradient(to right, hex-bg-shade($hex-bg-edge-alpha), hex-bg-shade(0) $hex-bg-edge-w,
-        hex-bg-shade(0) (100% - $hex-bg-edge-w), hex-bg-shade($hex-bg-edge-alpha)),
       crt-scanlines($hex-bg-scanline-alpha),
       hex-bg-svg-url(hex-bg-grille-svg());
-    background-size: 100% 100%, 100% $hex-bg-cap-h, 100% $hex-bg-cap-h, 100% 100%, 100% 100%, $hex-bg-cell-w $hex-bg-tile-h;
-    background-position: 0 0, 0 0, 0 100%, 0 0, 0 0, 0 0;
-    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, repeat;
+    background-size: 100% 100%, 100% $hex-bg-cap-h, 100% $hex-bg-cap-h, 100% 100%, $hex-bg-cell-w $hex-bg-tile-h;
+    background-position: 0 0, 0 0, 0 100%, 0 0, 0 0;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat;
   }
 }
 
-// Canvas of hex-bg.js: only as big as the part of the layer on screen; hex-bg.js sizes it and moves it there
+// Canvas of hex-bg.js: only as big as the part of the layer on screen; hex-bg.js sizes it and moves it there.
+// One canvas pixel per half hole, scaled up without smoothing: every hole is lit in one colour, the grille hides the
+// pixel edges
 .hex-bg__fx {
   position: absolute;
   top: 0;
   left: 0;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  opacity: 0;
+  transition: opacity $hex-bg-fx-fade;
+}
+
+.hex-bg__fx--on {
+  opacity: 1;
 }
 
 // Static vector background only

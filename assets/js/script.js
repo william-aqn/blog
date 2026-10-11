@@ -51,7 +51,6 @@ include('/assets/js/jquery.easing.1.3.js');
  ========================================================*/
 ;
 (function ($) {
-    var currentYear = (new Date).getFullYear();
     $(document).ready(function () {
         $("#copyright-year").text((new Date).getFullYear());
     });
@@ -115,6 +114,7 @@ include('/assets/js/jquery.easing.1.3.js');
         decorateConsoleInputs(TermlyPrompt);
         var shell = new TermlyPrompt('#terminal-container', { /* options object */ });
         bindConsoleKeys(shell);
+        announceConsoleCommands(shell);
         shell.run('help');
     }
 });
@@ -148,6 +148,15 @@ function decorateConsoleInputs(Prompt) {
     };
 }
 
+/* Console prompt
+ =============================================*/
+// The prompt input of a console row (Termly creates one per row), if the event comes from one
+function consoleInput(event) {
+    var INPUT_CLASS = 'terminal-input';
+    var input = event.target;
+    return input.classList && input.classList.contains(INPUT_CLASS) ? input : null;
+}
+
 /* Console keys
  =============================================*/
 // The console keeps the keyboard like a terminal: Tab completes the command name instead of moving
@@ -155,7 +164,6 @@ function decorateConsoleInputs(Prompt) {
 function bindConsoleKeys(shell) {
     var KEY_TAB = 9;
     var KEY_ESCAPE = 27;
-    var INPUT_CLASS = 'terminal-input';
     var ARG_SEPARATOR = ' ';
 
     function commonPrefix(words) {
@@ -187,8 +195,8 @@ function bindConsoleKeys(shell) {
     }
 
     shell.container.addEventListener('keydown', function (event) {
-        var input = event.target;
-        if (!input.classList || !input.classList.contains(INPUT_CLASS)) {
+        var input = consoleInput(event);
+        if (!input) {
             return;
         }
         if (event.keyCode === KEY_TAB) {
@@ -198,4 +206,34 @@ function bindConsoleKeys(shell) {
             input.blur();
         }
     });
+}
+
+/* Console commands
+ =============================================*/
+// Tells the page when the visitor runs a console command (hex-bg.js turns the light of the blog into a black hole
+// then): an event on document for Enter on a command that exists, "clear" included (Termly runs it apart from the
+// others). The help the page runs at the start and mistyped commands do not count. The listener catches the key
+// before Termly's own one on the input, which already starts the next prompt.
+function announceConsoleCommands(shell) {
+    var CONSOLE_COMMAND_EVENT = 'console-command';  // listened to by hex-bg.js (the same constant there)
+    var EVENT_KEYUP = 'keyup';
+    var KEY_ENTER = 13;
+    var CLEAR_COMMAND = 'clear';
+    var CAPTURE = true;
+
+    // Termly's own parser finds the command name of the line, as when it runs it
+    function isCommand(line) {
+        try {
+            return line === CLEAR_COMMAND || shell.ShellCommands.hasOwnProperty(shell.parse(line).command);
+        } catch (e) {
+            return false;                   // an empty or broken line: Termly cannot run it either
+        }
+    }
+
+    shell.container.addEventListener(EVENT_KEYUP, function (event) {
+        var input = consoleInput(event);
+        if (input && event.keyCode === KEY_ENTER && isCommand(input.value.trim())) {
+            document.dispatchEvent(new CustomEvent(CONSOLE_COMMAND_EVENT));
+        }
+    }, CAPTURE);
 }
