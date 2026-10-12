@@ -10,6 +10,7 @@ title: Crimson.Lab
 description: Лаборатория Кримсона
 excerpt_separator: <!--more-->
 url: "https://x-crm.in"
+orcid_url: "https://orcid.org/0009-0005-4749-1606"  # профиль ORCID, ссылка в футерах
 amc_proxy_base: "https://amc.x-crm.in/minecraft"
 minecraft_address: "amc.x-crm.in"       # адрес для подключения в игре
 minecraft_download_url: "https://launcher.mojang.com/download/MinecraftInstaller.exe"  # офиц. установщик Minecraft (Windows)

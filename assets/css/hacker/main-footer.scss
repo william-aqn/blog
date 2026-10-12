@@ -3,6 +3,8 @@
 
 // Footer of the default layout (the main page): one compact line on black under a hairline.
 // Separators live on the list items, outside the links: the hit area of a link never covers a "|".
+// Every item starts with one; the separator that opens a line hangs left of the list and is clipped,
+// so a wrapped line on a phone never starts with a "|".
 @import "crimson-palette";
 
 $footer-pad-y: 26px;
@@ -12,7 +14,12 @@ $footer-gap-y: 8px;
 $footer-link-pad-y: 4px;       // taller hit areas on phones (at least 24px)
 $footer-separator: "|";
 $footer-separator-gap: 12px;
+$footer-separator-glyph: 3px;  // "|" in Roboto Condensed 15px is ~3.3px wide
+$footer-separator-width: $footer-separator-gap * 2 + $footer-separator-glyph;
 $footer-separator-alpha: .3;
+$footer-focus-room: 5px;       // the focus outline of main-links.scss (2px + 3px offset) stays unclipped
+$footer-clip-out: -$footer-focus-room;
+$footer-clip-left: $footer-separator-width - $footer-focus-room;
 
 .lab-footer {
   border-top: $rule;
@@ -36,6 +43,8 @@ $footer-separator-alpha: .3;
 .lab-footer__links {
   display: flex;
   flex-wrap: wrap;
+  margin-left: -$footer-separator-width;
+  clip-path: inset($footer-clip-out $footer-clip-out $footer-clip-out $footer-clip-left);
 
   // style.css sets "vertical-align: top" on everything: keep the padded link on the text baseline
   a {
@@ -44,7 +53,7 @@ $footer-separator-alpha: .3;
     vertical-align: baseline;
   }
 
-  li + li::before {
+  li::before {
     content: $footer-separator;
     margin: 0 $footer-separator-gap;
     color: rgba($sand, $footer-separator-alpha);
