@@ -1,7 +1,7 @@
 ---
 layout: hacker
 title: "Crimson.Lab / Поддержать проект"
-description: "Поддержать проект — Boosty и USDT (TRC-20)"
+description: "Поддержать проект — USDT (TRC-20)"
 permalink: /donation.html
 canonical_url: https://x-crm.in/donation.html
 ---
@@ -12,11 +12,6 @@ canonical_url: https://x-crm.in/donation.html
 Блог существует без рекламы и трекеров. Если материалы оказались полезны — проект можно поддержать. Средства идут на хостинг, домен и оборудование для новых статей.
 
 <div class="donation">
-  <div class="donation__item">
-    <span class="donation__label">Boosty</span>
-    <a class="donation__link" href="https://boosty.to/dcrm/donate" target="_blank" rel="noopener noreferrer">boosty.to/dcrm/donate</a>
-  </div>
-
   <div class="donation__item">
     <span class="donation__label">USDT · TRC-20</span>
     <div class="donation__usdt">
