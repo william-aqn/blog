@@ -1,0 +1,18 @@
+OpenSSL 1.0.2 (CentOS 7) build fix for PHP 8.2.35.
+
+ext/openssl/xp_ssl.c calls ASN1_STRING_get0_data(), which exists only since
+OpenSSL 1.1.0. ext/openssl/openssl.c carries a shim for older OpenSSL, xp_ssl.c
+does not, so the build fails with "subscripted value is neither array nor
+pointer nor vector". Map it to ASN1_STRING_data() (same pointer, non-const)
+inside the existing "PHP_OPENSSL_API_VERSION < 0x10100" block.
+
+--- a/ext/openssl/xp_ssl.c	2026-10-21 15:43:50.288560267 +0000
++++ b/ext/openssl/xp_ssl.c	2026-10-21 15:43:50.296560667 +0000
+@@ -150,6 +150,7 @@
+ 
+ #if PHP_OPENSSL_API_VERSION < 0x10100
+ static RSA *php_openssl_tmp_rsa_cb(SSL *s, int is_export, int keylength);
++#define ASN1_STRING_get0_data(_asn1) ((const unsigned char *) ASN1_STRING_data(_asn1))
+ #endif
+ 
+ extern php_stream* php_openssl_get_stream_from_ssl_handle(const SSL *ssl);
