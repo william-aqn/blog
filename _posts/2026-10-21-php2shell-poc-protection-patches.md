@@ -15,7 +15,7 @@ tags: php bitrix centos security poc
 
 Дополнительно разбираем [материал eness](https://github.com/eness/php2shell-CVE-2026-109618-CVE-2026-109619-PoC) о временной защите и [бэкпорты Anton-Barinov](https://github.com/Anton-Barinov/php2shell-patches). Проверяем не только обещания README, но и файлы конкретных ревизий.
 
-Ниже — инструкция и разбор исходников. Новых результатов испытаний наших серверов в этой статье нет.
+Ниже — инструкция и разбор исходников.
 
 <!--more-->
 
