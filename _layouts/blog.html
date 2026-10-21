@@ -1,7 +1,9 @@
 ---
 layout: hacker
 ---
+<link rel="stylesheet" href="{{ '/assets/css/hacker/blog-read-more.css?v=' | append: site.github.build_revision | relative_url }}" />
 <link rel="stylesheet" href="{{ '/assets/css/hacker/spoiler.css?v=' | append: site.github.build_revision | relative_url }}" />
+{% assign read_more_label = 'Подробнее' %}
 <div id="blog_posts">
     <ul>
         {% include visible-posts.html %}
@@ -14,6 +16,10 @@ layout: hacker
             </div>
             {% else %}
             <noindex>{{ post.excerpt }}</noindex>
+            {% endif %}
+            {% assign excerpt_separator = post.excerpt_separator | default: site.excerpt_separator %}
+            {% if excerpt_separator and excerpt_separator != empty and post.content contains excerpt_separator %}
+            <a class="blog-read-more" href="{{ post.url | relative_url }}" aria-label="{{ read_more_label }}: {{ post.title | escape }}">{{ read_more_label }}</a>
             {% endif %}
             <hr/>
         </li>

@@ -1,0 +1,34 @@
+---
+---
+
+@import "crimson-palette";
+
+$read-more-spacing: 1rem;
+$read-more-padding: .5rem 1rem;
+$read-more-border: $hairline solid rgba($sand, .4);
+$read-more-background: rgba($sand, .08);
+$read-more-hover-background: rgba($sand, .18);
+$read-more-focus-ring: 2px solid $sand;
+$read-more-focus-offset: 3px;
+
+#blog_posts .blog-read-more {
+  display: inline-block;
+  margin: 0 0 $read-more-spacing;
+  padding: $read-more-padding;
+  border: $read-more-border;
+  background: $read-more-background;
+  color: $sand;
+  font: inherit;
+  text-decoration: none;
+  text-shadow: none;
+
+  &:hover {
+    border-color: $sand;
+    background: $read-more-hover-background;
+  }
+
+  &:focus-visible {
+    outline: $read-more-focus-ring;
+    outline-offset: $read-more-focus-offset;
+  }
+}
