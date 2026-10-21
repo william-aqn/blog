@@ -1,0 +1,19 @@
+CentOS 7 (gcc 4.8, ICU 73) build fix for remi's PHP 7.4.33, applied after php-7.4.33-icu.patch.
+
+php-7.4.33-icu.patch (upstream GH-14002 backport) checks
+`test "$PKG_CONFIG icu-uc --atleast-version=74"`, a non-empty string, so the test is
+always true: configure demands C++17, gcc 4.8 has none, and ext/intl is compiled with
+no -std flag at all ("'char16_t' does not name a type" in ICU headers). Run pkg-config
+instead of testing a string, as upstream later did: with ICU < 74 the C++11 branch is used.
+
+--- a/ext/intl/config.m4	2026-10-21 17:36:39.412558298 +0000
++++ b/ext/intl/config.m4	2026-10-21 17:36:39.416558489 +0000
+@@ -85,7 +85,7 @@
+   PHP_REQUIRE_CXX()
+ 
+   AC_MSG_CHECKING([if intl requires -std=gnu++17])
+-  AS_IF([test "$PKG_CONFIG icu-uc --atleast-version=74"],[
++  AS_IF([$PKG_CONFIG icu-uc --atleast-version=74],[
+     AC_MSG_RESULT([yes])
+     PHP_CXX_COMPILE_STDCXX(17, mandatory, PHP_INTL_STDCXX)
+   ],[

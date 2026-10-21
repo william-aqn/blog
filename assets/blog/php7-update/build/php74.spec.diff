@@ -1,0 +1,31 @@
+--- remi/php74.spec
++++ el7/php74.spec
+@@ -237,6 +237,7 @@
+ Patch302: php-7.4.33-zlib-tests.patch
+ # for pcre2 10.45
+ Patch303: php-7.4.33-pcretests.patch
++Patch304: php-7.4.33-icu-check.patch
+ 
+ # WIP
+ 
+@@ -1076,9 +1077,9 @@
+ # All files licensed under PHP version 3.01
+ License: PHP
+ Requires: php-common%{?_isa} = %{version}-%{release}
+-BuildRequires: pkgconfig(icu-i18n) >= 74
+-BuildRequires: pkgconfig(icu-io)   >= 74
+-BuildRequires: pkgconfig(icu-uc)   >= 74
++BuildRequires: pkgconfig(icu-i18n) >= 73
++BuildRequires: pkgconfig(icu-io)   >= 73
++BuildRequires: pkgconfig(icu-uc)   >= 73
+ %if 0%{?rhel} == 7
+ Obsoletes: php53-intl, php53u-intl, php54-intl, php54w-intl, php55u-intl, php55w-intl, php56u-intl, php56w-intl
+ Obsoletes: php70u-intl, php70w-intl, php71u-intl, php71w-intl, php72u-intl, php72w-intl
+@@ -1286,6 +1287,7 @@
+ %patch -P301 -p1 -b .tests
+ %patch -P302 -p1 -b .zlibng
+ %patch -P303 -p1 -b .pcretests
++%patch -P304 -p1 -b .icucheck
+ 
+ # WIP patch
+ 
