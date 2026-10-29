@@ -1,0 +1,20 @@
+[base]
+name=CentOS-7.9.2009 - Base (vault)
+baseurl=https://vault.centos.org/7.9.2009/os/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+[updates]
+name=CentOS-7.9.2009 - Updates (vault)
+baseurl=https://vault.centos.org/7.9.2009/updates/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+[extras]
+name=CentOS-7.9.2009 - Extras (vault)
+baseurl=https://vault.centos.org/7.9.2009/extras/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+[epel]
+name=EPEL 7 (archive)
+baseurl=https://dl.fedoraproject.org/pub/archive/epel/7/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7

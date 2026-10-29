@@ -1,0 +1,30 @@
+glibc 2.17 (CentOS 7) build fix for PHP 8.3.36.
+
+With -O2, glibc < 2.26 defines strncmp() as a 3-argument function-like macro
+(bits/string2.h). ZEND_STRL("x") expands to two arguments only after the
+macro's arguments are counted, so ext/ffi/ffi.c fails with
+"macro strncmp requires 3 arguments, but only 2 given".
+Writing (strncmp)(...) suppresses the macro and calls the same function.
+
+--- a/ext/ffi/ffi.c	2026-10-29 08:41:21.365103459 +0000
++++ b/ext/ffi/ffi.c	2026-10-29 08:41:21.385104252 +0000
+@@ -5044,16 +5044,16 @@
+ 	*scope_name = NULL;
+ 	*lib = NULL;
+ 	while (*code_pos == '#') {
+-		if (strncmp(code_pos, ZEND_STRL("#define")) == 0) {
++		if ((strncmp)(code_pos, ZEND_STRL("#define")) == 0) {
+ 			p = zend_ffi_skip_ws_and_comments(code_pos + sizeof("#define") - 1, false);
+ 
+ 			char **target = NULL;
+ 			const char *target_name = NULL;
+-			if (strncmp(p, ZEND_STRL("FFI_SCOPE")) == 0) {
++			if ((strncmp)(p, ZEND_STRL("FFI_SCOPE")) == 0) {
+ 				p = zend_ffi_skip_ws_and_comments(p + sizeof("FFI_SCOPE") - 1, false);
+ 				target = scope_name;
+ 				target_name = "FFI_SCOPE";
+-			} else if (strncmp(p, ZEND_STRL("FFI_LIB")) == 0) {
++			} else if ((strncmp)(p, ZEND_STRL("FFI_LIB")) == 0) {
+ 				p = zend_ffi_skip_ws_and_comments(p + sizeof("FFI_LIB") - 1, false);
+ 				target = lib;
+ 				target_name = "FFI_LIB";
