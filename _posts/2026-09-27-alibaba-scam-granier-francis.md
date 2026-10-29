@@ -91,6 +91,8 @@ tags: alibaba scam cdek gpu
 
 Аккаунт удалён, но схема может переехать на новый. Если вам пишет Granier Francis или Francis Liu, приходят «письма от СДЭК» с gmail или те же реквизиты - напишите в комментариях.
 
+Так и вышло: на следующий день он нашёлся в обувном магазине под именем Francis Granier - [часть 2]({% post_url 2026-10-29-alibaba-scam-francis-granier-meike %}).
+
 ## English summary
 
 **Scam warning: Alibaba supplier Shanghai Huanying Machinery Limited Company (Joylift logo), contact "Granier Francis" aka "Francis Liu" (cn1576475672rxir).** On Sep 27, 2026 I prepaid $1700 outside Alibaba for two NVIDIA CMP 170HX cards (listing "LEGIT DEAL For New CMP 170HX", ID 11000037616521). Nothing was shipped. After payment the seller demanded an extra $500 and a bigger order, "confirmed" by a fake CDEK email from supersaleslimited@gmail.com (a FedEx template with "FedEx" replaced by "Cdek"). On Sep 29 he offered tracking only in exchange for withdrawing my Alibaba complaint, sent a fake tracking number on a newly registered "private logistics" site, and after finding this post threatened: remove it or get neither the goods nor a refund. Alibaba closed the dispute without a refund because the payment was made outside the platform. When I took this post down, the seller promised a refund "within 10-15 working days" and never paid. By Oct 28, 2026 his Alibaba account had been deleted. Never pay Alibaba sellers outside Trade Assurance.
