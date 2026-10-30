@@ -13,8 +13,6 @@ tags: glinet flint2 openwrt tailscale amneziawg podkop nas
 
 Так появился [Tailscale с поддержкой AWG](https://github.com/LiuTangLei/tailscale-awg-installer). Техническое задание снова уместилось в несколько фраз. Грабли, как выяснилось, тоже прекрасно умеют помещаться между ними.
 
-<!--more-->
-
 ## Что в итоге работает
 
 Телефон подключается к Tailscale и выбирает **flint2** как **Exit node**. После этого доступны:
