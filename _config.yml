@@ -21,6 +21,13 @@ social:
     - *orcid_url
     - "https://t.me/dcrimson"
     - "https://github.com/william-aqn"
+# Картинка превью ссылок (og:image, 1200x630) у всех страниц; своя у статьи - тоже строкой: image: /assets/blog/.../cover.jpg
+# Только путь: блок с width/height/alt jekyll-seo-tag 2.8 пишет в JSON-LD как "imageObject", такого типа в schema.org нет
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/og/default.jpg
 amc_proxy_base: "https://amc.x-crm.in/minecraft"
 minecraft_address: "amc.x-crm.in"       # адрес для подключения в игре
 minecraft_download_url: "https://launcher.mojang.com/download/MinecraftInstaller.exe"  # офиц. установщик Minecraft (Windows)

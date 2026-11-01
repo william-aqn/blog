@@ -79,3 +79,21 @@ last_modified_at: 2026-11-01
 ```
 
 Дата попадёт в `dateModified` (JSON-LD) и в `lastmod` статьи в sitemap.xml - поисковики узнают, что статью стоит переобойти. Без поля обе даты равны дате публикации.
+
+## Картинка превью
+
+Ссылки на сайт в Telegram, VK и соцсетях показываются с картинкой [`/assets/images/og/default.jpg`](https://x-crm.in/assets/images/og/default.jpg) (1200×630, консоль с баннером CRIMSON). Она задана всем страницам в `defaults` в `_config.yml` и попадает в `og:image`, `twitter:image` и JSON-LD.
+
+Своя картинка у статьи - поле `image` в front matter, путь строкой:
+
+```yaml
+---
+layout: post
+title: "Статья"
+image: /assets/blog/статья/cover.jpg
+---
+```
+
+Лучше 1200×630 и не тяжелее 300 КБ - WhatsApp может не показать картинку тяжелее. Блоком с `width`, `height` или `alt` не указывать: jekyll-seo-tag 2.8 запишет её в JSON-LD с типом `imageObject`, которого нет в schema.org.
+
+Telegram запоминает превью ссылки: чтобы обновить его у уже отправленной ссылки, отправьте её боту `@WebpageBot`.

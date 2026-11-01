@@ -112,7 +112,7 @@ include('/assets/js/jquery.easing.1.3.js');
     }
     if ($('#terminal-container').length) {
         decorateConsoleInputs(TermlyPrompt);
-        var shell = new TermlyPrompt('#terminal-container', { /* options object */ });
+        var shell = new TermlyPrompt('#terminal-container', { commands: labCommands() });
         bindConsoleKeys(shell);
         announceConsoleCommands(shell);
         shell.run('help');
@@ -236,4 +236,42 @@ function announceConsoleCommands(shell) {
             document.dispatchEvent(new CustomEvent(CONSOLE_COMMAND_EVENT));
         }
     }, CAPTURE);
+}
+
+/* Lab commands
+ =============================================*/
+// Commands of the lab over Termly's own ones. whoami prints what the link preview image shows
+// (assets/images/og/default.jpg): the CRIMSON banner and the motto. Termly prints the value a command returns
+// as the text of a <pre class="terminal-output">, where the console's line height would split the rows of the
+// banner, so whoami adds the banner as its own block (sized in terminal-crt.scss) and returns the motto.
+function labCommands() {
+    var BANNER_CLASS = 'terminal-output terminal-banner';
+    var BANNER_LABEL = 'CRIMSON';
+    // figlet "ANSI Shadow", 57 columns ($crt-banner-cols in terminal-crt.scss)
+    var BANNER = [
+        ' ██████╗██████╗ ██╗███╗   ███╗███████╗ ██████╗ ███╗   ██╗',
+        '██╔════╝██╔══██╗██║████╗ ████║██╔════╝██╔═══██╗████╗  ██║',
+        '██║     ██████╔╝██║██╔████╔██║███████╗██║   ██║██╔██╗ ██║',
+        '██║     ██╔══██╗██║██║╚██╔╝██║╚════██║██║   ██║██║╚██╗██║',
+        '╚██████╗██║  ██║██║██║ ╚═╝ ██║███████║╚██████╔╝██║ ╚████║',
+        ' ╚═════╝╚═╝  ╚═╝╚═╝╚═╝     ╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═══╝'
+    ].join('\n');
+    var MOTTO = 'Лаборатория Кримсона: да пребудет с тобой сила ИИ';
+
+    return {
+        whoami: {
+            name: 'whoami',
+            type: 'builtin',
+            man: 'Current user',
+            fn: function () {
+                var banner = document.createElement('pre');
+                banner.className = BANNER_CLASS;
+                banner.setAttribute('role', 'img');
+                banner.setAttribute('aria-label', BANNER_LABEL);
+                banner.textContent = BANNER;
+                this.shell.container.appendChild(banner);
+                return MOTTO;
+            }
+        }
+    };
 }

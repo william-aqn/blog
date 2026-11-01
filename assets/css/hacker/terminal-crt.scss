@@ -39,6 +39,14 @@ $crt-heading-tracking: .08em;
 $crt-heading-gap: 6px;
 $crt-scrollbar: rgba($sand, .3);
 
+// The CRIMSON banner of whoami (script.js) fills the width of the console: its font size follows the console width in
+// container units; without them it keeps a size that fits the narrowest phone. The font's own line height lets the
+// box-drawing glyphs of the rows touch.
+$crt-banner-cols: 57;            // columns of the banner in script.js
+$crt-banner-advance: .6;         // widest advance of the $font-mono fonts, em
+$crt-banner-size-fallback: 7px;
+$crt-banner-line: normal;
+
 // The console is as tall as its text and grows with the output up to these heights, then scrolls
 $crt-max-h: 460px;
 $crt-max-h-tablet: 400px;
@@ -108,6 +116,7 @@ $crt-narrow-max: 500px;  // breakpoint of terminal.css
   }
 
   #terminal-container {
+    container-type: inline-size;  // the size of the whoami banner
     flex: none;
     height: auto;
     max-height: $crt-max-h;
@@ -136,6 +145,13 @@ $crt-narrow-max: 500px;  // breakpoint of terminal.css
 
     input.terminal-input {
       caret-color: $accent;
+    }
+
+    .terminal-banner {
+      font-size: $crt-banner-size-fallback;
+      font-size: calc(100cqw / #{$crt-banner-cols * $crt-banner-advance});
+      line-height: $crt-banner-line;
+      white-space: pre;
     }
   }
 
