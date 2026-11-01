@@ -3,36 +3,35 @@ layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% include visible-posts.html %}
+  {% comment %} The home page and /blog change with the newest post; the static pages carry no lastmod (it is optional and they rarely change) {% endcomment %}
+  {% assign newest_post = visible_posts | first %}
   <url>
     <loc>{{ "/" | prepend: site.baseurl | prepend: site.url }}</loc>
-    <lastmod>{{ site.time | date_to_xmlschema  }}</lastmod>
+    <lastmod>{{ newest_post.date | date_to_xmlschema }}</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>{{ "/blog.html" | prepend: site.baseurl | prepend: site.url }}</loc>
-    <lastmod>{{ site.time | date_to_xmlschema  }}</lastmod>
+    <lastmod>{{ newest_post.date | date_to_xmlschema }}</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>{{ "/disclaimer.html" | prepend: site.baseurl | prepend: site.url }}</loc>
-    <lastmod>{{ site.time | date_to_xmlschema  }}</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>{{ "/copyright.html" | prepend: site.baseurl | prepend: site.url }}</loc>
-    <lastmod>{{ site.time | date_to_xmlschema  }}</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>{{ "/donation.html" | prepend: site.baseurl | prepend: site.url }}</loc>
-    <lastmod>{{ site.time | date_to_xmlschema  }}</lastmod>
     <priority>0.3</priority>
   </url>
-  {% include visible-posts.html %}
   {% for post in visible_posts %}
   <url>
     <loc>{{ post.url | prepend: site.baseurl | prepend: site.url }}</loc>
-    <lastmod>{{ post.date | date_to_xmlschema  }}</lastmod>
+    <lastmod>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</lastmod>
     <priority>0.4</priority>
   </url>
   {% endfor %}

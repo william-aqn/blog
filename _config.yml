@@ -8,9 +8,19 @@ plugins:
  - jekyll-redirect-from
 title: Crimson.Lab
 description: Лаборатория Кримсона
+lang: ru-RU                             # <html lang> и og:locale (ru_RU)
 excerpt_separator: <!--more-->
 url: "https://x-crm.in"
-orcid_url: "https://orcid.org/0009-0005-4749-1606"  # профиль ORCID, ссылка в футерах
+orcid_url: &orcid_url "https://orcid.org/0009-0005-4749-1606"  # профиль ORCID, ссылка в футерах
+# Для jekyll-seo-tag: author - автор статей в JSON-LD и <meta name="author">, social.links - sameAs на главной
+author:
+  name: Dark Crimson
+  url: *orcid_url
+social:
+  links:
+    - *orcid_url
+    - "https://t.me/dcrimson"
+    - "https://github.com/william-aqn"
 amc_proxy_base: "https://amc.x-crm.in/minecraft"
 minecraft_address: "amc.x-crm.in"       # адрес для подключения в игре
 minecraft_download_url: "https://launcher.mojang.com/download/MinecraftInstaller.exe"  # офиц. установщик Minecraft (Windows)
