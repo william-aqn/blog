@@ -27,6 +27,10 @@ $card-lit-glow: 0 0 28px rgba($sand, .1);
 $card-line-h: 2px;
 $card-lit-line: linear-gradient(to right, $sand, $brown);
 
+// "Made with AI" hexagon in the top right corner (posts with "ai: true"), it brightens with the lit card
+$card-ai-inset: 10px;
+$card-ai-alpha: .45;
+
 $title-size: 20px;
 $title-line: 1.3;
 
@@ -120,6 +124,10 @@ $card-ease: cubic-bezier(.2, .7, .3, 1);
     &::after {
       transform: scaleX(1);
     }
+
+    .post-card__ai {
+      opacity: 1;
+    }
   }
 }
 
@@ -139,9 +147,23 @@ $card-ease: cubic-bezier(.2, .7, .3, 1);
   color: rgba($sand, $desc-alpha);
 }
 
+.post-card__ai {
+  position: absolute;
+  top: $card-ai-inset;
+  right: $card-ai-inset;
+  color: $sand;
+  opacity: $card-ai-alpha;
+  transition: opacity $card-time $card-ease;
+
+  .ai-hex {
+    display: block;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .post-card__link::before,
-  .post-card__link::after {
+  .post-card__link::after,
+  .post-card__ai {
     transition: none;
   }
 }

@@ -11,6 +11,7 @@
     {% include favicon.html %}
     {% if page.noindex %}<meta name="robots" content="noindex, nofollow" />{% endif %}
     {% seo %}
+    {% if page.ai %}{% include ai-meta.html %}{% endif %}
 </head>
 
 <body>

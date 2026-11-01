@@ -115,6 +115,7 @@ layout: default
                     <a class="post-card__link" href="{{ post.url | relative_url }}">
                         <h3 class="post-card__title">{{ post.title }}</h3>
                         {% if post.description %}<p class="post-card__desc">{{ post.description }}</p>{% endif %}
+                        {% if post.ai %}{% include ai-mark-icon.html class="post-card__ai" %}{% endif %}
                     </a>
                 </article>
                 {% endfor %}

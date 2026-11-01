@@ -3,13 +3,14 @@ layout: hacker
 ---
 <link rel="stylesheet" href="{{ '/assets/css/hacker/blog-read-more.css?v=' | append: site.github.build_revision | relative_url }}" />
 <link rel="stylesheet" href="{{ '/assets/css/hacker/spoiler.css?v=' | append: site.github.build_revision | relative_url }}" />
+<link rel="stylesheet" href="{{ '/assets/css/hacker/ai-mark.css?v=' | append: site.github.build_revision | relative_url }}" />
 {% assign read_more_label = 'Подробнее' %}
 <div id="blog_posts">
     <ul>
         {% include visible-posts.html %}
         {% for post in visible_posts %}
         <li>
-            <a id="{{ post.id }}" href="{{ post.url }}">{{ post.title }}</a>
+            <a id="{{ post.id }}" href="{{ post.url }}">{{ post.title }}</a>{% if post.ai %}{% include ai-mark-icon.html %}{% endif %}
             {% if post.password %}
             <div class="spoiler-list" data-password="{{ post.password }}">
                 <noindex hidden>{{ post.excerpt }}</noindex>

@@ -1,0 +1,115 @@
+---
+---
+
+// "Made with AI" mark of posts with "ai: true" (texts in _data/ai_mark.yml):
+// a hexagon next to the post date whose hint pops up on hover, tap or keyboard focus,
+// and the same hexagon after the post title in the /blog list.
+@import "crimson-palette";
+
+$mark-alpha: .55;
+$mark-gap: .45em;
+$mark-drop: -2px;                    // the hexagon sits a little below the baseline of the date
+$mark-focus-ring: $hairline solid $sand;
+$mark-focus-offset: 2px;
+
+$tip-gap: 10px;
+$tip-padding: 3px 9px;
+$tip-border: $hairline solid rgba($sand, .35);
+$tip-size: 12px;
+$tip-line: 1.5;
+$tip-time: .15s;
+$tip-z: 100;                         // above the oneko cat (z-index 99)
+$tip-phone-max: $bp-sm - 1px;
+$tip-phone-max-width: 90vw;          // .container width: the hint never widens the page
+$tip-phone-gap: 6px;
+
+$list-mark-w: 14px;
+$list-mark-h: 16px;
+$list-mark-lift: 2px;
+
+// The date line frames the hint
+.post-date {
+  position: relative;
+}
+
+.ai-mark {
+  margin: 0 0 0 $mark-gap;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: rgba($sand, $mark-alpha);
+  font: inherit;
+  line-height: inherit;
+  cursor: help;
+
+  .ai-hex {
+    vertical-align: $mark-drop;
+  }
+
+  &:hover,
+  &:focus {
+    color: $sand;
+  }
+
+  &:focus-visible {
+    outline: $mark-focus-ring;
+    outline-offset: $mark-focus-offset;
+  }
+}
+
+// The hint: to the right of the hexagon, under the date line on phones.
+// It is a sibling of the button, so no browser clips it to the button box.
+.ai-mark__tip {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + #{$tip-gap});
+  z-index: $tip-z;
+  box-sizing: border-box;
+  padding: $tip-padding;
+  border: $tip-border;
+  background: $band;
+  color: $sand;
+  font-size: $tip-size;
+  line-height: $tip-line;
+  white-space: nowrap;
+  transform: translateY(-50%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity $tip-time, visibility $tip-time;
+}
+
+.ai-mark:hover + .ai-mark__tip,
+.ai-mark:focus + .ai-mark__tip {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: $tip-phone-max) {
+  .ai-mark__tip {
+    top: 100%;
+    left: 0;
+    margin-top: $tip-phone-gap;
+    width: max-content;
+    max-width: $tip-phone-max-width;
+    white-space: normal;
+    transform: none;
+  }
+}
+
+#blog_posts .ai-mark-icon {
+  margin-left: $mark-gap;
+  color: rgba($sand, $mark-alpha);
+
+  .ai-hex {
+    width: $list-mark-w;
+    height: $list-mark-h;
+    vertical-align: $list-mark-lift;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-mark__tip {
+    transition: none;
+  }
+}
