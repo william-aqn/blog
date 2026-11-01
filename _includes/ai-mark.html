@@ -1,0 +1,3 @@
+{% comment %} "Made with AI" hexagon next to the post date; its hint pops up on hover, tap or keyboard focus (ai-mark.scss) {% endcomment %}
+{%- assign ai_label = site.data.ai_mark.label | escape -%}
+<button type="button" class="ai-mark" aria-label="{{ ai_label }}">{% include ai-hex.html %}</button><span class="ai-mark__tip" aria-hidden="true">{{ ai_label }}</span>

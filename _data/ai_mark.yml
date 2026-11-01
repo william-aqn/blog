@@ -1,0 +1,8 @@
+# Пометка «при участии ИИ» для статей с "ai: true" во front matter.
+# label               — подсказка у шестигранника рядом с датой и в списках статей.
+# disclosure          — <meta name="ai-disclosure">: ai-assisted (пишет автор, ИИ помогает)
+#                       или ai-generated (пишет ИИ, автор проверяет); https://github.com/dweekly/ai-content-disclosure
+# digital_source_type — schema.org digitalSourceType страницы (словарь IPTC), соответствует ai-assisted.
+label: "Подготовлено при участии ИИ, проверено автором"
+disclosure: ai-assisted
+digital_source_type: "https://schema.org/CompositeWithTrainedAlgorithmicMediaDigitalSource"

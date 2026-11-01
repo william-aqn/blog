@@ -1,0 +1,3 @@
+{% comment %} "Made with AI" hexagon in the post lists, explained by its tooltip; include.class places it {% endcomment %}
+{%- assign ai_label = site.data.ai_mark.label | escape -%}
+<span class="{{ include.class | default: 'ai-mark-icon' }}" role="img" aria-label="{{ ai_label }}" title="{{ ai_label }}">{% include ai-hex.html %}</span>
