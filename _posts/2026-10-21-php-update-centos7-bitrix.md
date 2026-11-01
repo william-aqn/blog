@@ -3,6 +3,8 @@ layout: post
 title: "PHP 8.2.35 на CentOS 7: закрываем CVE-2026-109618 и CVE-2026-109619"
 description: "Патчим kde под freebsd"
 tags: php bitrix centos security docker
+llms: true
+llms_description: "Обновление PHP 8.2 до 8.2.35 на CentOS 7 (BitrixVM) без обновления Битрикса: временные меры, сборка RPM из SRPM (ICU, OpenSSL), проверка в контейнере, установка и рестарт"
 ---
 
 # PHP 8.2.35 на CentOS 7: закрываем CVE-2026-109618 и CVE-2026-109619

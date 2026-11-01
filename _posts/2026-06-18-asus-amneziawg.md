@@ -3,6 +3,8 @@ layout: post
 title: "Ютуб на ASUS роутере"
 description: "Разграничиваем трафик на роутере"
 tags: asuswrt merlin amneziawg
+llms: true
+llms_description: "AmneziaWG на ASUS с прошивкой Merlin: amtm, Entware и аддон asuswrt-merlin-amneziawg с выборочной маршрутизацией трафика по гео-спискам и устройствам"
 ---
 
 # Ютуб на ASUS роутере

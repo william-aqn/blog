@@ -33,3 +33,21 @@ password: secret123
 ```
 
 Каждый блок имеет свой пароль и свою форму ввода.
+
+## llms.txt
+
+[`/llms.txt`](https://x-crm.in/llms.txt) ([формат llmstxt.org](https://llmstxt.org/)) - список избранных статей для ИИ-ассистентов и агентов.
+
+Статья попадает туда, если в front matter есть `llms: true`. Пояснение к ссылке берётся из `description`, а если для ИИ нужно другое (например, подзаголовок шуточный) - из `llms_description`:
+
+```yaml
+---
+layout: post
+title: "Название статьи"
+description: "Шуточный подзаголовок"
+llms: true
+llms_description: "О чём статья на самом деле: что настраиваем, на чём и чем проверяем"
+---
+```
+
+Скрытые статьи (`hidden: true`) в llms.txt не попадают, даже с `llms: true`.

@@ -3,6 +3,7 @@ layout: post
 title: "AmneziaWG+UI на MikroTik"
 description: "Настройка MikroTik и AmneziaWG в 1 клик (ну почти)"
 tags: mikrotik amneziawg gpt codex
+llms: true
 ---
 
 # AmneziaWG+UI на MikroTik

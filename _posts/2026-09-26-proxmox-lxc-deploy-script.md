@@ -3,6 +3,7 @@ layout: post
 title: "Скрипт развёртки Family messenger в Proxmox"
 description: "Контейнер одной командой"
 tags: ai proxmox lxc caddy
+llms: true
 ---
 
 # Скрипт развёртки Family messenger в Proxmox

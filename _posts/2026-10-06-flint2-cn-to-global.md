@@ -3,6 +3,7 @@ layout: post
 title: "Flint 2 (GL-MT6000): переключение CN → Global"
 description: "Как сменить региональный код CN на US у GL.iNet Flint 2"
 tags: glinet flint2 openwrt guide
+llms: true
 ---
 
 # Flint 2 (GL-MT6000): переключение CN → Global

@@ -3,6 +3,7 @@ layout: post
 title: "PHP 7.4 на CentOS 7: бэкпорт для CVE-2026-109618 и CVE-2026-109619"
 description: "Продолжение обновления Битрикса: сборка RPM, ловушка ICU и ошибки при рестарте."
 tags: php bitrix centos security docker
+llms: true
 ---
 
 # PHP 7.4 на CentOS 7: бэкпорт для CVE-2026-109618 и CVE-2026-109619

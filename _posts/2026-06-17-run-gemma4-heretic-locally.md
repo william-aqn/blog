@@ -3,6 +3,7 @@ layout: post
 title: "Запускаем расцензуренную Gemma 4 локально"
 description: "Ultra-uncensored Gemma 4 (E4B и MoE 26B-A4B): GGUF и Python"
 tags: ai llm gemma heretic ollama lmstudio python
+llms: true
 ---
 
 # Запускаем расцензуренную Gemma 4 локально

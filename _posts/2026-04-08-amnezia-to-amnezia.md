@@ -3,6 +3,7 @@ layout: post
 title: "Делаем цепочку из AmneziaWG серверов"
 description: "В 1 клик"
 tags: ai amneziawg sh script
+llms: true
 ---
 
 # Делаем цепочку из AmneziaWG серверов
