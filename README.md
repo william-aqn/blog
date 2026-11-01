@@ -97,3 +97,11 @@ image: /assets/blog/статья/cover.jpg
 Лучше 1200×630 и не тяжелее 300 КБ - WhatsApp может не показать картинку тяжелее. Блоком с `width`, `height` или `alt` не указывать: jekyll-seo-tag 2.8 запишет её в JSON-LD с типом `imageObject`, которого нет в schema.org.
 
 Telegram запоминает превью ссылки: чтобы обновить его у уже отправленной ссылки, отправьте её боту `@WebpageBot`.
+
+## IndexNow
+
+После пуша в `main`, в котором менялись статьи (`_posts`), GitHub Actions ([`.github/workflows/indexnow.yml`](.github/workflows/indexnow.yml)) ждёт, пока GitHub Pages выкатит сайт, и отправляет в [IndexNow](https://www.indexnow.org/) адреса добавленных, изменённых и удалённых статей, а с ними главную и /blog. Яндекс, Bing и другие поисковики IndexNow приходят на эти страницы раньше, чем сами нашли бы их в sitemap.xml. Скрытые статьи (`hidden: true`) не отправляются. Google в IndexNow не участвует.
+
+Ручной запуск (Actions → IndexNow → Run workflow) отправляет все адреса из sitemap.xml.
+
+Ключ - файл `625fb6db8a34ee31728c826cce0ad2bf.txt` в корне сайта (имя и содержимое совпадают): по нему поисковики проверяют, что адреса прислал владелец сайта. Без него запросы не примут.

@@ -1,0 +1,26 @@
+# Tells IndexNow (Yandex, Bing and others) about the posts a push to main changed, once GitHub Pages has deployed it
+# (.github/scripts/indexnow.py). A manual run ("Run workflow" in Actions) submits every URL of sitemap.xml.
+name: IndexNow
+
+on:
+  push:
+    branches: [main]
+    paths: ['_posts/**']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0     # the head before the push and the commits deployed after it
+          filter: blob:none  # history without old file contents
+      - run: python3 .github/scripts/indexnow.py
+        env:
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
