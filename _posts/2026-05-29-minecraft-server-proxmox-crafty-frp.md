@@ -3,6 +3,7 @@ layout: post
 title: "Домашний Minecraft сервер"
 description: "Поднимаем и пробрасываем в глобал"
 tags: minecraft proxmox crafty frp nginx
+llms: true
 ---
 
 # Домашний Minecraft сервер

@@ -3,6 +3,7 @@ layout: post
 title: "AmneziaWG-сервер на ASUS роутере"
 description: "Подключаемся к дому из любой точки мира - с обфускацией, по QR-коду"
 tags: asuswrt merlin amneziawg vpn server
+llms: true
 ---
 
 # AmneziaWG-сервер на ASUS роутере

@@ -3,6 +3,7 @@ layout: post
 title: "Дневник питания - офлайн и без сервера"
 description: "БД в браузере, синхронизация с Google Диском, оценка калорий своим ключом OpenRouter"
 tags: pwa react indexeddb google-drive openrouter local-first
+llms: true
 ---
 
 # Дневник питания - офлайн и без сервера

@@ -1,0 +1,21 @@
+---
+layout: null
+---
+{%- include visible-posts.html -%}
+{%- assign llms_posts = visible_posts | where: "llms", true -%}
+# {{ site.title }}
+
+> {{ site.description }}: технический блог на русском языке. Практические заметки про роутеры ASUS, MikroTik и GL.iNet Flint 2 (AmneziaWG, Podkop, Tailscale, OpenWrt), Proxmox и self-hosted сервисы, PHP и Битрикс на CentOS 7, Android и собственные open-source проекты.
+
+Ниже - статьи, отобранные автором; полный список - в разделе Optional.
+{%- if llms_posts.size > 0 %}
+
+## Статьи
+{% for post in llms_posts %}
+- [{{ post.title }}]({{ post.url | absolute_url }}): {{ post.llms_description | default: post.description }}
+{%- endfor %}
+{%- endif %}
+
+## Optional
+
+- [Все статьи блога]({{ '/blog.html' | absolute_url }}): полный список с анонсами
