@@ -4,6 +4,7 @@ title: "Запускаем Angry Birds на новой версии Android"
 description: "INSTALL_FAILED_DEPRECATED_SDK_VERSION, targetSdk 24 и немного байткода"
 tags: android apk angry-birds patch ai
 llms: true
+ai: true
 ---
 
 # Запускаем Angry Birds на новой версии Android

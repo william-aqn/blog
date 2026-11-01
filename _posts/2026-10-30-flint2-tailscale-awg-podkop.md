@@ -4,6 +4,7 @@ title: "Tailscale с AWG на Flint 2: домашняя сеть и Podkop с т
 description: "Flint 2 как Tailscale exit node и subnet router: две домашние сети, интернет через Podkop, Samba, Transmission и грабли с DNS и правами доступа."
 tags: glinet flint2 openwrt tailscale amneziawg podkop nas
 llms: true
+ai: true
 ---
 
 # Tailscale с AWG на Flint 2: домашняя сеть и Podkop с телефона

@@ -4,6 +4,7 @@ title: "PHP 8.3.36 на CentOS 7: закрываем CVE-2026-109618 и CVE-2026
 description: "Продолжение серии про PHP2Shell: готовые RPM PHP 8.3.36 для EL7, сборка с четырьмя правками, проверка обновления и откат."
 tags: php bitrix centos security docker
 llms: true
+ai: true
 ---
 
 # PHP 8.3.36 на CentOS 7: закрываем CVE-2026-109618 и CVE-2026-109619

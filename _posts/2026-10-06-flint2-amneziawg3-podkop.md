@@ -4,6 +4,7 @@ title: "AmneziaWG+Podkop на Flint 2 (GL-MT6000)"
 description: "YouTube, Telegram и немного автоматизации на GL.iNet Flint 2."
 tags: glinet flint2 openwrt amneziawg podkop codex
 llms: true
+ai: true
 ---
 
 # AmneziaWG+Podkop на Flint 2 (GL-MT6000)

@@ -3,6 +3,7 @@ layout: post
 title: "Скам на Alibaba, часть 2: Fujian Meike Leisure Sports Goods, продавец Francis Granier (cn1577048581mfwq)"
 description: "Granier Francis удалили - встречайте Francis Granier. Те же CMP 170HX, но из магазина кроссовок: видеокарта «унисекс» на все сезоны, рейтинг 4.9 за ботинки и «Who are you?» в ответ на «где деньги»"
 tags: alibaba scam gpu
+ai: true
 ---
 
 # Скам на Alibaba, часть 2: Fujian Meike Leisure Sports Goods, продавец Francis Granier (cn1577048581mfwq)

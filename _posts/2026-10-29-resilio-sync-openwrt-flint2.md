@@ -4,6 +4,7 @@ title: "Resilio Sync на OpenWrt: Flint 2 постепенно становит
 description: "От двух WD Gold в USB-боксе до собственного пакета Resilio Sync для OpenWrt: LuCI, внешний диск и файлы по запросу."
 tags: glinet flint2 openwrt resilio nas sync
 llms: true
+ai: true
 ---
 
 # Resilio Sync на OpenWrt: Flint 2 постепенно становится NAS

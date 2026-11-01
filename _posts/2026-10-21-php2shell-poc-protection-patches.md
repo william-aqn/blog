@@ -4,6 +4,7 @@ title: "CVE-2026-109618 и CVE-2026-109619: проверяем обновлен�
 description: "Проверка PHP публичными PoC, ложные срабатывания, WAF и временные меры защиты: разбираем ikow, eness и бэкпорты Anton-Barinov."
 tags: php bitrix centos security poc
 llms: true
+ai: true
 ---
 
 # CVE-2026-109618 и CVE-2026-109619: проверяем обновление PHP публичным PoC

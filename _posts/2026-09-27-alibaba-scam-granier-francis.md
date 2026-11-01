@@ -3,6 +3,7 @@ layout: post
 title: "Скам на Alibaba: Shanghai Huanying Machinery, продавец Granier Francis (cn1576475672rxir)"
 description: "Спонтанная покупка в 3 часа ночи: $1700 за две CMP 170HX. Товара нет, трек фальшивый, за этот пост - шантаж, а аккаунт продавца удалён"
 tags: alibaba scam cdek gpu
+ai: true
 ---
 
 # Скам на Alibaba: Shanghai Huanying Machinery, продавец Granier Francis (cn1576475672rxir)
