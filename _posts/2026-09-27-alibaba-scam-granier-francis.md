@@ -92,7 +92,7 @@ ai: true
 
 Аккаунт удалён, но схема может переехать на новый. Если вам пишет Granier Francis или Francis Liu, приходят «письма от СДЭК» с gmail или те же реквизиты - напишите в комментариях.
 
-Так и вышло: на следующий день он нашёлся в обувном магазине под именем Francis Granier - [часть 2]({% post_url 2026-10-29-alibaba-scam-francis-granier-meike %}).
+Возможно, так и вышло: на следующий день на Alibaba нашёлся аккаунт с похожим именем, Francis Granier - [подробнее]({% post_url 2026-10-29-alibaba-scam-francis-granier-meike %}).
 
 ## English summary
 
