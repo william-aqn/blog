@@ -20,6 +20,9 @@
   var MAP_ID = 'mc-map';
   var MAP_OPEN_ID = 'mc-map-btn';
   var MAP_CLOSE_ID = 'mc-map-close';
+  var MAP_TEMPLATE_ID = 'mc-map-template';
+  var MAP_STORAGE_KEY = 'mc-map';             // ставит команда mc-map-show консоли главной страницы (те же константы в script.js)
+  var MAP_STORAGE_SHOW = 'show';
 
   var TXT = {
     error: 'Не удалось получить статус',
@@ -245,21 +248,35 @@
     });
   }
 
+  // Карта мира выключена: фон BlueMap лежит в <template> и не грузится, кнопка «Посмотреть карту» скрыта.
+  // Включает их в этом браузере команда mc-map-show консоли главной страницы - флагом в localStorage.
+  function mapEnabled() {
+    try {
+      return localStorage.getItem(MAP_STORAGE_KEY) === MAP_STORAGE_SHOW;
+    } catch (e) {
+      return false;                           // браузер запретил хранилище - карта остаётся выключенной
+    }
+  }
+
   // Кнопка «Посмотреть карту»: карта на весь экран и интерактивна, затенение убрано.
   function initMap() {
+    var template = document.getElementById(MAP_TEMPLATE_ID);
     var openBtn = document.getElementById(MAP_OPEN_ID);
-    var closeBtn = document.getElementById(MAP_CLOSE_ID);
-    if (!openBtn || !closeBtn) return;
+    if (!template || !openBtn || !mapEnabled()) return;
+    template.parentNode.replaceChild(document.importNode(template.content, true), template);
+    openBtn.hidden = false;
+
     var iframe = document.getElementById(MAP_ID);
+    var closeBtn = document.getElementById(MAP_CLOSE_ID);
     var rootEl = document.documentElement;
 
     function setOpen(open) {
       if (open) {
         rootEl.classList.add(CSS_MAP_ACTIVE);
-        if (iframe) iframe.removeAttribute('aria-hidden');
+        iframe.removeAttribute('aria-hidden');
       } else {
         rootEl.classList.remove(CSS_MAP_ACTIVE);
-        if (iframe) iframe.setAttribute('aria-hidden', 'true');
+        iframe.setAttribute('aria-hidden', 'true');
       }
     }
 

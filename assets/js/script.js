@@ -244,6 +244,8 @@ function announceConsoleCommands(shell) {
 // (assets/images/og/default.jpg): the CRIMSON banner and the motto. Termly prints the value a command returns
 // as the text of a <pre class="terminal-output">, where the console's line height would split the rows of the
 // banner, so whoami adds the banner as its own block (sized in terminal-crt.scss) and returns the motto.
+// mc-map-show turns on the world map of minecraft-server.html, which is off by default, for this browser:
+// a flag in localStorage that minecraft-server.js reads.
 function labCommands() {
     var BANNER_CLASS = 'terminal-output terminal-banner';
     var BANNER_LABEL = 'CRIMSON';
@@ -257,8 +259,13 @@ function labCommands() {
         ' ╚═════╝╚═╝  ╚═╝╚═╝╚═╝     ╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═══╝'
     ].join('\n');
     var MOTTO = 'Лаборатория Кримсона: да пребудет с тобой сила ИИ';
-
-    return {
+    var MC_MAP_COMMAND = 'mc-map-show';
+    var MC_MAP_PAGE = '/minecraft-server.html';
+    var MC_MAP_MAN = 'Показать карту мира на странице ' + MC_MAP_PAGE;
+    var MC_MAP_SHOWN = 'Карта мира включена: ' + MC_MAP_PAGE;
+    var MC_MAP_STORAGE_KEY = 'mc-map';      // read by minecraft-server.js (the same constants there)
+    var MC_MAP_STORAGE_SHOW = 'show';
+    var commands = {
         whoami: {
             name: 'whoami',
             type: 'builtin',
@@ -274,4 +281,14 @@ function labCommands() {
             }
         }
     };
+
+    commands[MC_MAP_COMMAND] = {
+        name: MC_MAP_COMMAND,
+        man: MC_MAP_MAN,
+        fn: function () {
+            localStorage.setItem(MC_MAP_STORAGE_KEY, MC_MAP_STORAGE_SHOW);
+            return MC_MAP_SHOWN;
+        }
+    };
+    return commands;
 }
