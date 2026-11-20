@@ -1,5 +1,5 @@
 # Build environment for PHP 8.3 RPMs on CentOS 7 (EL7):
-# CentOS 7.9 from vault.centos.org, EPEL 7 from the Fedora archive, remi EL7 (frozen, still online).
+# CentOS Vault, the Fedora EPEL 7 archive and the frozen Remi EL7 repository.
 #   docker build -t php83-el7-build build/
 #   docker run --rm -v "$PWD/out:/out" php83-el7-build
 FROM centos:7
@@ -19,6 +19,8 @@ RUN set -e; \
     rpm -ivh --nodeps /tmp/remi-release-7.rpm; \
     [ "$(fp /etc/pki/rpm-gpg/RPM-GPG-KEY-remi)" = 1EE04CCE88A4AE4AA29A5DF5004E6F4700F97F56 ]; \
     rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-remi; \
+    sed -i -e 's!^#baseurl=http://rpms.remirepo.net/\(.*\)$!baseurl=https://rpms.remirepo.net/\1\n        https://mirror.netweaver.uk/remi/\1!' \
+           -e '/^mirrorlist=/d' /etc/yum.repos.d/remi*.repo; \
     sed -i '/^\[remi\]/,/^\[/ s/^enabled=0/enabled=1/' /etc/yum.repos.d/remi.repo; \
     yum -y -q install rpm-build yum-utils gnupg2 which; \
     yum clean all

@@ -5,7 +5,7 @@
 #        STUCK_AGE  Apache workers older than this (seconds) are killed before the restart (default 3600)
 #        FORCE=1    continue although httpd.service has PrivateTmp=yes
 set -uo pipefail
-DIR=$(cd "${1:?usage: install.sh <rpm dir>}" && pwd)
+DIR=$(cd "${1:?usage: install.sh <rpm dir>}" && pwd) || exit 1
 CHECK_URL=${CHECK_URL:-http://127.0.0.1:8888/}
 STUCK_AGE=${STUCK_AGE:-3600}
 STATE=/root/php-update-$(date +%Y%m%d-%H%M%S)
@@ -15,18 +15,20 @@ die() { echo "ERROR: $*" >&2; exit 1; }
 # 1. Packages to upgrade: installed subpackages of the php source rpm (pecl/pear stay: same module API)
 mapfile -t NAMES < <(rpm -qa --qf '%{NAME} %{SOURCERPM}\n' | awk '$2 ~ /^php-[0-9]/ {print $1}' | sort -u)
 [ ${#NAMES[@]} -gt 0 ] || die "no installed packages built from the php source rpm"
+
+# 2. Select and verify this release even if older RPMs remain in the directory.
 FILES=()
 for n in "${NAMES[@]}"; do
-  f=$(ls "$DIR/$n"-[0-9]*.x86_64.rpm 2>/dev/null | head -1)
-  [ -n "$f" ] || die "no rpm for installed package $n in $DIR"
-  FILES+=("$f")
+  entry=$(awk -v prefix="$n-" '
+    { file=$2; sub(/^\*/, "", file) }
+    index(file, prefix) == 1 && substr(file, length(prefix)+1) ~ /^[0-9][^/]*\.x86_64\.rpm$/ { print; matches++ }
+    END { if (matches != 1) exit 1 }
+  ' "$DIR/SHA256SUMS") || die "expected one checksum for $n in $DIR/SHA256SUMS"
+  (cd "$DIR" && sha256sum --quiet -c - <<< "$entry") || die "checksum failed for $n"
+  read -r _ filename <<< "$entry"
+  FILES+=("$DIR/${filename#\*}")
 done
 echo "will upgrade ${#FILES[@]} packages: ${NAMES[*]}"
-
-# 2. Checksums of exactly these files
-(cd "$DIR" && for f in "${FILES[@]}"; do
-   b=$(basename "$f"); awk -v f="$b" '{n=$2; sub(/^\*/, "", n)} n == f' SHA256SUMS
- done | sha256sum -c --quiet -) || die "checksum mismatch or missing in $DIR/SHA256SUMS"
 
 # 3. Restart pre-flight: a private /tmp is recreated on restart (PHP sessions there would be lost)
 PT=$(systemctl show httpd -p PrivateTmp | cut -d= -f2)

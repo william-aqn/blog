@@ -6,16 +6,37 @@
 # CORE: php core subpackages installed on the server (rpm -qa 'php*' whose source rpm is php-8.2.*)
 # PECL: the other php* packages (pecl extensions, pear)
 # Also saves the old RPMs for rollback into /out/rollback.
+# For a previous local build, mount its full x86_64 directory at /previous-rpms:ro and set OLD.
 set -euo pipefail
 CORE=${CORE:-php php-bcmath php-cli php-common php-gd php-ldap php-mbstring php-mysqlnd php-opcache php-pdo php-process php-pspell php-sodium php-xml}
 PECL=${PECL:-php-pecl-apcu php-pecl-memcache php-pecl-zip php-pear}
 OLD=${OLD:-8.2.20-1.el7.remi}
-NEW=${NEW:-8.2.35-1.el7.local}
+NEW=${NEW:-8.2.36-1.el7.local}
 RPMS=/out/RPMS/x86_64
+PREVIOUS=/previous-rpms
+ROLLBACK=/out/rollback
+OLD_PACKAGES=()
+OLD_FILES=()
+NEW_FILES=()
+for p in $CORE; do
+  OLD_PACKAGES+=("$p-$OLD")
+  OLD_FILES+=("$ROLLBACK/$p-$OLD.x86_64.rpm")
+  NEW_FILES+=("$RPMS/$p-$NEW.x86_64.rpm")
+done
 
 echo "== server-like install: php $OLD + $PECL"
 sed -i '/^\[remi-php82\]/,/^\[/ s/^enabled=0/enabled=1/' /etc/yum.repos.d/remi-php82.repo
-yum -y -q install httpd $(for p in $CORE; do echo "$p-$OLD"; done) $PECL
+echo "== rollback set -> $ROLLBACK"
+mkdir -p "$ROLLBACK"
+if [[ -d $PREVIOUS ]]; then
+  (cd "$PREVIOUS" && sha256sum --quiet -c SHA256SUMS)
+  for file in "${OLD_FILES[@]}"; do cp "$PREVIOUS/${file##*/}" "$file"; done
+else
+  yumdownloader -q --destdir="$ROLLBACK" "${OLD_PACKAGES[@]}"
+fi
+(cd "$ROLLBACK" && sha256sum "${OLD_FILES[@]##*/}" > SHA256SUMS)
+yum -y -q install httpd "${OLD_FILES[@]}" $PECL
+rpm -q --qf '%{VERSION}-%{RELEASE}\n' php-common | grep -Fx "$OLD"
 
 if [ -f /prod-php-conf.tgz ]; then
   echo "== overlay the server's php configs"
@@ -30,15 +51,10 @@ fi
 php -m > /tmp/m-before.txt 2>&1
 ls -1 /etc/php.d > /tmp/phpd-before.txt
 
-echo "== rollback set -> /out/rollback"
-mkdir -p /out/rollback
-yumdownloader -q --destdir=/out/rollback $(for p in $CORE; do echo "$p-$OLD"; done)
-(cd /out/rollback && sha256sum *.rpm > SHA256SUMS)
-
 echo "== upgrade to $NEW"
-NEWFILES=$(for p in $CORE; do echo "$RPMS/$p-$NEW.x86_64.rpm"; done)
-rpm -Uvh --test $NEWFILES
-rpm -Uvh $NEWFILES
+rpm -Uvh --test "${NEW_FILES[@]}"
+rpm -Uvh "${NEW_FILES[@]}"
+rpm -q --qf '%{VERSION}-%{RELEASE}\n' php-common | grep -Fx "$NEW"
 php -v | head -1
 php -m > /tmp/m-after.txt 2>&1
 if diff /tmp/m-before.txt /tmp/m-after.txt; then echo "OK: module list unchanged"; else echo "FAIL: module list changed"; exit 1; fi
@@ -49,7 +65,9 @@ httpd -t
 httpd -k start
 sleep 2
 printf '%s\n' '<?php echo PHP_VERSION, " ", PHP_SAPI, " ", implode(",", get_loaded_extensions()), "\n";' > /var/www/html/t.php
-curl -s http://127.0.0.1/t.php
+response=$(curl -fsS http://127.0.0.1/t.php)
+echo "$response"
+[[ $response == "${NEW%%-*} apache2handler "* ]] || { echo "Unexpected mod_php response" >&2; exit 1; }
 grep -iE 'php|segfault' /var/log/httpd/error_log || echo "OK: no PHP errors in httpd error_log"
 httpd -k stop
 echo "SMOKE OK"

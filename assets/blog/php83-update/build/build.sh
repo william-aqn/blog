@@ -1,10 +1,12 @@
 #!/bin/bash
 # Rebuild remi's PHP 8.3 source package for CentOS 7. Runs inside the image from build/Dockerfile.
 # Output: /out/RPMS/x86_64/*.rpm (+SHA256SUMS), /out/SRPMS/*.src.rpm, /out/build.log
-# Env: PHP_VERSION (default 8.3.36), DIST (default .el7.local)
+# Env: PHP_VERSION, DIST
 set -euo pipefail
 
-VER=${PHP_VERSION:-8.3.36}
+BUNDLED_VERSION=8.3.37
+BUNDLED_SRPM_SHA256=b786e81914b648f6e31632a263b790b260561ad09772fb6134cadc5645dbc686
+VER=${PHP_VERSION:-$BUNDLED_VERSION}
 DIST=${DIST:-.el7.local}
 SRPM=php-$VER-1.remi.src.rpm
 TOP=/root/rpmbuild
@@ -14,9 +16,13 @@ mkdir -p "$TOP/SOURCES" "$TOP/SPECS" "$OUT" /tmp/srpm
 echo "== fetch $SRPM"
 cd /tmp/srpm
 curl -fsSL --retry 5 -o "$SRPM" "https://rpms.remirepo.net/SRPMS/$SRPM"
+# Pin the complete source package (including Remi's patches) for the published build.
+if [[ $VER == "$BUNDLED_VERSION" ]]; then
+  echo "$BUNDLED_SRPM_SHA256  $SRPM" | sha256sum -c -
+fi
 
-# EL7 rpm 4.11 can neither install it (header needs rpmlib(RichDependencies)) nor read its signature:
-# unpack with rpm2cpio and check the PHP tarball against the sha256 published on php.net instead.
+# EL7 rpm 4.11 cannot install this SRPM (RichDependencies). Extract it with rpm2cpio
+# and independently verify the PHP tarball against the checksum published on php.net.
 rpm2cpio "$SRPM" | cpio -idm --quiet
 rm -f "$SRPM"
 SHA256=$(curl -fsSL "https://www.php.net/releases/index.php?json&version=$VER" \
@@ -29,8 +35,11 @@ mv "$TOP/SOURCES/$SPEC" "$TOP/SPECS/$SPEC"
 S=$TOP/SPECS/$SPEC
 
 echo "== adapt $SPEC for EL7"
-# 1) remi EL7 tops out at libicu73; ICU >= 74 is only needed by php-intl
-sed -i '/^BuildRequires: pkgconfig(icu-/ s/>= 74/>= 73/' "$S"
+# 1) Remi builds php-intl with ICU 78 (74 in the October spec); EL7 provides ICU 73.
+sed -ri '/^BuildRequires: pkgconfig\(icu-/ s/>= (74|78)$/>= 73/' "$S"
+# EL7 lacks openpgpverify. Keep source verification in %prep on direct SRPM rebuilds.
+sed -i -e 's/^BuildRequires: openpgpverify$/BuildRequires: coreutils/' \
+  -e "/^%{?openpgpverify:/a echo '$SHA256  %{SOURCE0}' | sha256sum -c -" "$S"
 # 2) EL7 unixODBC 2.3.1 ships no odbc.pc; configure takes the old DIR way with --with-unixODBC=shared,/usr anyway
 sed -i 's/^BuildRequires: pkgconfig(odbc)$/BuildRequires: unixODBC-devel/' "$S"
 # 3) OpenSSL 1.0.2: ASN1_STRING_get0_data() shim for ext/openssl/xp_ssl.c, as Patch301 after remi's last Patch300
